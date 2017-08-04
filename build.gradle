@@ -4,6 +4,16 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        maven {
+            url = "http://dl.bintray.com/davideas/maven"
+        }
+        maven {
+            url "https://maven.google.com"
+
+        }
+
+//        maven { url "http://dl.bintray.com/davideas/maven" }
+        maven {url = "https://oss.sonatype.org/content/repositories/snapshots/" } //For Snapshots
 
     }
     dependencies {
@@ -18,6 +28,17 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven {
+            url = "http://dl.bintray.com/davideas/maven"
+        }
+        maven {
+            url  "https://maven.google.com"
+        }
+
+//        maven { url "http://dl.bintray.com/davideas/maven" }
+        maven {url = "https://oss.sonatype.org/content/repositories/snapshots/" } //For Snapshots
+
+
 
     }
 }
