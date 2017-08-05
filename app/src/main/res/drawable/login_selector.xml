@@ -3,6 +3,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <bitmap
+            android:antialias="true"
             android:src="@mipmap/ic_login"
             android:tint="@color/baseColorDark"/>
     </item>

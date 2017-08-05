@@ -1,5 +1,4 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,13 +16,20 @@
             android:id="@+id/editPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
             android:drawableStart="@mipmap/ic_launcher"
             android:hint="Enter your phone number" />
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/horizontal_line" />
 
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
             android:drawableStart="@mipmap/ic_launcher"
             android:hint="Enter your password" />
 
@@ -40,11 +46,11 @@
         <!--android:layout_height="wrap_content" />-->
 
         <mehdi.sakout.fancybuttons.FancyButton
-            android:id="@+id/btn_spotify"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp"
-            android:paddingTop="16dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             fancy:fb_borderColor="#FFFFFF"
             fancy:fb_borderWidth="1dp"
             fancy:fb_defaultColor="@color/baseColor"
@@ -54,7 +60,7 @@
             fancy:fb_iconResource="@drawable/login_selector"
             fancy:fb_text="Login"
             fancy:fb_textColor="#FFFFFF"
-            />
+            fancy:fb_textSize="24sp" />
 
         <!--fancy:fb_fontIconResource="&#xf04b;"-->
         <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->
