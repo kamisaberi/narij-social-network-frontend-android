@@ -2,13 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.narij.narijsocialnetwork">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
 
     <application
         android:name=".application.NarijApplication"
@@ -18,13 +16,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.LoginSignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.ForgotPasswordActivity" />
+        <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity" />
+        <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity" />
+        <activity android:name=".activity.CreatePasswordActivity" />
+        <activity android:name=".activity.ConfirmPhoneNumberActivity" />
+        <activity android:name=".activity.ChangePasswordActivity" />
+        <activity android:name=".activity.ThankYouActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.AddTextDocumentActivity" />
+        <activity android:name=".activity.AddVideoDocumentActivity" />
+        <activity android:name=".activity.AddDocumentDescriptionActivity" />
+        <activity android:name=".activity.AddPhotoDocumentActivity" />
+        <activity android:name=".activity.AddAudioDocumentActivity" />
+        <activity android:name=".activity.ProfileActivity" />
+        <activity android:name=".activity.ProfilePhotoActivity" />
+        <activity android:name=".activity.ProfilePublicInfoActivity" />
+        <activity android:name=".activity.ProfilePrivateInfoActivity" />
+        <activity android:name=".activity.ProfileFullNameActivity" />
+        <activity android:name=".activity.ProfileEmailActivity" />
+        <activity android:name=".activity.ProfileResumeActivity" />
+        <activity android:name=".activity.ProfileLocationActivity" />
+        <activity android:name=".activity.MessagingActivity"></activity>
     </application>
 
 </manifest>
