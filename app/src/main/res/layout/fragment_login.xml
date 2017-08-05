@@ -1,13 +1,62 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.fragment.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/editPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@mipmap/ic_launcher"
+            android:hint="Enter your phone number" />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@mipmap/ic_launcher"
+            android:hint="Enter your password" />
+
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password ?" />
+
+        <!--<Button-->
+        <!--android:id="@+id/btnLogin"-->
+        <!--android:text="Login"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_spotify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/baseColor"
+            fancy:fb_focusColor="#9bd823"
+            fancy:fb_iconPosition="left"
+            fancy:fb_iconResource="@mipmap/ic_login"
+            fancy:fb_text="Login"
+            fancy:fb_fontIconSize="@dimen/cardview_compat_inset_shadow"
+            fancy:fb_textColor="#FFFFFF" />
+
+        <!--fancy:fb_fontIconResource="&#xf04b;"-->
+        <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->
+
+    </LinearLayout>
 </FrameLayout>
