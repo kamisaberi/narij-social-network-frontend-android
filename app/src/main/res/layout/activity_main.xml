@@ -45,7 +45,7 @@
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="1dp"
         fancy:fb_defaultColor="@color/baseColor"
-        fancy:fb_focusColor="#9bd823"
+        fancy:fb_focusColor="@color/baseColor"
         fancy:fb_fontIconSize="36sp"
         fancy:fb_iconPosition="left"
         fancy:fb_iconResource="@drawable/login_selector"
