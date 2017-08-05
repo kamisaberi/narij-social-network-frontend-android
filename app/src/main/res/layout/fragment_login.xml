@@ -43,17 +43,18 @@
             android:id="@+id/btn_spotify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="5dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
             fancy:fb_borderColor="#FFFFFF"
             fancy:fb_borderWidth="1dp"
             fancy:fb_defaultColor="@color/baseColor"
-            fancy:fb_focusColor="#9bd823"
+            fancy:fb_focusColor="@color/baseColor"
+            fancy:fb_fontIconSize="36sp"
             fancy:fb_iconPosition="left"
-            fancy:fb_iconResource="@mipmap/ic_login"
+            fancy:fb_iconResource="@drawable/login_selector"
             fancy:fb_text="Login"
-            fancy:fb_fontIconSize="@dimen/cardview_compat_inset_shadow"
-            fancy:fb_textColor="#FFFFFF" />
+            fancy:fb_textColor="#FFFFFF"
+            />
 
         <!--fancy:fb_fontIconResource="&#xf04b;"-->
         <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->
