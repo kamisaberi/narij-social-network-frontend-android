@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     tools:context="com.narij.narijsocialnetwork.fragment.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -17,27 +19,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
-            android:drawableStart="@mipmap/ic_launcher"
-            android:hint="Enter your phone number" />
+            android:drawableStart="@drawable/smartphone_hint_selector"
+            android:hint="Enter your phone number"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
 
-        <view
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/horizontal_line" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/hintColor" />
 
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
-            android:drawableStart="@mipmap/ic_launcher"
-            android:hint="Enter your password" />
+            android:drawableStart="@drawable/key_hint_selector"
+            android:hint="Enter your password"
+            android:textColorHint="@color/hintColor"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/hintColor" />
 
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Forgot Password ?" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/hintColor" />
+
 
         <!--<Button-->
         <!--android:id="@+id/btnLogin"-->

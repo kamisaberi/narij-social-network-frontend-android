@@ -8,4 +8,8 @@
     <color name="baseColorDark">#0d7974</color>
 
 
+
+    <color name="hintColor">#a0a0a0</color>
+
+
 </resources>
