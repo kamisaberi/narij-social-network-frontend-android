@@ -23,6 +23,7 @@ public class SignupFragment extends Fragment {
 
 
     public SignupFragment() {
+        super();
         // Required empty public constructor
     }
 

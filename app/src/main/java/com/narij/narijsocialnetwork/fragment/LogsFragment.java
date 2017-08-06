@@ -16,6 +16,7 @@ public class LogsFragment extends Fragment {
 
 
     public LogsFragment() {
+        super();
         // Required empty public constructor
     }
 
