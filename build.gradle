@@ -34,7 +34,7 @@ allprojects {
         maven {
             url  "https://maven.google.com"
         }
-
+//teststststststtsts
 //        maven { url "http://dl.bintray.com/davideas/maven" }
         maven {url = "https://oss.sonatype.org/content/repositories/snapshots/" } //For Snapshots
 
