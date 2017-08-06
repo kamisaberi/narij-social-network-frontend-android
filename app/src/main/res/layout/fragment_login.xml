@@ -15,7 +15,8 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editPhoneNumber"
+            android:id="@+id/edtPhoneNumber"
+            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -31,7 +32,8 @@
             android:background="@color/hintColor" />
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/edtPassword"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -68,7 +70,7 @@
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             fancy:fb_borderColor="#FFFFFF"
