@@ -12,13 +12,15 @@ import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SignupFragment extends Fragment {
 
 
-    Button btnLogin;
+    FancyButton btnLogin;
     EditText edtPhoneNumber;
 
 
@@ -35,7 +37,7 @@ public class SignupFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
 
         edtPhoneNumber = (EditText) view.findViewById(R.id.edtPhoneNumber);
-        btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
 
         return view;
 

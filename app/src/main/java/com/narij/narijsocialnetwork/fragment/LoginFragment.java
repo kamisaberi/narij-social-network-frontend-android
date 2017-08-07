@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 
+import mehdi.sakout.fancybuttons.FancyButton;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -22,7 +24,7 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-    Button btnLogin;
+    FancyButton btnLogin;
     EditText edtPhoneNumber;
     EditText edtPassword;
     TextView txtForgotPassword;
@@ -36,7 +38,7 @@ public class LoginFragment extends Fragment {
         edtPhoneNumber = (EditText) view.findViewById(R.id.edtPhoneNumber);
         edtPassword = (EditText) view.findViewById(R.id.edtPassword);
         txtForgotPassword = (TextView) view.findViewById(R.id.txtForgotPassword);
-        btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
 
 
         return view;
