@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
-            android:drawableStart="@drawable/smartphone_hint_selector"
+            android:drawableStart="@drawable/smartphone_hint"
             android:hint="Enter your phone number"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
-            android:drawableStart="@drawable/key_hint_selector"
+            android:drawableStart="@drawable/key_outline_hint"
             android:hint="Enter your password"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />

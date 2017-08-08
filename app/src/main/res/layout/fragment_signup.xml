@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
-            android:drawableStart="@drawable/smartphone_hint_selector"
+            android:drawableStart="@drawable/smartphone_hint"
             android:hint="Enter your phone number"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
@@ -39,7 +39,7 @@
             fancy:fb_defaultColor="@color/baseColor"
             fancy:fb_focusColor="@color/baseColor"
             fancy:fb_iconPosition="right"
-            fancy:fb_iconResource="@drawable/next_selector"
+            fancy:fb_iconResource="@drawable/next"
             fancy:fb_radius="30dp"
             fancy:fb_text="Next"
             fancy:fb_textColor="#FFFFFF"
