@@ -51,7 +51,7 @@
         fancy:fb_iconResource="@drawable/login_selector"
         fancy:fb_text="Login"
         fancy:fb_textColor="#FFFFFF"
-        />
+        app:fb_iconResource="@drawable/login" />
 
 
 </LinearLayout>
