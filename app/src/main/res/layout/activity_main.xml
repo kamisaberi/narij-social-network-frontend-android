@@ -48,7 +48,6 @@
         fancy:fb_focusColor="@color/baseColor"
         fancy:fb_fontIconSize="36sp"
         fancy:fb_iconPosition="left"
-        fancy:fb_iconResource="@drawable/login_selector"
         fancy:fb_text="Login"
         fancy:fb_textColor="#FFFFFF"
         app:fb_iconResource="@drawable/login" />
