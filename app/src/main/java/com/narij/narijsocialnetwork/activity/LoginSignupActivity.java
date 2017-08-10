@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.SignupLoginFragmentPageAdapter;
+import com.narij.narijsocialnetwork.adapter.SignupLoginFragmentPageAdapter1;
 import com.narij.narijsocialnetwork.env.Globals;
 
 public class LoginSignupActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class LoginSignupActivity extends AppCompatActivity {
 
         try {
             viewPager.setAdapter(new SignupLoginFragmentPageAdapter(getSupportFragmentManager(), LoginSignupActivity.this));
+            //viewPager.setAdapter(new SignupLoginFragmentPageAdapter1(getSupportFragmentManager(), LoginSignupActivity.this));
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
