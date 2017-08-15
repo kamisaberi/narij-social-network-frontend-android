@@ -6,8 +6,7 @@ package com.narij.narijsocialnetwork.env;
 
 public class Globals {
 
-    public static final String BASE_URL = "http://narij.ir/";
-    public static final String BASE_URL_WEBSERVICE = BASE_URL + "webservice/";
+    public static final String BASE_URL = "http://192.168.1.200/NarijWebService/public/";
 
     public static final String LOG_TAG = "NARIJ";
 
