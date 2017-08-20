@@ -1,6 +1,6 @@
 package com.narij.narijsocialnetwork.retrofit;
 
-import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
+import com.narij.narijsocialnetwork.model.WebServiceMessage;
 
 import retrofit2.Call;
 import retrofit2.http.FormUrlEncoded;
