@@ -1,12 +1,12 @@
-package com.narij.narijsocialnetwork.adapter;
+package com.narij.narijsocialnetwork.adapter.fragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.narij.narijsocialnetwork.fragment.NewDocumentFragment;
-import com.narij.narijsocialnetwork.fragment.PrivateProfileFragment;
+import com.narij.narijsocialnetwork.fragment.LoginFragment;
+import com.narij.narijsocialnetwork.fragment.SignupFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,20 +15,23 @@ import java.util.List;
  * Created by kami on 8/6/2017.
  */
 
-public class PrivateProfileFragmentPageAdapter extends FragmentPagerAdapter {
+public class SignupLoginFragmentPageAdapter extends FragmentPagerAdapter {
 
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
     final int PAGE_COUNT = 2;
+    private String tabTitles[] = new String[]{"Sign up", "Login"};
     private Context context;
 
-    public PrivateProfileFragmentPageAdapter(FragmentManager fm, Context context) {
+    public SignupLoginFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new PrivateProfileFragment());
-        mFragmentTitleList.add("New");
+        mFragmentList.add(new LoginFragment());
+        mFragmentList.add(new SignupFragment());
+        mFragmentTitleList.add("Login");
+        mFragmentTitleList.add("signUp");
 
     }
 

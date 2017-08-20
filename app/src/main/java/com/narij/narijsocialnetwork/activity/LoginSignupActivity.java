@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.adapter.SignupLoginFragmentPageAdapter;
-import com.narij.narijsocialnetwork.adapter.SignupLoginFragmentPageAdapter1;
+import com.narij.narijsocialnetwork.adapter.fragment.SignupLoginFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 
 public class LoginSignupActivity extends AppCompatActivity {

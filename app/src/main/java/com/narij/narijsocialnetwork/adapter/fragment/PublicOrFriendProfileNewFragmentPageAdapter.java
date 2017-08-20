@@ -1,4 +1,4 @@
-package com.narij.narijsocialnetwork.adapter;
+package com.narij.narijsocialnetwork.adapter.fragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.narij.narijsocialnetwork.fragment.NewDocumentFragment;
-import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.fragment.PublicOrFriendProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by kami on 8/6/2017.
  */
 
-public class ProfileFragmentPageAdapter extends FragmentPagerAdapter {
+public class PublicOrFriendProfileNewFragmentPageAdapter extends FragmentPagerAdapter {
 
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -24,11 +24,11 @@ public class ProfileFragmentPageAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 2;
     private Context context;
 
-    public ProfileFragmentPageAdapter(FragmentManager fm, Context context) {
+    public PublicOrFriendProfileNewFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new ProfileFragment());
-        mFragmentTitleList.add("Profile");
+        mFragmentList.add(new PublicOrFriendProfileFragment());
+        mFragmentTitleList.add("New");
 
     }
 
