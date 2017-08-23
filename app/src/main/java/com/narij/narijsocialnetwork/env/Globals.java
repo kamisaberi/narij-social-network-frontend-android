@@ -10,5 +10,7 @@ public class Globals {
 
     public static final String LOG_TAG = "NARIJ";
 
+    public static String token = "";
+
 
 }

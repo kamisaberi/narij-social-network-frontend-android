@@ -11,12 +11,25 @@ public class WebServiceMessage {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("content")
-    private String content;
+    @SerializedName("error")
+    private boolean error;
 
-    public WebServiceMessage(int id, String content) {
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
+    }
+
+    @SerializedName("message")
+    private String message;
+
+
+    public WebServiceMessage(int id, boolean error, String content) {
         this.id = id;
-        this.content = content;
+        this.error = error;
+        this.message = content;
     }
 
     public int getId() {
@@ -27,11 +40,11 @@ public class WebServiceMessage {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getMessage() {
+        return message;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
