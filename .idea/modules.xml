@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Narij-Social-Network.iml" filepath="$PROJECT_DIR$/Narij-Social-Network.iml" />
       <module fileurl="file://$PROJECT_DIR$/NarijSocialNetwork.iml" filepath="$PROJECT_DIR$/NarijSocialNetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
