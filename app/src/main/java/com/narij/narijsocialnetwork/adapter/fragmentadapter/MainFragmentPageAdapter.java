@@ -1,4 +1,4 @@
-package com.narij.narijsocialnetwork.adapter.fragment;
+package com.narij.narijsocialnetwork.adapter.fragmentadapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
