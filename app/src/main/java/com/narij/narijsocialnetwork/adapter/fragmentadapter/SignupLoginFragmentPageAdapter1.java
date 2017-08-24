@@ -1,4 +1,4 @@
-package com.narij.narijsocialnetwork.adapter.fragment;
+package com.narij.narijsocialnetwork.adapter.fragmentadapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.narij.narijsocialnetwork.fragment.FollowersFragment;
-import com.narij.narijsocialnetwork.fragment.LoginFragment;
 import com.narij.narijsocialnetwork.fragment.SignupFragment;
 
 import java.util.ArrayList;

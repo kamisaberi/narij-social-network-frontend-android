@@ -50,6 +50,15 @@ public interface APIInterface {
 
 
     @FormUrlEncoded
+    @POST("profile/enterphonenumberforgotpassword")
+    Call<WebServiceMessage> enterPhoneNumberForgotpassword(@Field("phone") String phone);
+
+    @FormUrlEncoded
+    @POST("profile/enteremailforgotpassword")
+    Call<WebServiceMessage> enterEmailForgotpassword(@Field("email") String email);
+
+
+    @FormUrlEncoded
     @POST("register")
     Call<WebServiceMessage> register();
 
