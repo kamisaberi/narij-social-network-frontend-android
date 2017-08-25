@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.WebServiceMessage;
+import com.narij.narijsocialnetwork.receiver.BroadcastSmsReceiver;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
@@ -20,6 +22,10 @@ import retrofit2.Response;
 public class ConfirmPhoneNumberActivity extends AppCompatActivity {
 
 
+    public EditText edtVerificationCode;
+    BroadcastSmsReceiver incomingSms = new BroadcastSmsReceiver();
+    public static ConfirmPhoneNumberActivity ins;
+
     APIInterface apiInterface;
 
     @Override
@@ -27,10 +33,9 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_phone_number);
 
-
+        edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
         apiInterface = APIClient.getClient().create(APIInterface.class);
-
-        final EditText edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
+        //final EditText edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +66,8 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
             }
         });
 
+
+        ins = this;
 
     }
 }

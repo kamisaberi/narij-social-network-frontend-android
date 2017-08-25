@@ -44,17 +44,6 @@ dependencies {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     compile 'com.android.support:support-core-utils:25.4.0'
 
     compile 'com.android.support:appcompat-v7:25.3.1'

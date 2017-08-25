@@ -15,7 +15,7 @@ public interface APIInterface {
 
 
     @FormUrlEncoded
-    @POST("register/enterphonenumber")
+    @POST("Register/EnterPhoneNumber")
     Call<WebServiceMessage> enterPhoneNumber(@Field("phone") String phone);
 
     @FormUrlEncoded

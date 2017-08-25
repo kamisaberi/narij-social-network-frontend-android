@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.model;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -7,15 +8,20 @@ import java.util.Locale;
  */
 
 public class Post {
-    private  long postId;
-    private  MediaType mediaType;
+    private long postId;
+    private MediaType mediaType;
     private Locale createTime;
     private Locale editTime;
     private Locale deleteTime;
-    private  boolean deleted;
-    private  PostCategory postCategory;
+    private boolean deleted;
+    private PostCategory postCategory;
+    private ArrayList<Property> properties = new ArrayList<>();
 
-    public Post(long postId, MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory) {
+    public Post() {
+        this.properties = new ArrayList<>();
+    }
+
+    public Post(long postId, MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory, ArrayList<Property> properties) {
         this.postId = postId;
         this.mediaType = mediaType;
         this.createTime = createTime;
@@ -23,8 +29,16 @@ public class Post {
         this.deleteTime = deleteTime;
         this.deleted = deleted;
         this.postCategory = postCategory;
+        this.properties = properties;
     }
 
+    public ArrayList<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(ArrayList<Property> properties) {
+        this.properties = properties;
+    }
 
     public long getPostId() {
         return postId;

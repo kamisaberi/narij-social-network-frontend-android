@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
         android:drawableStart="@drawable/smartphone_hint"
+        android:inputType="number"
         android:hint="Enter verification code"
         android:textColorHint="@color/hintColor"
         android:textSize="20sp" />
