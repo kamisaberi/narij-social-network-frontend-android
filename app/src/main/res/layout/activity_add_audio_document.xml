@@ -8,13 +8,6 @@
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.activity.AddAudioDocumentActivity">
 
-    <TextView
-        android:text="TEST"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" />
+
 
 </LinearLayout>
