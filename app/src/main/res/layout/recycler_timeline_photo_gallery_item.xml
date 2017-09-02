@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ln1"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/slides" />
     </RelativeLayout>
 
@@ -59,17 +59,16 @@
         android:id="@+id/txtTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:textSize="15sp"
         android:text="When it comes to landscape photography in the united states , the state of hawaii is obviously very unique. Not only is it geographically ..." />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="83dp"
         android:background="#dbdbdb"
         android:orientation="horizontal">
 
