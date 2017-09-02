@@ -15,9 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="10dp"
             android:text=" Most people associate French culture with Paris, which is a center of fashion, cuisine, art and architecture, but life outside of the City of Lights is very different and varies by region.\nFrance doesn't just have culture; the word (culture) actually comes from France. 'Culture' derives from the same French term, which in turn derives from the Latin colere, meaning to tend to the earth and grow, cultivation and nurture,\nCristina De Rossi, an anthropologist at Barnet and Southgate College in London, told Live Science and ..."
-            android:textSize="10sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:id="@+id/ln1"
@@ -26,7 +27,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/txtTitle"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="35dp"
             android:background="#dbdbdb"
             android:orientation="vertical">
 
@@ -56,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ln1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="126dp"
             android:background="#dbdbdb"
             android:orientation="horizontal">
 
