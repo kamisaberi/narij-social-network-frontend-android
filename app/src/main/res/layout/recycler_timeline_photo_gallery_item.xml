@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/imgViralPhoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="255dp"
             android:layout_marginTop="5dp"
             android:src="@drawable/viral_photo" />
 
@@ -20,7 +20,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="174dp"
+            android:layout_marginTop="192dp"
             android:background="#e8e8e8"
             android:orientation="vertical">
 
@@ -51,17 +51,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ln1"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/slide_line2" />
+            android:layout_marginTop="15dp"
+            android:src="@drawable/slides" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/txtTitle"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="When it comes to landscape photography in the united states , the state of hawaii is obviously very unique. Not only is it geographically ..." />
 
     <LinearLayout
