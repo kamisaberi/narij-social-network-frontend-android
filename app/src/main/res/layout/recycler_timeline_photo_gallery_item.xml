@@ -21,7 +21,7 @@
             android:layout_height="65dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="192dp"
-            android:background="#e8e8e8"
+            android:background="#ecf0f1"
             android:orientation="vertical">
 
             <ImageView
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="83dp"
-        android:background="#dbdbdb"
+        android:background="#ecf0f1"
         android:orientation="horizontal">
 
         <ImageView
