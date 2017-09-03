@@ -12,7 +12,7 @@
             android:id="@+id/imgViralVideo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/Viral_Video" />
+            android:src="@drawable/viral_video" />
 
         <ImageView
             android:id="@+id/imgPlay"
