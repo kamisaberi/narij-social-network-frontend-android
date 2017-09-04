@@ -15,99 +15,165 @@ public interface APIInterface {
 
 
     @FormUrlEncoded
-    @POST("Register/EnterPhoneNumber")
+    @POST("register/enterPhoneNumber")
     Call<WebServiceMessage> enterPhoneNumber(@Field("phone") String phone);
 
     @FormUrlEncoded
-    @POST("register/confirmverificationcode")
-    Call<WebServiceMessage> confirmPhoneNumber(@Field("token") String token, @Field("verificationCode") String veficationCode);
+    @POST("register/confirmVerificationCode")
+    Call<WebServiceMessage> confirmPhoneNumber(@Field("token") String token, @Field("verificationCode") String verificationCode);
 
     @FormUrlEncoded
-    @POST("register/createpassword")
+    @POST("register/createPassword")
     Call<WebServiceMessage> createPassword(@Field("token") String token, @Field("password") String password);
 
 
     @FormUrlEncoded
-    @POST("profile/change")
-    Call<WebServiceMessage> changeProfile(@Field("token") String token, @Field("fullname") String fullname, @Field("email") String email, @Field("location") String location, @Field("photo") String photo);
+    @POST("profile/get")
+    Call<WebServiceMessage> getProfileDetail(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("profile/set")
+    Call<WebServiceMessage> setProfileDetail(@Field("token") String token, @Field("fullname") String fullname, @Field("email") String email, @Field("location") String location, @Field("photo") String photo);
+
+    @FormUrlEncoded
+    @POST("profile/set/email")
+    Call<WebServiceMessage> setProfileEmail(@Field("token") String token, @Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("profile/set/fullName")
+    Call<WebServiceMessage> setProfileFullName(@Field("token") String token, @Field("fullname") String fullname);
+
+    @FormUrlEncoded
+    @POST("profile/set/location")
+    Call<WebServiceMessage> setProfileLocation(@Field("token") String token, @Field("location") String location);
+
+    @FormUrlEncoded
+    @POST("profile/set/photo")
+    Call<WebServiceMessage> setProfilePhoto(@Field("token") String token, @Field("photo") String photo);
 
 
     @FormUrlEncoded
-    @POST("profile/changefullname")
-    Call<WebServiceMessage> changeFullName(@Field("token") String token, @Field("fullname") String fullname);
+    @POST("password/forgot/enterPhoneNumber")
+    Call<WebServiceMessage> enterPhoneNumberToRecoverPassword(@Field("phone") String phone);
 
     @FormUrlEncoded
-    @POST("profile/changeemail")
-    Call<WebServiceMessage> changeEmail(@Field("token") String token, @Field("email") String email);
+    @POST("password/forgot/enterEmail")
+    Call<WebServiceMessage> enterEmailToRecoverPassword(@Field("email") String email);
 
     @FormUrlEncoded
-    @POST("profile/changephoto")
-    Call<WebServiceMessage> changePhoto(@Field("token") String token, @Field("photo") String photo);
-
-    @FormUrlEncoded
-    @POST("profile/changelocation")
-    Call<WebServiceMessage> changeLocation(@Field("token") String token, @Field("location") String location);
-
-
-    @FormUrlEncoded
-    @POST("profile/enterphonenumberforgotpassword")
-    Call<WebServiceMessage> enterPhoneNumberForgotpassword(@Field("phone") String phone);
-
-    @FormUrlEncoded
-    @POST("profile/enteremailforgotpassword")
-    Call<WebServiceMessage> enterEmailForgotpassword(@Field("email") String email);
-
-
-    @FormUrlEncoded
-    @POST("register")
-    Call<WebServiceMessage> register();
-
+    @POST("password/change")
+    Call<WebServiceMessage> changePassword(@Field("old") String oldPassword, @Field("new") String newPassword);
 
     @FormUrlEncoded
     @POST("login")
-    Call<WebServiceMessage> login();
+    Call<WebServiceMessage> login(@Field("phone") String phoneNumber, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("password/create")
+    Call<WebServiceMessage> createPassword(@Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("post/create/audio")
+    Call<WebServiceMessage> createAudioPost(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("post/create/photo")
+    Call<WebServiceMessage> createPhotoPost(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("post/create/text")
+    Call<WebServiceMessage> createTextPost(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("post/create/video")
+    Call<WebServiceMessage> createVideoPost(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("post/get/all")
+    Call<WebServiceMessage> getPostDetails(@Field("token") String token, @Field("postId") long postId);
+
+    @FormUrlEncoded
+    @POST("post/like")
+    Call<WebServiceMessage> like(@Field("token") String token,@Field("postId") long postId);
 
 
     @FormUrlEncoded
-    @POST("forgotpassword/enteremail")
-    Call<WebServiceMessage> forgotPasswordViaEmail();
+    @POST("post/search")
+    Call<WebServiceMessage> search(@Field("token") String token);
 
 
     @FormUrlEncoded
-    @POST("forgotpassword/enterphonenumber")
-    Call<WebServiceMessage> forgotPasswordViaPhoneNumber();
+    @POST("posts/viral")
+    Call<WebServiceMessage> getViral(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("post/share")
+    Call<WebServiceMessage> share(@Field("token") String token);
 
 
     @FormUrlEncoded
-    @POST("changepassword")
-    Call<WebServiceMessage> changePassword();
+    @POST("member/get/data/all")
+    Call<WebServiceMessage> getMemberDetails(@Field("token") String token, @Field("memberId") long memberId);
 
+    @FormUrlEncoded
+    @POST("members/suggestion")
+    Call<WebServiceMessage> getSuggestions(@Field("token") String token);
 
-//    @FormUrlEncoded
-//    @POST("confirmphonenumber")
-//    Call<WebServiceMessage> confirmPhoneNumber();
+    @FormUrlEncoded
+    @POST("logs/get/all")
+    Call<WebServiceMessage> getEventLogs(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("followers/get/requests")
+    Call<WebServiceMessage> getFollowRequests(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("followers/confirm")
+    Call<WebServiceMessage> getConfirmRequest(@Field("token") String token,, @Field("memberId") long memberId);
+
+    @FormUrlEncoded
+    @POST("followers/reject")
+    Call<WebServiceMessage> getRejectRequest(@Field("token") String token, @Field("memberId") long memberId);
+
+    @FormUrlEncoded
+    @POST("followers/get/list")
+    Call<WebServiceMessage> getFollowersList(@Field("token") String token);
+
 
 
     @FormUrlEncoded
-    @POST("createpassword")
-    Call<WebServiceMessage> createPassword();
+    @POST("followings/get/list")
+    Call<WebServiceMessage> getFollowingsList(@Field("token") String token);
+
+    @FormUrlEncoded
+    @POST("followings/unfollow")
+    Call<WebServiceMessage> unFollow(@Field("token") String token, @Field("memberId") long memberId);
+
+    @FormUrlEncoded
+    @POST("followings/send/request")
+    Call<WebServiceMessage> requestFollow(@Field("token") String token, @Field("memberId") long memberId);
+
 
 
     @FormUrlEncoded
-    @POST("documents/create/audio")
-    Call<WebServiceMessage> createAudioDocument();
+    @POST("comment/send/file")
+    Call<WebServiceMessage> sendFileComment(@Field("token") String token, @Field("file") String file);
 
     @FormUrlEncoded
-    @POST("documents/create/photo")
-    Call<WebServiceMessage> createPhotoDocument();
+    @POST("comment/send/text")
+    Call<WebServiceMessage> sendTextComment(@Field("token") String token, @Field("text") String text);
 
     @FormUrlEncoded
-    @POST("documents/create/text")
-    Call<WebServiceMessage> createTextDocument();
+    @POST("comment/reply/file")
+    Call<WebServiceMessage> replyFileComment(@Field("token") String token, @Field("file") String file, @Field("commentId") long commentId);
 
     @FormUrlEncoded
-    @POST("documents/create/video")
-    Call<WebServiceMessage> createVideoDocument();
+    @POST("comment/reply/text")
+    Call<WebServiceMessage> replyTextComment(@Field("token") String token, @Field("text") String text, @Field("commentId") long commentId);
 
+
+    @FormUrlEncoded
+    @POST("friends/search")
+    Call<WebServiceMessage> searchFriends(@Field("token") String token);
 
 }
