@@ -129,7 +129,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("followers/confirm")
-    Call<WebServiceMessage> getConfirmRequest(@Field("token") String token,, @Field("memberId") long memberId);
+    Call<WebServiceMessage> getConfirmRequest(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
     @POST("followers/reject")
