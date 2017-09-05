@@ -33,7 +33,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("profile/set")
-    Call<WebServiceMessage> setProfileDetail(@Field("token") String token, @Field("fullname") String fullname, @Field("email") String email, @Field("location") String location, @Field("photo") String photo);
+    Call<WebServiceMessage> setProfileDetail(@Field("token") String token, @Field("fullName") String fullName, @Field("email") String email, @Field("location") String location, @Field("photo") String photo);
 
     @FormUrlEncoded
     @POST("profile/set/email")
@@ -41,7 +41,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("profile/set/fullName")
-    Call<WebServiceMessage> setProfileFullName(@Field("token") String token, @Field("fullname") String fullname);
+    Call<WebServiceMessage> setProfileFullName(@Field("token") String token, @Field("fullName") String fullName);
 
     @FormUrlEncoded
     @POST("profile/set/location")
@@ -89,7 +89,7 @@ public interface APIInterface {
     Call<WebServiceMessage> createVideoPost(@Field("token") String token);
 
     @FormUrlEncoded
-    @POST("post/get/all")
+    @POST("post/get")
     Call<WebServiceMessage> getPostDetails(@Field("token") String token, @Field("postId") long postId);
 
     @FormUrlEncoded
@@ -112,7 +112,7 @@ public interface APIInterface {
 
 
     @FormUrlEncoded
-    @POST("member/get/data/all")
+    @POST("member/get")
     Call<WebServiceMessage> getMemberDetails(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
