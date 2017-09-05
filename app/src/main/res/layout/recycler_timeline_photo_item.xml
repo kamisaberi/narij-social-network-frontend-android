@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgViral"
+            android:layout_width="match_parent"
+            android:layout_height="255dp"
+            android:src="@drawable/viral" />
+
+        <LinearLayout
+            android:id="@+id/ln1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="188dp"
+            android:background="#ecf0f1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgLike"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@+id/txtTitle"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/txtLikeNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="3dp"
+                android:text="3569" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgViral"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Different foods go through different metabolic pathways in the body.\nThey can have a vastly different effect on hunger, hormones and how many calories we burn here are the 20 most weight loss friendly foods on earth, that are supported by science ... "
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTitle"
+            android:layout_marginTop="65dp"
+            android:background="#ecf0f1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgComment"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/comment_hint" />
+
+            <TextView
+                android:id="@+id/txtCommentNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="17dp"
+                android:text="5 Comments" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

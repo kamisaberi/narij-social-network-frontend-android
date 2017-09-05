@@ -4,10 +4,224 @@
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.fragment.PrivateProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/camera" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgProfile"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#000000"
+                android:text="Sama Rahmati" />
+
+            <TextView
+                android:id="@+id/txtNumberOfPosts"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtNumberOfFollowings"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toStartOf="@+id/txtNumberOfPosts"
+                android:text="105"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txtNumberOfFollowers"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toStartOf="@+id/txtNumberOfFollowings"
+                android:text="125"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+
+
+            <TextView
+                android:id="@+id/txtPosts"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/txtNumberOfPosts"
+                android:layout_below="@+id/txtNumberOfPosts"
+                android:text="posts"
+                android:textAlignment="center"
+                android:textColor="#888888"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtFollowings"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtPosts"
+                android:layout_alignBottom="@+id/txtPosts"
+                android:layout_marginRight="20dp"
+                android:layout_toStartOf="@+id/txtPosts"
+                android:text="Followings"
+                android:textAlignment="center"
+                android:textColor="#888888"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txtFollowers"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="Followers"
+                android:textAlignment="center"
+                android:textColor="#888888"
+                android:textSize="13sp"
+                android:layout_below="@+id/txtNumberOfFollowers"
+                android:layout_alignStart="@+id/txtNumberOfFollowers" />
+
+            <Button
+                android:id="@+id/btnFollow"
+                android:layout_width="230dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txtPosts"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="#08908b"
+                android:text="+ follow"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtLine1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="___________________________________________________" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="7dp"
+            android:text="Guilan , 25"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Google.com"
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtLine2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="___________________________________________________" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgDastbandi"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/dastbandi_hint" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgDastbandi"
+                android:text="|\n|\n|" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/imgDastbandi"
+                android:src="@drawable/line_hint" />
+
+            <TextView
+                android:id="@+id/txtLine3"
+                android:layout_below="@+id/imgDastbandi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="___________________________________________________" />
+
+
+
+        <!--</RelativeLayout>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtLine3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="___________________________________________________" />-->
+
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <ImageView
+                android:id="@+id/imgLock"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp"
+                android:src="@drawable/lock_hint" />
+
+            <TextView
+                android:id="@+id/txtAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgLock"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:text="Private account"
+                android:textSize="25dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

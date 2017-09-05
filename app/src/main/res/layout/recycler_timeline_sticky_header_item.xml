@@ -53,8 +53,8 @@
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="this is a test"
             android:layout_centerVertical="true"
+            android:text="this is a test"
             android:textSize="24sp" />
 
         <ImageView

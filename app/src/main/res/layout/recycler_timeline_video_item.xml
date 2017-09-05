@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgViralVideo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/viral_video" />
+
+        <ImageView
+            android:id="@+id/imgPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="65dp"
+            android:src="@drawable/play_button_hint" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="170dp"
+            android:text="03 : 56"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgViralVideo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Heat oven to 350F. Spray 9-inch round cake pan with baking spray with flour.In large bowl , beat butter and sugar with electric mixer on medium speed until light and ..." />
+
+        <LinearLayout
+            android:id="@+id/ln1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/txtTitle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:background="#ecf0f1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgLike"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/txtTitle"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/like" />
+
+            <TextView
+                android:id="@+id/txtLikeNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="2dp"
+                android:text="358"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFollow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/txtTitle"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@id/ln1"
+            android:background="#08908b"
+            android:text="+ follow"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="#ecf0f1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgComment"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/comment_hint" />
+
+        <TextView
+            android:id="@+id/txtCommentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="17dp"
+            android:text="32 Comments" />
+
+    </LinearLayout>
 
 </LinearLayout>
