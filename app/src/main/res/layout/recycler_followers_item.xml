@@ -6,9 +6,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
 
         <ImageView
             android:id="@+id/imgProfile"
@@ -28,7 +28,7 @@
             android:textColor="#000000" />
 
         <ImageView
-            android:id="@+id/imgThree"
+            android:id="@+id/imgMenu"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -43,7 +43,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="3dp"
             android:layout_marginTop="35dp"
-            android:layout_toStartOf="@+id/imgThree"
+            android:layout_toStartOf="@+id/imgMenu"
             android:background="#08908b"
             android:text="Follow"
             android:textColor="#ffffff"

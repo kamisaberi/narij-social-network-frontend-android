@@ -34,7 +34,7 @@ public class ProfileEmailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.changeEmail(Globals.token, edtEmail.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.setProfileEmail(Globals.token, edtEmail.getText().toString().trim());
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

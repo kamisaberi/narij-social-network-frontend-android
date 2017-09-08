@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
 
         <ImageView
             android:id="@+id/imgProfile"
@@ -26,11 +24,11 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@+id/imgProfile"
-            android:text="Ali_azr"
+            android:text="azar"
             android:textColor="#000000" />
 
         <ImageView
-            android:id="@+id/imgThree"
+            android:id="@+id/imgMenu"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -39,17 +37,18 @@
 
         <Button
             android:id="@+id/btnFollow"
-            android:layout_width="110dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_below="@+id/txtPosts"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="3dp"
             android:layout_marginTop="35dp"
-            android:layout_toStartOf="@+id/imgThree"
+            android:layout_toStartOf="@+id/imgMenu"
             android:background="#08908b"
-            android:text="Following"
+            android:text="Follow"
             android:textColor="#ffffff"
             android:textSize="15sp" />
+
 
     </RelativeLayout>
 

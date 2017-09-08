@@ -8,17 +8,17 @@ import android.view.ViewGroup;
  * Created by kami on 8/20/2017.
  */
 
-public class FiendSuggestionListRecyclerAdapter extends  RecyclerView.Adapter<FiendSuggestionListRecyclerAdapter.ViewHolder> {
+public class FriendSuggestionListRecyclerAdapter extends  RecyclerView.Adapter<FriendSuggestionListRecyclerAdapter.ViewHolder> {
 
 
 
     @Override
-    public FiendSuggestionListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FriendSuggestionListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(FiendSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(FriendSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
 
     }
 

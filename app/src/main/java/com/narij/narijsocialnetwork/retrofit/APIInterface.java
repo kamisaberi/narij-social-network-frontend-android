@@ -20,7 +20,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("register/confirmVerificationCode")
-    Call<WebServiceMessage> confirmPhoneNumber(@Field("token") String token, @Field("verificationCode") String verificationCode);
+    Call<WebServiceMessage> confirmPhoneNumber(@Field("phone") String phone, @Field("verificationCode") String verificationCode);
 
     @FormUrlEncoded
     @POST("register/createPassword")
@@ -38,6 +38,13 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("profile/set/email")
     Call<WebServiceMessage> setProfileEmail(@Field("token") String token, @Field("email") String email);
+
+    @FormUrlEncoded
+    @POST("profile/confirm/email")
+    Call<WebServiceMessage> confirmEmail(@Field("token") String token, @Field("verificationCode") String verificationCode);
+
+
+
 
     @FormUrlEncoded
     @POST("profile/set/fullName")
@@ -148,6 +155,11 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("followings/unfollow")
     Call<WebServiceMessage> unFollow(@Field("token") String token, @Field("memberId") long memberId);
+
+    @FormUrlEncoded
+    @POST("followings/follow")
+    Call<WebServiceMessage> follow(@Field("token") String token, @Field("memberId") long memberId);
+
 
     @FormUrlEncoded
     @POST("followings/send/request")

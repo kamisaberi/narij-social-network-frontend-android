@@ -34,7 +34,7 @@ public class EnterEmailAddressForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.enterEmailForgotpassword(edtEmail.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.enterEmailToRecoverPassword(edtEmail.getText().toString().trim());
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
