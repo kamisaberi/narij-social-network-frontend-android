@@ -5,4 +5,6 @@ package com.narij.narijsocialnetwork.model;
  */
 
 public class Log {
+    private long id;
+
 }

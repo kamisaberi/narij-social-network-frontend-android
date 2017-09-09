@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.recycler.FriendListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.FriendSuggestionListRecyclerAdapter;
+import com.narij.narijsocialnetwork.model.Member;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,13 +35,12 @@ public class FindFriendsFragment extends Fragment {
 
         RecyclerView rcSuggestion = (RecyclerView) view.findViewById(R.id.rcSuggestion);
 
-        FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter();
+        FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter(new ArrayList<Member>(), getContext());
         rcSuggestion.setAdapter(friendSuggestionListRecyclerAdapter);
         rcSuggestion.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-
         RecyclerView rcFriends = (RecyclerView) view.findViewById(R.id.rcFriends);
-        FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter();
+        FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter(new ArrayList<Member>(), getContext());
         rcFriends.setAdapter(friendListRecyclerAdapter);
         rcFriends.setLayoutManager(new LinearLayoutManager(getContext()));
 

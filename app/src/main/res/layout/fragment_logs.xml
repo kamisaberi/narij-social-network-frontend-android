@@ -4,10 +4,27 @@
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.fragment.LogsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suggestion" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcSuggestion"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcLogs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>

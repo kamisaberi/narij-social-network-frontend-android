@@ -19,38 +19,37 @@ import java.util.List;
  * Created by kami on 8/20/2017.
  */
 
-public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<FriendSuggestionListRecyclerAdapter.ViewHolder> {
+public class LogSuggestionListRecyclerAdapter extends RecyclerView.Adapter<LogSuggestionListRecyclerAdapter.ViewHolder> {
 
-    public List<Member> suggestions = new ArrayList<>();
-    public Context context;
+    List<Member> suggestions = new ArrayList<>();
+    Context context;
 
-    public FriendSuggestionListRecyclerAdapter(List<Member> suggestions, Context context) {
+    public LogSuggestionListRecyclerAdapter(List<Member> suggestions, Context context) {
         this.suggestions = suggestions;
         this.context = context;
     }
 
     @Override
-    public FriendSuggestionListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LogSuggestionListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.recycler_friend_item, parent, false);
+        View contactView = inflater.inflate(R.layout.recycler_followers_item, parent, false);
 
         // Return a new holder instance
-        FriendSuggestionListRecyclerAdapter.ViewHolder viewHolder = new FriendSuggestionListRecyclerAdapter.ViewHolder(contactView);
+        LogSuggestionListRecyclerAdapter.ViewHolder viewHolder = new LogSuggestionListRecyclerAdapter.ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(FriendSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(LogSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
         Member suggestion = suggestions.get(position);
-        ImageView imgProfiel = holder.imgProfile;
+        // Set item views based on your views and data model
+        ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
-        Button btnFollow = holder.btnFollow;
+        Button btnAccept = holder.btnAccept;
         txtName.setText(suggestion.getFullName());
-
     }
 
     @Override
@@ -60,20 +59,17 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-
         ImageView imgProfile;
         TextView txtName;
-        Button btnFollow;
+        Button btnAccept;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             imgProfile = (ImageView) itemView.findViewById(R.id.imgProfile);
             txtName = (TextView) itemView.findViewById(R.id.txtName);
-            btnFollow = (Button) itemView.findViewById(R.id.btnFollow);
-
+            btnAccept = (Button) itemView.findViewById(R.id.btnAccept);
         }
     }
-
 
 }

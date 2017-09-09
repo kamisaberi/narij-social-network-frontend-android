@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,38 +18,33 @@ import java.util.List;
  * Created by kami on 8/20/2017.
  */
 
-public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<FriendSuggestionListRecyclerAdapter.ViewHolder> {
+public class MessageListRecyclerAdapter extends RecyclerView.Adapter<MessageListRecyclerAdapter.ViewHolder> {
 
-    public List<Member> suggestions = new ArrayList<>();
-    public Context context;
 
-    public FriendSuggestionListRecyclerAdapter(List<Member> suggestions, Context context) {
-        this.suggestions = suggestions;
+    List<Member> messages = new ArrayList<>();
+    Context context;
+
+    public MessageListRecyclerAdapter(List<Member> messages, Context context) {
+        this.messages = messages;
         this.context = context;
     }
 
     @Override
-    public FriendSuggestionListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+    public MessageListRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.recycler_friend_item, parent, false);
-
+        View contactView = inflater.inflate(R.layout.recycler_following_item, parent, false);
         // Return a new holder instance
-        FriendSuggestionListRecyclerAdapter.ViewHolder viewHolder = new FriendSuggestionListRecyclerAdapter.ViewHolder(contactView);
+        MessageListRecyclerAdapter.ViewHolder viewHolder = new MessageListRecyclerAdapter.ViewHolder(contactView);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(FriendSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
-
-        Member suggestion = suggestions.get(position);
+    public void onBindViewHolder(MessageListRecyclerAdapter.ViewHolder holder, int position) {
+        Member message = messages.get(position);
+        // Set item views based on your views and data model
         ImageView imgProfiel = holder.imgProfile;
         TextView txtName = holder.txtName;
-        Button btnFollow = holder.btnFollow;
-        txtName.setText(suggestion.getFullName());
-
     }
 
     @Override
@@ -63,17 +57,13 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
 
         ImageView imgProfile;
         TextView txtName;
-        Button btnFollow;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             imgProfile = (ImageView) itemView.findViewById(R.id.imgProfile);
             txtName = (TextView) itemView.findViewById(R.id.txtName);
-            btnFollow = (Button) itemView.findViewById(R.id.btnFollow);
-
         }
     }
-
 
 }
