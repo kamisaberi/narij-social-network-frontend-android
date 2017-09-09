@@ -68,8 +68,12 @@ public interface APIInterface {
     Call<WebServiceMessage> enterEmailToRecoverPassword(@Field("email") String email);
 
     @FormUrlEncoded
+    @POST("password/check")
+    Call<WebServiceMessage> checkPassword(@Field("token") String token, @Field("password") String password);
+
+    @FormUrlEncoded
     @POST("password/change")
-    Call<WebServiceMessage> changePassword(@Field("old") String oldPassword, @Field("new") String newPassword);
+    Call<WebServiceMessage> changePassword(@Field("token") String token, @Field("old") String oldPassword, @Field("new") String newPassword);
 
     @FormUrlEncoded
     @POST("login")
