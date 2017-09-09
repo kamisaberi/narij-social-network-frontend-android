@@ -1,11 +1,10 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
@@ -52,10 +51,9 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
                         if (!message.isError()) {
                             Intent intent = new Intent(getBaseContext(), CreatePasswordActivity.class);
                             startActivity(intent);
-                            //finish();
+                        } else {
 
                         }
-
                     }
 
                     @Override

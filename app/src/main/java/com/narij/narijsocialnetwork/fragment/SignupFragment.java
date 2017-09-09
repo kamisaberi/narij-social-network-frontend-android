@@ -66,7 +66,7 @@ public class SignupFragment extends Fragment {
                         WebServiceMessage message = response.body();
 
                         if (!message.isError()) {
-                            Globals.token = message.getMessage();
+                            //Globals.token = message.getMessage();
                             Intent intent = new Intent(getContext(), ConfirmPhoneNumberActivity.class);
                             startActivity(intent);
                         }

@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
 
-
     <application
         android:name=".application.NarijApplication"
         android:allowBackup="true"
@@ -20,33 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginSignupActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-        <activity android:name=".activity.ForgotPasswordActivity">
-
-        </activity>
-        <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity">
-
-        </activity>
-
-        <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity">
-
-        </activity>
-        <activity android:name=".activity.CreatePasswordActivity">
-
-        </activity>
+        <activity android:name=".activity.LoginSignupActivity"></activity>
+        <activity android:name=".activity.ForgotPasswordActivity"></activity>
+        <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity"></activity>
+        <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity"></activity>
+        <activity android:name=".activity.CreatePasswordActivity"></activity>
         <activity android:name=".activity.ConfirmPhoneNumberActivity"></activity>
         <activity android:name=".activity.ChangePasswordActivity"></activity>
         <activity android:name=".activity.ThankYouActivity"></activity>
-        <activity android:name=".activity.MainActivity">
-
-        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.AddTextDocumentActivity"></activity>
         <activity android:name=".activity.AddVideoDocumentActivity"></activity>
         <activity android:name=".activity.AddDocumentDescriptionActivity"></activity>
@@ -61,6 +42,13 @@
         <activity android:name=".activity.ProfileResumeActivity"></activity>
         <activity android:name=".activity.ProfileLocationActivity"></activity>
         <activity android:name=".activity.MessagingActivity"></activity>
+        <activity android:name=".activity.LoadingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <receiver android:name=".receiver.BroadcastSmsReceiver">
@@ -68,7 +56,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
 
     </application>
 

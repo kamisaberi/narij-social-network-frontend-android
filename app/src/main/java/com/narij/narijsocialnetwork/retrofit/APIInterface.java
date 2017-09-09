@@ -186,6 +186,6 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("friends/search")
-    Call<WebServiceMessage> searchFriends(@Field("token") String token);
+    Call<WebServiceMessage> searchFriends(@Field("token") String token, @Field("text") String text);
 
 }
