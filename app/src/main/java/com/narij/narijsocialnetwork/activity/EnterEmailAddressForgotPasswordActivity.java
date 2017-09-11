@@ -1,7 +1,8 @@
 package com.narij.narijsocialnetwork.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -40,11 +41,10 @@ public class EnterEmailAddressForgotPasswordActivity extends AppCompatActivity {
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
                         WebServiceMessage message = response.body();
                         if (!message.isError()) {
-
-
+                            Intent intent = new Intent(getBaseContext(), EnterVerificationCodeActivity.class);
+                            intent.putExtra("recovery","email");
+                            startActivity(intent);
                         }
-
-
                     }
 
                     @Override

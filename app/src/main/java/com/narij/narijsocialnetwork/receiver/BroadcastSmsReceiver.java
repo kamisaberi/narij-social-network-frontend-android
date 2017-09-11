@@ -9,7 +9,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.narij.narijsocialnetwork.activity.ConfirmPhoneNumberActivity;
+import com.narij.narijsocialnetwork.activity.EnterVerificationCodeActivity;
 
 /**
  * Created by kami on 8/26/2017.
@@ -50,7 +50,7 @@ public class BroadcastSmsReceiver extends BroadcastReceiver {
 
                 } // end for loop
                 //BroadcastNewSms.ins.txt.setText(msg);
-                ConfirmPhoneNumberActivity.ins.edtVerificationCode.setText(msg);
+                EnterVerificationCodeActivity.ins.edtVerificationCode.setText(msg);
 
             } // bundle is null
 
