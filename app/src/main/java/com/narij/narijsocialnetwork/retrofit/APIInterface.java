@@ -20,7 +20,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("register/confirmVerificationCode")
-    Call<WebServiceMessage> confirmPhoneNumber(@Field("phone") String phone, @Field("verificationCode") String verificationCode);
+    Call<WebServiceMessage> enterVerificationCode(@Field("phone") String phone, @Field("verificationCode") String verificationCode);
 
     @FormUrlEncoded
     @POST("register/createPassword")
@@ -42,8 +42,6 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("profile/confirm/email")
     Call<WebServiceMessage> confirmEmail(@Field("token") String token, @Field("verificationCode") String verificationCode);
-
-
 
 
     @FormUrlEncoded
@@ -105,12 +103,12 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("post/like")
-    Call<WebServiceMessage> like(@Field("token") String token,@Field("postId") long postId);
+    Call<WebServiceMessage> like(@Field("token") String token, @Field("postId") long postId);
 
 
     @FormUrlEncoded
     @POST("post/search")
-    Call<WebServiceMessage> search(@Field("token") String token);
+    Call<WebServiceMessage> search(@Field("token") String token, @Field("text") String text);
 
 
     @FormUrlEncoded
@@ -119,7 +117,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("post/share")
-    Call<WebServiceMessage> share(@Field("token") String token);
+    Call<WebServiceMessage> share(@Field("token") String token, @Field("receiver") long receiver, @Field("post") long post);
 
 
     @FormUrlEncoded
@@ -151,7 +149,6 @@ public interface APIInterface {
     Call<WebServiceMessage> getFollowersList(@Field("token") String token);
 
 
-
     @FormUrlEncoded
     @POST("followings/get/list")
     Call<WebServiceMessage> getFollowingsList(@Field("token") String token);
@@ -170,23 +167,13 @@ public interface APIInterface {
     Call<WebServiceMessage> requestFollow(@Field("token") String token, @Field("memberId") long memberId);
 
 
-
     @FormUrlEncoded
     @POST("comment/send/file")
     Call<WebServiceMessage> sendFileComment(@Field("token") String token, @Field("file") String file);
 
     @FormUrlEncoded
     @POST("comment/send/text")
-    Call<WebServiceMessage> sendTextComment(@Field("token") String token, @Field("text") String text);
-
-    @FormUrlEncoded
-    @POST("comment/reply/file")
-    Call<WebServiceMessage> replyFileComment(@Field("token") String token, @Field("file") String file, @Field("commentId") long commentId);
-
-    @FormUrlEncoded
-    @POST("comment/reply/text")
-    Call<WebServiceMessage> replyTextComment(@Field("token") String token, @Field("text") String text, @Field("commentId") long commentId);
-
+    Call<WebServiceMessage> comment(@Field("token") String token, @Field("content") String content, @Field("parent") long parent, @Field("object") long object);
 
     @FormUrlEncoded
     @POST("friends/search")

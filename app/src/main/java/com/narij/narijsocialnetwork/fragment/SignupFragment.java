@@ -4,17 +4,13 @@ package com.narij.narijsocialnetwork.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.activity.ConfirmPhoneNumberActivity;
-import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.activity.EnterVerificationCodeActivity;
 import com.narij.narijsocialnetwork.model.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
@@ -67,7 +63,8 @@ public class SignupFragment extends Fragment {
 
                         if (!message.isError()) {
                             //Globals.token = message.getMessage();
-                            Intent intent = new Intent(getContext(), ConfirmPhoneNumberActivity.class);
+                            Intent intent = new Intent(getContext(), EnterVerificationCodeActivity.class);
+                            intent.putExtra("recovery", "");
                             startActivity(intent);
                         }
 

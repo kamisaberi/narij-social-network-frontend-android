@@ -18,12 +18,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ConfirmPhoneNumberActivity extends AppCompatActivity {
+public class EnterVerificationCodeActivity extends AppCompatActivity {
 
+
+    public String recovery = "";
 
     public EditText edtVerificationCode;
     BroadcastSmsReceiver incomingSms = new BroadcastSmsReceiver();
-    public static ConfirmPhoneNumberActivity ins;
+    public static EnterVerificationCodeActivity ins;
 
     APIInterface apiInterface;
 
@@ -31,6 +33,11 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_phone_number);
+
+
+        recovery = getIntent().getStringExtra("recovery");
+
+
 
         edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
         apiInterface = APIClient.getClient().create(APIInterface.class);
@@ -41,7 +48,7 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.confirmPhoneNumber(Globals.token, edtVerificationCode.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.enterVerificationCode(Globals.token, edtVerificationCode.getText().toString().trim());
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

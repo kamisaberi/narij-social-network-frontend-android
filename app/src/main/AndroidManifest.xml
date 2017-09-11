@@ -24,7 +24,7 @@
         <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity"></activity>
         <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity"></activity>
         <activity android:name=".activity.CreatePasswordActivity"></activity>
-        <activity android:name=".activity.ConfirmPhoneNumberActivity"></activity>
+        <activity android:name=".activity.EnterVerificationCodeActivity"></activity>
         <activity android:name=".activity.ChangePasswordActivity"></activity>
         <activity android:name=".activity.ThankYouActivity"></activity>
         <activity android:name=".activity.MainActivity"></activity>

@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,11 +41,10 @@ public class EnterPhoneNumberForgotPasswordActivity extends AppCompatActivity {
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
                         WebServiceMessage message = response.body();
                         if (!message.isError()) {
-
-
+                            Intent intent = new Intent(getBaseContext(), EnterVerificationCodeActivity.class);
+                            intent.putExtra("recovery","phone");
+                            startActivity(intent);
                         }
-
-
                     }
 
                     @Override
