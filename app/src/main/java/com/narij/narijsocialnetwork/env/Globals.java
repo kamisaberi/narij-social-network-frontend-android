@@ -10,6 +10,7 @@ public class Globals {
 
     public static final String LOG_TAG = "NARIJ";
     public static final String PREF_FILE_NAME= "prefs.sav";
+    public static final String PREF_TOKEN_KEY= "token";
 
     public static String token = "";
 

@@ -18,6 +18,13 @@ public interface APIInterface {
 
 
     @FormUrlEncoded
+    @POST("authenticate")
+    Call<WebServiceMessage> authenticate(
+            @Field("token") String phone
+    );
+
+
+    @FormUrlEncoded
     @POST("register/enterPhoneNumber")
     Call<WebServiceMessage> enterPhoneNumber(
             @Field("phone") String phone

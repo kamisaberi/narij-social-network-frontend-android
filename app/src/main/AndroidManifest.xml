@@ -19,29 +19,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginSignupActivity"></activity>
-        <activity android:name=".activity.ForgotPasswordActivity"></activity>
-        <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity"></activity>
-        <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity"></activity>
-        <activity android:name=".activity.CreatePasswordActivity"></activity>
-        <activity android:name=".activity.EnterVerificationCodeActivity"></activity>
-        <activity android:name=".activity.ChangePasswordActivity"></activity>
-        <activity android:name=".activity.ThankYouActivity"></activity>
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.AddTextDocumentActivity"></activity>
-        <activity android:name=".activity.AddVideoDocumentActivity"></activity>
-        <activity android:name=".activity.AddDocumentDescriptionActivity"></activity>
-        <activity android:name=".activity.AddPhotoDocumentActivity"></activity>
-        <activity android:name=".activity.AddAudioDocumentActivity"></activity>
-        <activity android:name=".activity.ProfileActivity"></activity>
-        <activity android:name=".activity.ProfilePhotoActivity"></activity>
-        <activity android:name=".activity.ProfilePublicInfoActivity"></activity>
-        <activity android:name=".activity.ProfilePrivateInfoActivity"></activity>
-        <activity android:name=".activity.ProfileFullNameActivity"></activity>
-        <activity android:name=".activity.ProfileEmailActivity"></activity>
-        <activity android:name=".activity.ProfileResumeActivity"></activity>
-        <activity android:name=".activity.ProfileLocationActivity"></activity>
-        <activity android:name=".activity.MessagingActivity"></activity>
+        <activity android:name=".activity.LoginSignupActivity" />
+        <activity android:name=".activity.ForgotPasswordActivity" />
+        <activity android:name=".activity.EnterPhoneNumberForgotPasswordActivity" />
+        <activity android:name=".activity.EnterEmailAddressForgotPasswordActivity" />
+        <activity android:name=".activity.CreatePasswordActivity" />
+        <activity android:name=".activity.EnterVerificationCodeActivity" />
+        <activity android:name=".activity.ChangePasswordActivity" />
+        <activity android:name=".activity.ThankYouActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.AddTextDocumentActivity" />
+        <activity android:name=".activity.AddVideoDocumentActivity" />
+        <activity android:name=".activity.AddDocumentDescriptionActivity" />
+        <activity android:name=".activity.AddPhotoDocumentActivity" />
+        <activity android:name=".activity.AddAudioDocumentActivity" />
+        <activity android:name=".activity.ProfileActivity" />
+        <activity android:name=".activity.ProfilePhotoActivity" />
+        <activity android:name=".activity.ProfilePublicInfoActivity" />
+        <activity android:name=".activity.ProfilePrivateInfoActivity" />
+        <activity android:name=".activity.ProfileFullNameActivity" />
+        <activity android:name=".activity.ProfileEmailActivity" />
+        <activity android:name=".activity.ProfileResumeActivity" />
+        <activity android:name=".activity.ProfileLocationActivity" />
+        <activity android:name=".activity.MessagingActivity" />
         <activity android:name=".activity.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,13 +50,13 @@
             </intent-filter>
         </activity>
 
-
         <receiver android:name=".receiver.BroadcastSmsReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".activity.ItIsMeActivity"></activity>
     </application>
 
 </manifest>
