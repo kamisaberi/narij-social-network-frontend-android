@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.activity.ProfileActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/camera" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="15dp"
+        android:text="Kami Saberi"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtLine1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtName"
+        android:layout_marginTop="30dp"
+        android:text="___________________________________________________" />
+
+    <ImageView
+        android:id="@+id/imgEyeOpen"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/txtTitle1"
+        android:layout_below="@+id/txtLine1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/eye_open" />
+
+    <TextView
+        android:id="@+id/txtTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgEyeOpen"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="14dp"
+        android:text="Public info"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txtLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/txtTitle1"
+        android:text="|\n|\n|\n|\n|\n|\n" />
+
+    <ImageView
+        android:id="@+id/imgEyeWithLine"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/imgEyeOpen"
+        android:layout_marginLeft="50dp"
+        android:layout_toEndOf="@+id/txtTitle1"
+        android:src="@drawable/eye_with_diagonal_line" />
+
+    <TextView
+        android:id="@+id/txtTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtTitle1"
+        android:layout_alignBottom="@+id/txtTitle1"
+        android:layout_marginEnd="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toStartOf="@+id/txtLine3"
+        android:text="Private info"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txtLine3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtLine2"
+        android:layout_alignBottom="@+id/txtLine2"
+        android:layout_centerHorizontal="true"
+        android:text="|\n|\n|\n|\n|\n|\n" />
+
+    <ImageView
+        android:id="@+id/imgPlaceHolder"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/placeholder_filled"
+        android:layout_alignTop="@+id/imgEyeWithLine"
+        android:layout_toEndOf="@+id/txtTitle2" />
+
+    <TextView
+        android:id="@+id/txtTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtTitle2"
+        android:layout_alignBottom="@+id/txtTitle2"
+        android:layout_alignStart="@+id/txtLine3"
+        android:layout_marginLeft="25dp"
+        android:text="Location"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txtLine4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="|\n|\n|\n|\n|\n|\n"
+        android:layout_alignBaseline="@+id/txtLine3"
+        android:layout_alignBottom="@+id/txtLine3"
+        android:layout_toEndOf="@+id/txtTitle3" />
+
+    <ImageView
+        android:id="@+id/imgResome"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/imgPlaceHolder"
+        android:layout_marginLeft="25dp"
+        android:layout_toEndOf="@+id/txtLine4"
+        android:src="@drawable/text_file" />
+
+    <TextView
+        android:id="@+id/txtTitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtTitle3"
+        android:layout_alignBottom="@+id/txtTitle3"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/txtLine4"
+        android:text="Resome"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+
+</RelativeLayout>
+

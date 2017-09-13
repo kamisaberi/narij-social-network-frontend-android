@@ -55,14 +55,14 @@
 
         <TextView
             android:id="@+id/txtTitle"
-            android:layout_below="@+id/imgSlideLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/imgSlideLine"
             android:layout_marginTop="30dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="15sp"
-            android:text="When it comes to landscape photography in the united states , the state of hawaii is obviously very unique. Not only is it geographically ..." />
+            android:text="When it comes to landscape photography in the united states , the state of hawaii is obviously very unique. Not only is it geographically ..."
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
