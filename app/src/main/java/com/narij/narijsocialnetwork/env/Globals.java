@@ -9,6 +9,7 @@ public class Globals {
     public static final String BASE_URL = "http://192.168.1.200/NarijWebService/public/";
 
     public static final String LOG_TAG = "NARIJ";
+    public static final String PREF_FILE_NAME= "prefs.sav";
 
     public static String token = "";
 

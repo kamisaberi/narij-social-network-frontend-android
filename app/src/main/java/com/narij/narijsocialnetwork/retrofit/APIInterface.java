@@ -2,10 +2,13 @@ package com.narij.narijsocialnetwork.retrofit;
 
 import com.narij.narijsocialnetwork.model.WebServiceMessage;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * Created by kami on 8/4/2017.
@@ -16,20 +19,28 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("register/enterPhoneNumber")
-    Call<WebServiceMessage> enterPhoneNumber(@Field("phone") String phone);
+    Call<WebServiceMessage> enterPhoneNumber(
+            @Field("phone") String phone
+    );
 
     @FormUrlEncoded
     @POST("register/confirmVerificationCode")
-    Call<WebServiceMessage> enterVerificationCode(@Field("phone") String phone, @Field("verificationCode") String verificationCode);
+    Call<WebServiceMessage> enterVerificationCode(
+            @Field("phone") String phone,
+            @Field("verificationCode") String verificationCode
+    );
 
     @FormUrlEncoded
     @POST("register/createPassword")
-    Call<WebServiceMessage> createPassword(@Field("token") String token, @Field("password") String password);
+    Call<WebServiceMessage> createPassword(
+            @Field("token") String token,
+            @Field("password") String password
+    );
 
 
     @FormUrlEncoded
     @POST("profile/get")
-    Call<WebServiceMessage> getProfileDetail(@Field("token") String token);
+    Call<WebServiceMessage> getProfile(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
     @POST("profile/set")
@@ -83,19 +94,44 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("post/create/audio")
-    Call<WebServiceMessage> createAudioPost(@Field("token") String token);
+    Call<WebServiceMessage> createAudioPost(
+            @Part MultipartBody.Part file,
+            @Part("token") String token,
+            @Part("title") String title,
+            @Part("description") String description,
+            @Part("tags") String tags
+    );
 
     @FormUrlEncoded
     @POST("post/create/photo")
-    Call<WebServiceMessage> createPhotoPost(@Field("token") String token);
+    Call<WebServiceMessage> createPhotoPost(
+            @Part MultipartBody.Part file,
+            @Part("token") String token,
+            @Part("title") String title,
+            @Part("description") String description,
+            @Part("tags") String tags
+    );
 
     @FormUrlEncoded
     @POST("post/create/text")
-    Call<WebServiceMessage> createTextPost(@Field("token") String token);
+    Call<WebServiceMessage> createTextPost(
+            @Field("token") String token,
+            @Field("title") String title,
+            @Field("description") String description,
+            @Field("tags") String tags
+    );
 
+    @Multipart
     @FormUrlEncoded
     @POST("post/create/video")
-    Call<WebServiceMessage> createVideoPost(@Field("token") String token);
+    Call<WebServiceMessage> createVideoPost(
+            @Part MultipartBody.Part file,
+            @Part("token") String token,
+            @Part("title") String title,
+            @Part("description") String description,
+            @Part("tags") String tags
+    );
+
 
     @FormUrlEncoded
     @POST("post/get")
@@ -146,12 +182,12 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("followers/get/list")
-    Call<WebServiceMessage> getFollowersList(@Field("token") String token);
+    Call<WebServiceMessage> getFollowersList(@Field("token") String token, @Field("memberId") long memberId);
 
 
     @FormUrlEncoded
     @POST("followings/get/list")
-    Call<WebServiceMessage> getFollowingsList(@Field("token") String token);
+    Call<WebServiceMessage> getFollowingsList(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
     @POST("followings/unfollow")
