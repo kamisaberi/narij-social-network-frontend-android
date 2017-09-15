@@ -68,11 +68,17 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("profile/set/location")
-    Call<WebServiceMessage> setProfileLocation(@Field("token") String token, @Field("location") String location);
+    Call<WebServiceMessage> setProfileLocation(
+            @Field("token") String token,
+            @Field("location") String location
+    );
 
-    @FormUrlEncoded
+    @Multipart
     @POST("profile/set/photo")
-    Call<WebServiceMessage> setProfilePhoto(@Field("token") String token, @Field("photo") String photo);
+    Call<WebServiceMessage> setProfilePhoto(
+            @Part MultipartBody.Part file,
+            @Part("token") String token
+    );
 
 
     @FormUrlEncoded
@@ -99,7 +105,7 @@ public interface APIInterface {
     @POST("password/create")
     Call<WebServiceMessage> createPassword(@Field("password") String password);
 
-    @FormUrlEncoded
+    @Multipart
     @POST("post/create/audio")
     Call<WebServiceMessage> createAudioPost(
             @Part MultipartBody.Part file,
@@ -109,7 +115,7 @@ public interface APIInterface {
             @Part("tags") String tags
     );
 
-    @FormUrlEncoded
+    @Multipart
     @POST("post/create/photo")
     Call<WebServiceMessage> createPhotoPost(
             @Part MultipartBody.Part file,
@@ -129,7 +135,6 @@ public interface APIInterface {
     );
 
     @Multipart
-    @FormUrlEncoded
     @POST("post/create/video")
     Call<WebServiceMessage> createVideoPost(
             @Part MultipartBody.Part file,
