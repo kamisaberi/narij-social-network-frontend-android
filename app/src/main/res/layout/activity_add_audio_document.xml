@@ -1,13 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.narij.narijsocialnetwork.activity.AddAudioDocumentActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imgNext"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/next_hint" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/imgNext"
+            android:text="Choose the photo (s)" />
+
+        <TextView
+            android:id="@+id/txtLine1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgNext"
+            android:layout_marginTop="10dp"
+            android:text="___________________________________________________" />
+
+        <ImageView
+            android:id="@+id/imgMicrophone"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/txtLine1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/microphone" />
+
+        <TextView
+            android:id="@+id/txtMicrophone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgMicrophone"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/imgMicrophone"
+            android:text="Microphone"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgMicrophone"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@+id/txtMicrophone"
+            android:text="|\n|\n|\n|\n|\n" />
+
+        <ImageView
+            android:id="@+id/imgFolder"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_alignTop="@+id/imgMicrophone"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@+id/txtLine2"
+            android:src="@drawable/folder" />
+
+        <TextView
+            android:id="@+id/txtFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgFolder"
+            android:layout_marginTop="27dp"
+            android:layout_toEndOf="@+id/imgFolder"
+            android:text="Folder"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
 
 </LinearLayout>

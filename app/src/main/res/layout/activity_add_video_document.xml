@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.narij.narijsocialnetwork.activity.AddVideoDocumentActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <ImageView
+            android:id="@+id/imgNext"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/next_hint" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/imgNext"
+            android:text="Choose the photo (s)" />
+
+        <TextView
+            android:id="@+id/txtLine1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgNext"
+            android:layout_marginTop="10dp"
+            android:text="_________________________________________________" />
+
+        <ImageView
+            android:id="@+id/imgCamera"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/txtLine1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/phone_camera" />
+
+        <TextView
+            android:id="@+id/txtCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgCamera"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/imgCamera"
+            android:text="Camera"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtLine2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgCamera"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@+id/txtCamera"
+            android:text="|\n|\n|\n|\n|\n" />
+
+        <ImageView
+            android:id="@+id/imgGallery"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignTop="@+id/imgCamera"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@+id/txtLine2"
+            android:src="@drawable/gallery" />
+
+        <TextView
+            android:id="@+id/txtGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgGallery"
+            android:layout_marginTop="27dp"
+            android:layout_toEndOf="@+id/imgGallery"
+            android:text="Gallery"
+            android:layout_marginLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
