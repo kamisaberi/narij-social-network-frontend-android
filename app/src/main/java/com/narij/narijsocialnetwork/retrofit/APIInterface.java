@@ -116,7 +116,7 @@ public interface APIInterface {
     );
 
     @Multipart
-    @POST("post/create/photo")
+    @POST("post/create/image")
     Call<WebServiceMessage> createPhotoPost(
             @Part MultipartBody.Part file,
             @Part("token") String token,
