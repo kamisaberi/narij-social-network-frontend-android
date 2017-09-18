@@ -20,7 +20,7 @@ public class NewFragmentPageAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    final int PAGE_COUNT = 2;
+    final int PAGE_COUNT = 0;
     private Context context;
 
     public NewFragmentPageAdapter(FragmentManager fm, Context context) {

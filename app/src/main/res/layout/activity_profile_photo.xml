@@ -43,6 +43,15 @@
         fancy:fb_textColor="#FFFFFF"
         fancy:fb_textSize="24sp" />
 
+    <ProgressBar
+        android:id="@+id/prgLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:visibility="gone" />
+
+
     <!--fancy:fb_fontIconResource="&#xf04b;"-->
     <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->
 

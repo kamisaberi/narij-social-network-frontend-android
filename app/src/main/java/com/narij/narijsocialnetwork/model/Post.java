@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class Post {
     private long postId;
-    private MediaType mediaType;
+    private com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType;
     private Locale createTime;
     private Locale editTime;
     private Locale deleteTime;
@@ -21,7 +21,7 @@ public class Post {
         this.properties = new ArrayList<>();
     }
 
-    public Post(long postId, MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory, ArrayList<Property> properties) {
+    public Post(long postId, com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory, ArrayList<Property> properties) {
         this.postId = postId;
         this.mediaType = mediaType;
         this.createTime = createTime;
@@ -48,11 +48,11 @@ public class Post {
         this.postId = postId;
     }
 
-    public MediaType getMediaType() {
+    public com.narij.narijsocialnetwork.model.enumeration.MediaType getMediaType() {
         return mediaType;
     }
 
-    public void setMediaType(MediaType mediaType) {
+    public void setMediaType(com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType) {
         this.mediaType = mediaType;
     }
 

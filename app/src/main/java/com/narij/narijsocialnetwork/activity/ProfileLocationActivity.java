@@ -25,6 +25,7 @@ public class ProfileLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_location);
 
+        getActionBar().setTitle("Location");
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
         final EditText edtLocation = (EditText) findViewById(R.id.edtLocation);
@@ -34,7 +35,7 @@ public class ProfileLocationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.changeLocation(Globals.token, edtLocation.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.setProfileLocation(Globals.token, edtLocation.getText().toString().trim());
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

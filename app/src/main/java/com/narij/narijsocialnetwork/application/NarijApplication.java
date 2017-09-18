@@ -12,8 +12,5 @@ public class NarijApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-
-
     }
 }

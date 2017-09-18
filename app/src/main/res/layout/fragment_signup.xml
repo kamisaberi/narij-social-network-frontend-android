@@ -15,25 +15,25 @@
             android:id="@+id/edtPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="phone"
             android:backgroundTint="@android:color/transparent"
             android:drawableStart="@drawable/smartphone_hint"
             android:hint="Enter your phone number"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="5dp"
             android:background="@color/hintColor" />
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/btnLogin"
-            android:layout_gravity="right"
             android:layout_width="140dp"
             android:layout_height="60dp"
+            android:layout_gravity="right"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             fancy:fb_defaultColor="@color/baseColor"
@@ -47,6 +47,13 @@
 
         <!--fancy:fb_fontIconResource="&#xf04b;"-->
         <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->
+        <ProgressBar
+            android:id="@+id/prgLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

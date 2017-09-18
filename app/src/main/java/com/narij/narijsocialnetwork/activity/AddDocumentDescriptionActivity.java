@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
@@ -34,7 +35,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.createTextPost("");
+                Call<WebServiceMessage> call = apiInterface.createTextPost(Globals.token, "","","");
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

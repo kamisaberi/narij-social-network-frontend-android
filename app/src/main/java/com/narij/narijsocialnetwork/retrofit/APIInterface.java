@@ -40,7 +40,7 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("register/createPassword")
     Call<WebServiceMessage> createPassword(
-            @Field("token") String token,
+            @Field("phone") String token,
             @Field("password") String password
     );
 
@@ -64,7 +64,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("profile/set/fullName")
-    Call<WebServiceMessage> setProfileFullName(@Field("token") String token, @Field("fullName") String fullName);
+    Call<WebServiceMessage> setProfileFullName(@Field("phone") String phone, @Field("fullName") String fullName);
 
     @FormUrlEncoded
     @POST("profile/set/location")
@@ -76,8 +76,8 @@ public interface APIInterface {
     @Multipart
     @POST("profile/set/photo")
     Call<WebServiceMessage> setProfilePhoto(
-            @Part MultipartBody.Part file,
-            @Part("token") String token
+            @Part("phone") String phone,
+            @Part MultipartBody.Part file
     );
 
 

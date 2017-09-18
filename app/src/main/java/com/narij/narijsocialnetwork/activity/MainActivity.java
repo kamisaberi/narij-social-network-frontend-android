@@ -1,14 +1,14 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.adapter.fragmentadapter.NewFragmentPageAdapter;
 
 public class MainActivity extends AppCompatActivity {
-
 
 
     // TESTSTSTSTSTSTTST
@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         pager = (ViewPager) findViewById(R.id.pager);
+
+        pager.setAdapter(new NewFragmentPageAdapter(getSupportFragmentManager(), this));
 
 
         bottombar = (TabLayout) findViewById(R.id.bottombar);
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 }

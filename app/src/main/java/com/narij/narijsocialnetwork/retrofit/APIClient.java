@@ -1,5 +1,7 @@
 package com.narij.narijsocialnetwork.retrofit;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.narij.narijsocialnetwork.env.Globals;
 
 import okhttp3.OkHttpClient;
@@ -16,13 +18,19 @@ public class APIClient {
     public static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
+
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(Globals.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();
 
