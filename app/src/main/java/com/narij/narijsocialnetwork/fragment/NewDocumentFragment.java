@@ -43,6 +43,7 @@ public class NewDocumentFragment extends Fragment {
             public void onClick(View v) {
                 Globals.currentPostToSend.setMediaType(MediaType.TEXT);
                 Intent intent = new Intent(getContext(), AddTextDocumentActivity.class);
+//                intent.putExtra("type", "text");
                 startActivity(intent);
             }
         });
@@ -52,6 +53,7 @@ public class NewDocumentFragment extends Fragment {
             public void onClick(View v) {
                 Globals.currentPostToSend.setMediaType(MediaType.PHOTO);
                 Intent intent = new Intent(getContext(), AddPhotoDocumentActivity.class);
+//                intent.putExtra("type", "photo");
                 startActivity(intent);
 
             }
@@ -62,6 +64,7 @@ public class NewDocumentFragment extends Fragment {
             public void onClick(View v) {
                 Globals.currentPostToSend.setMediaType(MediaType.AUDIO);
                 Intent intent = new Intent(getContext(), AddAudioDocumentActivity.class);
+//                intent.putExtra("type", "audio");
                 startActivity(intent);
 
             }
@@ -72,6 +75,7 @@ public class NewDocumentFragment extends Fragment {
             public void onClick(View v) {
                 Globals.currentPostToSend.setMediaType(MediaType.VIDEO);
                 Intent intent = new Intent(getContext(), AddVideoDocumentActivity.class);
+//                intent.putExtra("type", "video");
                 startActivity(intent);
 
             }

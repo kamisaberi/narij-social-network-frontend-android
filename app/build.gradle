@@ -69,4 +69,9 @@ dependencies {
     compile 'com.githang:com-phillipcalvin-iconbutton:1.0.1@aar'
     compile 'com.github.medyo:fancybuttons:1.8.4'
     testCompile 'junit:junit:4.12'
+
+
+
+    compile 'pub.devrel:easypermissions:0.2.0'
+
 }

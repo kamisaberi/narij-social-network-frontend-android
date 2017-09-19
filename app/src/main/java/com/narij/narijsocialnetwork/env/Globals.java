@@ -2,6 +2,8 @@ package com.narij.narijsocialnetwork.env;
 
 import com.narij.narijsocialnetwork.model.Post;
 
+import java.io.File;
+
 /**
  * Created by kami on 8/4/2017.
  */
@@ -21,5 +23,8 @@ public class Globals {
 
 
     public static final boolean DEBUG_MODE = true;
+
+    public static File selectedFileToUpload;
+
 
 }

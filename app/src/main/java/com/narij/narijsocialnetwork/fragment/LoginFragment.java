@@ -4,6 +4,7 @@ package com.narij.narijsocialnetwork.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,26 +52,47 @@ public class LoginFragment extends Fragment {
         txtForgotPassword = (TextView) view.findViewById(R.id.txtForgotPassword);
         btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
 
+        if (Globals.DEBUG_MODE) {
+            edtPhoneNumber.setText("09365982333");
+            edtPassword.setText("1234");
+        }
+
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
-        Call<WebServiceMessage> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString());
-        call.enqueue(new Callback<WebServiceMessage>() {
+
+        btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
 
-                WebServiceMessage webServiceMessage = response.body();
+            public void onClick(View v) {
 
-                if (webServiceMessage.getMessage().equals("error")) {
+                Call<WebServiceMessage> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString());
+                call.enqueue(new Callback<WebServiceMessage>() {
+                    @Override
+                    public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
 
-                } else {
-                    Globals.token = webServiceMessage.getMessage().trim();
-                    Intent intent = new Intent(getContext(), MainActivity.class);
-                    startActivity(intent);
-                }
-            }
+                        WebServiceMessage webServiceMessage = response.body();
 
-            @Override
-            public void onFailure(Call<WebServiceMessage> call, Throwable t) {
+
+                        Log.d(Globals.LOG_TAG, webServiceMessage.getMessage());
+
+                        if (webServiceMessage.isError()) {
+
+                        } else {
+                            Globals.token = webServiceMessage.getMessage().trim();
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
+                            getActivity().finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<WebServiceMessage> call, Throwable t) {
+
+                    }
+                });
+
 
             }
         });
