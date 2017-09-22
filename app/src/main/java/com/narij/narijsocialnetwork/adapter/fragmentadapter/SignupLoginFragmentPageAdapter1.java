@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.narij.narijsocialnetwork.fragment.FollowersFragment;
+import com.narij.narijsocialnetwork.fragment.LoginFragment;
 import com.narij.narijsocialnetwork.fragment.SignupFragment;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class SignupLoginFragmentPageAdapter1 extends FragmentPagerAdapter {
     public SignupLoginFragmentPageAdapter1(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new FollowersFragment());
+        mFragmentList.add(new LoginFragment());
         mFragmentList.add(new SignupFragment());
         mFragmentTitleList.add("Login");
         mFragmentTitleList.add("signUp");

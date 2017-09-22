@@ -1,4 +1,8 @@
-package com.narij.narijsocialnetwork.model;
+package com.narij.narijsocialnetwork.model.base;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 /**
  * Created by kami on 8/20/2017.
@@ -6,14 +10,52 @@ package com.narij.narijsocialnetwork.model;
 
 public class Member {
 
+    @SerializedName("memberId")
     private long memberId;
+    @SerializedName("fullName")
     private String fullName;
+    @SerializedName("phone")
     private String phone;
+    @SerializedName("email")
     private String email;
+    @SerializedName("password")
     private String password;
+    @SerializedName("active")
     private boolean active;
+    @SerializedName("verificationCode")
     private String verificationCode;
 
+    @SerializedName("followers")
+    private ArrayList<Follow> followers = new ArrayList<>();
+    @SerializedName("followings")
+    private ArrayList<Follow> followings = new ArrayList<>();
+    @SerializedName("posts")
+    private ArrayList<Post> posts = new ArrayList<>();
+
+
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
+
+    public ArrayList<Follow> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(ArrayList<Follow> followers) {
+        this.followers = followers;
+    }
+
+    public ArrayList<Follow> getFollowings() {
+        return followings;
+    }
+
+    public void setFollowings(ArrayList<Follow> followings) {
+        this.followings = followings;
+    }
 
     public Member() {
     }

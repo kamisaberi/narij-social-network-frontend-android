@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.model.Member;
+import com.narij.narijsocialnetwork.model.base.Member;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,15 +48,31 @@ public class FriendListRecyclerAdapter extends  RecyclerView.Adapter<FriendListR
         Member friend = friends.get(position);
         // Set item views based on your views and data model
         ImageView imgMenu = holder.imgMenu;
-        ImageView imgProfiel = holder.imgProfile;
+        ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
         Button btnFollow = holder.btnFollow;
         txtName.setText(friend.getFullName());
+
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return friends.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

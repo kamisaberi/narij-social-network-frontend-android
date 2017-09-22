@@ -1,4 +1,4 @@
-package com.narij.narijsocialnetwork.model;
+package com.narij.narijsocialnetwork.model.retrofit;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -25,6 +25,8 @@ public class WebServiceMessage {
     @SerializedName("message")
     private String message;
 
+    public WebServiceMessage() {
+    }
 
     public WebServiceMessage(int id, boolean error, String content) {
         this.id = id;

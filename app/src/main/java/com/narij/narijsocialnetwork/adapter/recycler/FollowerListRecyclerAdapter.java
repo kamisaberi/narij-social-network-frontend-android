@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.model.Member;
+import com.narij.narijsocialnetwork.model.base.Follow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,11 @@ import java.util.List;
 
 public class FollowerListRecyclerAdapter extends RecyclerView.Adapter<FollowerListRecyclerAdapter.ViewHolder> {
 
-    public List<Member> followers = new ArrayList<>();
+    public List<Follow> followers = new ArrayList<>();
     public Context context;
 
 
-    public FollowerListRecyclerAdapter(List<Member> followers, Context context) {
+    public FollowerListRecyclerAdapter(List<Follow> followers, Context context) {
         this.followers = followers;
         this.context = context;
     }
@@ -46,13 +46,32 @@ public class FollowerListRecyclerAdapter extends RecyclerView.Adapter<FollowerLi
     @Override
     public void onBindViewHolder(FollowerListRecyclerAdapter.ViewHolder holder, int position) {
         // Get the data model based on position
-        Member follower = followers.get(position);
+        Follow follower = followers.get(position);
         // Set item views based on your views and data model
         ImageView imgMenu = holder.imgMenu;
-        ImageView imgProfiel = holder.imgProfile;
+        ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
         Button btnFollow = holder.btnFollow;
-        txtName.setText(follower.getFullName());
+        txtName.setText(follower.getMember().getFullName());
+
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+            }
+        });
+
     }
 
     @Override

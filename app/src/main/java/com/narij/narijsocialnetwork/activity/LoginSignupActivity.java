@@ -9,6 +9,7 @@ import android.util.Log;
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.SignupLoginFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.model.base.Member;
 
 public class LoginSignupActivity extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class LoginSignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_signup);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
+
+        //Member member = new Member();
 
         try {
             viewPager.setAdapter(new SignupLoginFragmentPageAdapter(getSupportFragmentManager(), LoginSignupActivity.this));

@@ -38,8 +38,10 @@ public class AddVideoDocumentActivity extends AppCompatActivity {
         imgGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK);
-                openGalleryIntent.setType("video/*");
+
+                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+//                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK);
+//                openGalleryIntent.setType("video/*");
                 startActivityForResult(openGalleryIntent, 1001);
 
             }

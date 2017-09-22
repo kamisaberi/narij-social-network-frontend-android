@@ -1,6 +1,12 @@
 package com.narij.narijsocialnetwork.retrofit;
 
-import com.narij.narijsocialnetwork.model.WebServiceMessage;
+import com.narij.narijsocialnetwork.model.base.Follow;
+import com.narij.narijsocialnetwork.model.retrofit.FollowsRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.FriendsRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
+
+import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -170,11 +176,8 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("member/get")
-    Call<WebServiceMessage> getMemberDetails(@Field("token") String token, @Field("memberId") long memberId);
+    Call<MemberRetrofitModel> getMemberDetails(@Field("token") String token, @Field("memberId") long memberId);
 
-    @FormUrlEncoded
-    @POST("members/suggestion")
-    Call<WebServiceMessage> getSuggestions(@Field("token") String token);
 
     @FormUrlEncoded
     @POST("logs/get/all")
@@ -194,12 +197,12 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("followers/get/list")
-    Call<WebServiceMessage> getFollowersList(@Field("token") String token, @Field("memberId") long memberId);
+    Call<FollowsRetrofitModel> getFollowersList(@Field("token") String token, @Field("memberId") long memberId);
 
 
     @FormUrlEncoded
     @POST("followings/get/list")
-    Call<WebServiceMessage> getFollowingsList(@Field("token") String token, @Field("memberId") long memberId);
+    Call<FollowsRetrofitModel> getFollowingsList(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
     @POST("followings/unfollow")
@@ -223,8 +226,15 @@ public interface APIInterface {
     @POST("comment/send/text")
     Call<WebServiceMessage> comment(@Field("token") String token, @Field("content") String content, @Field("parent") long parent, @Field("object") long object);
 
+
+
+    @FormUrlEncoded
+    @POST("members/suggestion")
+    Call<FriendsRetrofitModel> getSuggestions(@Field("token") String token);
+
+
     @FormUrlEncoded
     @POST("friends/search")
-    Call<WebServiceMessage> searchFriends(@Field("token") String token, @Field("text") String text);
+    Call<FriendsRetrofitModel> searchFriends(@Field("token") String token, @Field("text") String text);
 
 }

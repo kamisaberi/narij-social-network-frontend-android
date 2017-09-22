@@ -12,7 +12,7 @@
             android:id="@+id/imgViral"
             android:layout_width="match_parent"
             android:layout_height="255dp"
-            android:src="@drawable/viral" />
+            android:src="@drawable/viral_all" />
 
         <LinearLayout
             android:id="@+id/ln1"

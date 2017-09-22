@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,9 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.recycler.FriendListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.FriendSuggestionListRecyclerAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
-import com.narij.narijsocialnetwork.model.Member;
-import com.narij.narijsocialnetwork.model.WebServiceMessage;
+import com.narij.narijsocialnetwork.model.base.Member;
+import com.narij.narijsocialnetwork.model.retrofit.FriendsRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
@@ -56,15 +58,34 @@ public class FindFriendsFragment extends Fragment {
 
         rcSuggestion = (RecyclerView) view.findViewById(R.id.rcSuggestion);
 
-        FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter(new ArrayList<Member>(), getContext());
-        rcSuggestion.setAdapter(friendSuggestionListRecyclerAdapter);
-        rcSuggestion.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        Call<FriendsRetrofitModel> call = apiInterface.getSuggestions(Globals.token);
+        call.enqueue(new Callback<FriendsRetrofitModel>() {
+            @Override
+            public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {
+
+                ArrayList<Member> members = response.body().members;
+                WebServiceMessage message = response.body().message;
+
+                FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter(members, getContext());
+                rcSuggestion.setAdapter(friendSuggestionListRecyclerAdapter);
+                rcSuggestion.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+            }
+
+            @Override
+            public void onFailure(Call<FriendsRetrofitModel> call, Throwable t) {
+
+            }
+        });
+
 
         rcFriends = (RecyclerView) view.findViewById(R.id.rcFriends);
-        FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter(new ArrayList<Member>(), getContext());
+
+
+        ArrayList<Member> mmbrs = new ArrayList<>();
+        final FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter(mmbrs, getContext());
         rcFriends.setAdapter(friendListRecyclerAdapter);
         rcFriends.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         edtSearch = (EditText) view.findViewById(R.id.edtSearch);
 
@@ -82,19 +103,41 @@ public class FindFriendsFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
-                Call<WebServiceMessage> call = apiInterface.searchFriends(Globals.token, s.toString());
-                call.enqueue(new Callback<WebServiceMessage>() {
-                    @Override
-                    public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
+                if (s.toString().isEmpty()) {
+                    friendListRecyclerAdapter.friends.clear();
+                    friendListRecyclerAdapter.notifyDataSetChanged();
+                    return;
+                }
 
-                    }
+                try {
 
-                    @Override
-                    public void onFailure(Call<WebServiceMessage> call, Throwable t) {
+                    Log.d(Globals.LOG_TAG, s.toString());
 
-                    }
-                });
+                    Call<FriendsRetrofitModel> call = apiInterface.searchFriends(Globals.token, s.toString());
+                    call.enqueue(new Callback<FriendsRetrofitModel>() {
+                        @Override
+                        public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {
+                            ArrayList<Member> members = response.body().members;
+                            Log.d(Globals.LOG_TAG, "MEM SIZE :" + members.size());
+                            WebServiceMessage message = response.body().message;
 
+                            friendListRecyclerAdapter.friends.clear();
+                            friendListRecyclerAdapter.friends.addAll(members);
+                            friendListRecyclerAdapter.notifyDataSetChanged();
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<FriendsRetrofitModel> call, Throwable t) {
+
+                            Log.d(Globals.LOG_TAG, t.getMessage());
+
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.d(Globals.LOG_TAG, e.getMessage());
+                }
             }
         });
 

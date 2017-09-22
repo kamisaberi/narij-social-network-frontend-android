@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.model.WebServiceMessage;
+import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 

@@ -37,8 +37,9 @@ public class AddPhotoDocumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK);
-                openGalleryIntent.setType("image/*");
+                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK);
+//                openGalleryIntent.setType("image/*");
                 startActivityForResult(openGalleryIntent, 1001);
 
             }

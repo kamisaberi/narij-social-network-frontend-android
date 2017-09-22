@@ -10,9 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.adapter.recycler.FollowerListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.MessageListRecyclerAdapter;
-import com.narij.narijsocialnetwork.model.Member;
+import com.narij.narijsocialnetwork.model.base.Member;
 
 import java.util.ArrayList;
 

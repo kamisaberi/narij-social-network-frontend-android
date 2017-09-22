@@ -1,27 +1,55 @@
 package com.narij.narijsocialnetwork.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.recycler.FollowerListRecyclerAdapter;
-import com.narij.narijsocialnetwork.model.Member;
+import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.model.base.Follow;
+import com.narij.narijsocialnetwork.model.retrofit.FollowsRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
+import com.narij.narijsocialnetwork.retrofit.APIClient;
+import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressLint("ValidFragment")
 public class FollowersFragment extends Fragment {
 
+    APIInterface apiInterface;
+    private long memberId;
 
-    public FollowersFragment() {
+
+    public ArrayList<Follow> followers = new ArrayList<>();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
+
+    @SuppressLint("ValidFragment")
+    public FollowersFragment(long memberId) {
+        this.memberId = memberId;
         // Required empty public constructor
     }
 
@@ -29,11 +57,41 @@ public class FollowersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         View view = inflater.inflate(R.layout.fragment_followers, container, false);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rcFollowers);
-        FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(new ArrayList<Member>(), getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rcFollowers);
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<FollowsRetrofitModel> call = apiInterface.getFollowersList(Globals.token, memberId);
+
+        try {
+            call.enqueue(new Callback<FollowsRetrofitModel>() {
+                @Override
+                public void onResponse(Call<FollowsRetrofitModel> call, Response<FollowsRetrofitModel> response) {
+
+                    followers = response.body().follows;
+                    WebServiceMessage message = response.body().message;
+
+                    FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followers, getContext());
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+//                    for (Follow follow : followers) {
+//                        Log.d(Globals.LOG_TAG, follow.getMember().getMemberId() + " " + follow.getMember().getFullName() + " " + follow.getMember().getEmail());
+//                    }
+
+                    //Log.d(Globals.LOG_TAG, "FOLLOWERS SIZE : " + followers.size());
+                }
+
+                @Override
+                public void onFailure(Call<FollowsRetrofitModel> call, Throwable t) {
+                    Log.d(Globals.LOG_TAG, t.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            Log.d(Globals.LOG_TAG, e.getMessage());
+        }
 
 
         return view;

@@ -39,7 +39,7 @@
             android:layout_height="64dp"
             android:layout_below="@+id/txtLine1"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/frame_landscape" />
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_height="64dp"
             android:layout_below="@+id/txtLine1"
             android:layout_marginLeft="120dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_toEndOf="@+id/imgPhoto"
             android:src="@drawable/speaker_filled" />
 

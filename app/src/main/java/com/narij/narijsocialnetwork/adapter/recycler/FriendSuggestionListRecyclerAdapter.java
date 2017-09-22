@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.model.Member;
+import com.narij.narijsocialnetwork.model.base.Member;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.recycler_friend_item, parent, false);
+        View contactView = inflater.inflate(R.layout.recycler_friend_suggestion_horizontal_item, parent, false);
 
         // Return a new holder instance
         FriendSuggestionListRecyclerAdapter.ViewHolder viewHolder = new FriendSuggestionListRecyclerAdapter.ViewHolder(contactView);
@@ -55,7 +55,7 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
 
     @Override
     public int getItemCount() {
-        return 0;
+        return suggestions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

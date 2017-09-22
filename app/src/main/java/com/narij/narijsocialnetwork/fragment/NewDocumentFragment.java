@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.activity.AddAudioDocumentActivity;
+import com.narij.narijsocialnetwork.activity.AddDocumentDescriptionActivity;
 import com.narij.narijsocialnetwork.activity.AddPhotoDocumentActivity;
 import com.narij.narijsocialnetwork.activity.AddTextDocumentActivity;
 import com.narij.narijsocialnetwork.activity.AddVideoDocumentActivity;
@@ -42,7 +43,7 @@ public class NewDocumentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Globals.currentPostToSend.setMediaType(MediaType.TEXT);
-                Intent intent = new Intent(getContext(), AddTextDocumentActivity.class);
+                Intent intent = new Intent(getContext(), AddDocumentDescriptionActivity.class);
 //                intent.putExtra("type", "text");
                 startActivity(intent);
             }

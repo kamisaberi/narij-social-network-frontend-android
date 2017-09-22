@@ -1,6 +1,6 @@
 package com.narij.narijsocialnetwork.env;
 
-import com.narij.narijsocialnetwork.model.Post;
+import com.narij.narijsocialnetwork.model.base.Post;
 
 import java.io.File;
 

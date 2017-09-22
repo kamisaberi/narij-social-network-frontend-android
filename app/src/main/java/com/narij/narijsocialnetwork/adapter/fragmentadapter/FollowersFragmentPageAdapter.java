@@ -26,7 +26,7 @@ public class FollowersFragmentPageAdapter extends FragmentPagerAdapter {
     public FollowersFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new FollowersFragment());
+        mFragmentList.add(new FollowersFragment(0));
         mFragmentTitleList.add("New");
 
     }

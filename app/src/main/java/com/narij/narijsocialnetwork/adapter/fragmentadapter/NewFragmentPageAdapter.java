@@ -17,8 +17,10 @@ import java.util.List;
 public class NewFragmentPageAdapter extends FragmentPagerAdapter {
 
 
-    private final List<Fragment> mFragmentList = new ArrayList<>();
-    private final List<String> mFragmentTitleList = new ArrayList<>();
+    public  final List<Fragment> mFragmentList = new ArrayList<>();
+    public  final List<String> mFragmentTitleList = new ArrayList<>();
+
+
 
     final int PAGE_COUNT = 0;
     private Context context;

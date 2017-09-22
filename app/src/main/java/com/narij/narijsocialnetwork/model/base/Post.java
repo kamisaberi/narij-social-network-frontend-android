@@ -1,4 +1,4 @@
-package com.narij.narijsocialnetwork.model;
+package com.narij.narijsocialnetwork.model.base;
 
 import java.util.ArrayList;
 import java.util.Locale;
