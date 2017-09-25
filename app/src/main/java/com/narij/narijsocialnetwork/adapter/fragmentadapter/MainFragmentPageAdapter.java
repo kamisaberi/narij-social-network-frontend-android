@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 
+import com.narij.narijsocialnetwork.fragment.FollowersFragment;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +32,7 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
 //        if (fm.getFragments() != null) {
 //            fm.getFragments().clear();
 //        }
+
         this.context = context;
 
         List<Fragment> tfragments = fm.getFragments();
@@ -39,7 +42,7 @@ public class MainFragmentPageAdapter extends FragmentPagerAdapter {
                 ft.remove(f);
             }
 //            ft.commitAllowingStateLoss();
-            ft.commitNowAllowingStateLoss();
+            ft.commitNow();
         }
 
         mFragmentList.clear();

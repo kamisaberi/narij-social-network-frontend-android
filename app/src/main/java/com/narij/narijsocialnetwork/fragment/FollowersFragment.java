@@ -5,6 +5,8 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,20 +38,31 @@ public class FollowersFragment extends Fragment {
     APIInterface apiInterface;
     private long memberId;
 
+    ViewPager pager;
+    FragmentManager fragmentManager;
 
     public ArrayList<Follow> followers = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
 
     @SuppressLint("ValidFragment")
     public FollowersFragment(long memberId) {
         this.memberId = memberId;
+        Globals.stackedFragments.add(this);
+        // Required empty public constructor
+    }
+
+    @SuppressLint("ValidFragment")
+    public FollowersFragment(long memberId, ViewPager pager, FragmentManager fm) {
+        this.memberId = memberId;
+        this.pager = pager;
+        this.fragmentManager = fm;
+
+        Globals.stackedFragments.add(this);
         // Required empty public constructor
     }
 
@@ -73,7 +86,7 @@ public class FollowersFragment extends Fragment {
                     followers = response.body().follows;
                     WebServiceMessage message = response.body().message;
 
-                    FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followers, getContext());
+                    FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followers, getContext(), pager,fragmentManager);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

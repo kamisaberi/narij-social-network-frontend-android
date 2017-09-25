@@ -1,8 +1,12 @@
 package com.narij.narijsocialnetwork.env;
 
+import android.support.v4.app.Fragment;
+
 import com.narij.narijsocialnetwork.model.base.Post;
+import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by kami on 8/4/2017.
@@ -26,5 +30,8 @@ public class Globals {
 
     public static File selectedFileToUpload;
 
+    public static ArrayList<Fragment> stackedFragments = new ArrayList<>();
+
+    public static MemberRetrofitModel loggedInData = new MemberRetrofitModel();
 
 }

@@ -1,6 +1,8 @@
 package com.narij.narijsocialnetwork.adapter.recycler;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.model.base.Log;
 import com.narij.narijsocialnetwork.model.base.Member;
+import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +28,20 @@ public class LogSuggestionListRecyclerAdapter extends RecyclerView.Adapter<LogSu
     List<Member> suggestions = new ArrayList<>();
     Context context;
 
-    public LogSuggestionListRecyclerAdapter(List<Member> suggestions, Context context) {
+    APIInterface apiInterface;
+    ViewPager pager;
+    FragmentManager fragmentManager;
+
+    public LogSuggestionListRecyclerAdapter (List<Member> suggestions, Context context) {
         this.suggestions = suggestions;
         this.context = context;
+    }
+
+    public LogSuggestionListRecyclerAdapter (List<Member> suggestions, Context context, ViewPager pager, FragmentManager fragmentManager) {
+        this.suggestions = suggestions;
+        this.context = context;
+        this.fragmentManager = fragmentManager;
+        this.pager = pager;
     }
 
     @Override

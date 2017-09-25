@@ -1,12 +1,11 @@
 package com.narij.narijsocialnetwork.retrofit;
 
-import com.narij.narijsocialnetwork.model.base.Follow;
 import com.narij.narijsocialnetwork.model.retrofit.FollowsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.FriendsRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.LogsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.MessagesRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
-
-import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
 import retrofit2.Call;
@@ -105,7 +104,7 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("login")
-    Call<WebServiceMessage> login(@Field("phone") String phoneNumber, @Field("password") String password);
+    Call<MemberRetrofitModel> login(@Field("phone") String phoneNumber, @Field("password") String password);
 
     @FormUrlEncoded
     @POST("password/create")
@@ -181,7 +180,12 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("logs/get/all")
-    Call<WebServiceMessage> getEventLogs(@Field("token") String token);
+    Call<LogsRetrofitModel> getLogs(@Field("token") String token, @Field("memberId") long memberId);
+
+
+    @FormUrlEncoded
+    @POST("messages/get/all")
+    Call<MessagesRetrofitModel> getMessages(@Field("token") String token, @Field("memberId") long memberId);
 
     @FormUrlEncoded
     @POST("followers/get/requests")
@@ -225,7 +229,6 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("comment/send/text")
     Call<WebServiceMessage> comment(@Field("token") String token, @Field("content") String content, @Field("parent") long parent, @Field("object") long object);
-
 
 
     @FormUrlEncoded

@@ -26,7 +26,7 @@ public class ProfileFragmentPageAdapter extends FragmentPagerAdapter {
     public ProfileFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new ProfileFragment());
+        mFragmentList.add(new ProfileFragment(0));
         mFragmentTitleList.add("Profile");
 
     }

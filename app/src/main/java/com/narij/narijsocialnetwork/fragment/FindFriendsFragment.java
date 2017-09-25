@@ -1,8 +1,11 @@
 package com.narij.narijsocialnetwork.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -32,6 +35,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressLint("ValidFragment")
 public class FindFriendsFragment extends Fragment {
 
 
@@ -41,10 +45,24 @@ public class FindFriendsFragment extends Fragment {
 
     APIInterface apiInterface;
 
+    ViewPager pager;
+    FragmentManager fragmentManager;
+
 
     public FindFriendsFragment() {
         // Required empty public constructor
     }
+
+
+    @SuppressLint("ValidFragment")
+    public FindFriendsFragment(ViewPager pager, FragmentManager fm) {
+        this.pager = pager;
+        this.fragmentManager = fm;
+        Globals.stackedFragments.add(this);
+        // Required empty public constructor
+    }
+
+
 
 
     @Override
@@ -67,7 +85,7 @@ public class FindFriendsFragment extends Fragment {
                 ArrayList<Member> members = response.body().members;
                 WebServiceMessage message = response.body().message;
 
-                FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter(members, getContext());
+                FriendSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new FriendSuggestionListRecyclerAdapter(members, getContext(),pager,fragmentManager);
                 rcSuggestion.setAdapter(friendSuggestionListRecyclerAdapter);
                 rcSuggestion.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
             }
@@ -83,7 +101,7 @@ public class FindFriendsFragment extends Fragment {
 
 
         ArrayList<Member> mmbrs = new ArrayList<>();
-        final FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter(mmbrs, getContext());
+        final FriendListRecyclerAdapter friendListRecyclerAdapter = new FriendListRecyclerAdapter(mmbrs, getContext(),pager,fragmentManager);
         rcFriends.setAdapter(friendListRecyclerAdapter);
         rcFriends.setLayoutManager(new LinearLayoutManager(getContext()));
 

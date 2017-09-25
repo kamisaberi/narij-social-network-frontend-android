@@ -13,9 +13,15 @@ import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.FindFriendsFragment;
 import com.narij.narijsocialnetwork.fragment.FollowersFragment;
 import com.narij.narijsocialnetwork.fragment.FollowingFragment;
+import com.narij.narijsocialnetwork.fragment.LogsFragment;
+import com.narij.narijsocialnetwork.fragment.MessagesFragment;
 import com.narij.narijsocialnetwork.fragment.NewDocumentFragment;
-import com.narij.narijsocialnetwork.fragment.SignupFragment;
+import com.narij.narijsocialnetwork.fragment.ProfileFragment;
 import com.narij.narijsocialnetwork.fragment.ViralAllFragment;
+import com.narij.narijsocialnetwork.fragment.ViralArticlesFragment;
+import com.narij.narijsocialnetwork.fragment.ViralAudiosFragment;
+import com.narij.narijsocialnetwork.fragment.ViralPhotosFragment;
+import com.narij.narijsocialnetwork.fragment.ViralVideosFragment;
 
 import java.util.HashMap;
 
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         //pager.setCurrentItem(0);
 
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("VIRAL", new ViralAllFragment());
+                        fragmentHashMap.put("LOGS", new LogsFragment(0, pager, getSupportFragmentManager()));
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
@@ -74,11 +80,20 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         //pager.setCurrentItem(0);
 
+//                        fragmentHashMap = new HashMap<>();
+//                        fragmentHashMap.put("FRIENDS", new FindFriendsFragment(pager, getSupportFragmentManager()));
+//                        pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+//                        tabLayout.setupWithViewPager(pager);
+
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("FRIENDS", new FindFriendsFragment());
+                        fragmentHashMap.put("All", new ViralAllFragment());
+                        fragmentHashMap.put("Video", new ViralVideosFragment());
+                        fragmentHashMap.put("Photo", new ViralPhotosFragment());
+                        fragmentHashMap.put("Article", new ViralArticlesFragment());
+                        fragmentHashMap.put("Voice", new ViralAudiosFragment());
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
-                        //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
+
 
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         tab.setIcon(R.drawable.viral);
@@ -104,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         //pager.setCurrentItem(0);
 
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("FOLLOWINGS", new FollowingFragment(0));
+                        fragmentHashMap.put("FOLLOWINGS", new FollowingFragment(0, pager, getSupportFragmentManager()));
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
@@ -123,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 //                        NewFragmentPageAdapter adap = (NewFragmentPageAdapter) pager.getAdapter();
 //                        adap.mFragmentList.remove(0);
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("FOLLOWERS", new FollowersFragment(0));
+                        fragmentHashMap.put("PROFILE", new ProfileFragment(0, pager, getSupportFragmentManager()));
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
@@ -151,7 +166,59 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+
+        if (Globals.stackedFragments.size() > 0) {
+
+            if (Globals.stackedFragments.get(Globals.stackedFragments.size() - 1) instanceof FollowersFragment) {
+                HashMap<String, Fragment> fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("FOLLOWERS", new FollowersFragment(0, pager, getSupportFragmentManager()));
+                pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+
+                //pager.getAdapter().notifyDataSetChanged();
+                tabLayout.setupWithViewPager(pager);
+                Globals.stackedFragments.remove(Globals.stackedFragments.size() - 1);
+            } else if (Globals.stackedFragments.get(Globals.stackedFragments.size() - 1) instanceof FollowingFragment) {
+
+                HashMap<String, Fragment> fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("FOLLOWINGS", new FollowingFragment(0, pager, getSupportFragmentManager()));
+                pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+                //pager.getAdapter().notifyDataSetChanged();
+                tabLayout.setupWithViewPager(pager);
+                Globals.stackedFragments.remove(Globals.stackedFragments.size() - 1);
+            } else if (Globals.stackedFragments.get(Globals.stackedFragments.size() - 1) instanceof FindFriendsFragment) {
+
+                HashMap<String, Fragment> fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("FRIENDS", new FindFriendsFragment(pager, getSupportFragmentManager()));
+                pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+                //pager.getAdapter().notifyDataSetChanged();
+                tabLayout.setupWithViewPager(pager);
+
+            } else if (Globals.stackedFragments.get(Globals.stackedFragments.size() - 1) instanceof LogsFragment) {
+
+                HashMap<String, Fragment> fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("LOGS", new LogsFragment(0, pager, getSupportFragmentManager()));
+                pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+                //pager.getAdapter().notifyDataSetChanged();
+                tabLayout.setupWithViewPager(pager);
+            } else if (Globals.stackedFragments.get(Globals.stackedFragments.size() - 1) instanceof MessagesFragment) {
+
+                HashMap<String, Fragment> fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("MESSAGES", new MessagesFragment(0, pager, getSupportFragmentManager()));
+                pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+                //pager.getAdapter().notifyDataSetChanged();
+                tabLayout.setupWithViewPager(pager);
+            }
+
+
+        } else
+
+        {
+            super.onBackPressed();
+        }
 
     }
 }

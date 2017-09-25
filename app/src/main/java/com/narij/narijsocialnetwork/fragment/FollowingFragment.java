@@ -4,6 +4,8 @@ package com.narij.narijsocialnetwork.fragment;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,6 +39,9 @@ public class FollowingFragment extends Fragment {
 
     public ArrayList<Follow> followings = new ArrayList<>();
 
+    ViewPager pager;
+    FragmentManager fragmentManager;
+
 
     @SuppressLint("ValidFragment")
     public FollowingFragment(long memberId) {
@@ -44,6 +49,17 @@ public class FollowingFragment extends Fragment {
         this.memberId = memberId;
         // Required empty public constructor
     }
+
+    @SuppressLint("ValidFragment")
+    public FollowingFragment(long memberId, ViewPager pager, FragmentManager fm) {
+        this.memberId = memberId;
+        this.pager = pager;
+        this.fragmentManager = fm;
+
+        Globals.stackedFragments.add(this);
+        // Required empty public constructor
+    }
+
 
 
     @Override
@@ -65,7 +81,9 @@ public class FollowingFragment extends Fragment {
 
                 followings = response.body().follows;
                 WebServiceMessage message = response.body().message;
-                FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followings, getContext());
+//                FollowingListRecyclerAdapter adapter = new FollowingListRecyclerAdapter(followings, getContext());
+                FollowingListRecyclerAdapter adapter= new FollowingListRecyclerAdapter(followings, getContext(), pager,fragmentManager);
+
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

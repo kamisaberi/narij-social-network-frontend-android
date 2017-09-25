@@ -15,7 +15,7 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.activity.ForgotPasswordActivity;
 import com.narij.narijsocialnetwork.activity.MainActivity;
 import com.narij.narijsocialnetwork.env.Globals;
-import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
+import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
@@ -67,20 +67,20 @@ public class LoginFragment extends Fragment {
 
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString());
-                call.enqueue(new Callback<WebServiceMessage>() {
+                Call<MemberRetrofitModel> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString());
+                call.enqueue(new Callback<MemberRetrofitModel>() {
                     @Override
-                    public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
+                    public void onResponse(Call<MemberRetrofitModel> call, Response<MemberRetrofitModel> response) {
 
-                        WebServiceMessage webServiceMessage = response.body();
+                        Globals.loggedInData = response.body();
 
 
-                        Log.d(Globals.LOG_TAG, webServiceMessage.getMessage());
+                        Log.d(Globals.LOG_TAG, Globals.loggedInData.message.getMessage());
 
-                        if (webServiceMessage.isError()) {
+                        if (Globals.loggedInData.message.isError()) {
 
                         } else {
-                            Globals.token = webServiceMessage.getMessage().trim();
+                            Globals.token = Globals.loggedInData.message.getMessage().trim();
                             Intent intent = new Intent(getContext(), MainActivity.class);
                             startActivity(intent);
                             getActivity().finish();
@@ -88,7 +88,7 @@ public class LoginFragment extends Fragment {
                     }
 
                     @Override
-                    public void onFailure(Call<WebServiceMessage> call, Throwable t) {
+                    public void onFailure(Call<MemberRetrofitModel> call, Throwable t) {
 
                     }
                 });
