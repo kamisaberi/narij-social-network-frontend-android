@@ -4,15 +4,15 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.base.Message;
-import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
 import java.util.ArrayList;
@@ -34,12 +34,12 @@ public class MessagingListRecyclerAdapter extends RecyclerView.Adapter<Messaging
 
 
     public MessagingListRecyclerAdapter(List<Message> messages, Context context) {
-        this.messages= messages;
+        this.messages = messages;
         this.context = context;
     }
 
     public MessagingListRecyclerAdapter(List<Message> messages, Context context, ViewPager pager, FragmentManager fragmentManager) {
-        this.messages= messages;
+        this.messages = messages;
         this.context = context;
         this.fragmentManager = fragmentManager;
         this.pager = pager;
@@ -61,27 +61,13 @@ public class MessagingListRecyclerAdapter extends RecyclerView.Adapter<Messaging
     public void onBindViewHolder(MessagingListRecyclerAdapter.ViewHolder holder, int position) {
         Message message = messages.get(position);
         // Set item views based on your views and data model
-        ImageView imgProfile = holder.imgProfile;
-        TextView txtName = holder.txtName;
-        txtName.setText(message.getMember().getFullName());
+        TextView txtMessage = holder.txtName;
+        txtMessage.setText(message.getContent());
 
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        imgProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                HashMap<String, Fragment> fragmentHashMap;
-//                fragmentHashMap = new HashMap<>();
-//                fragmentHashMap.put("FOLLOWERS", new ProfileFragment(0));
-//                pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
-
-            }
-        });
-
-
-
-
-
+        if (message.getMember().getMemberId() == Globals.loggedInData.member.getMemberId())
+            txtMessage.setGravity(Gravity.RIGHT);
+        else
+            txtMessage.setGravity(Gravity.LEFT);
 
     }
 
@@ -93,14 +79,12 @@ public class MessagingListRecyclerAdapter extends RecyclerView.Adapter<Messaging
     public class ViewHolder extends RecyclerView.ViewHolder {
 
 
-        ImageView imgProfile;
         TextView txtName;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imgProfile = (ImageView) itemView.findViewById(R.id.imgProfile);
-            txtName = (TextView) itemView.findViewById(R.id.txtName);
+            txtName = (TextView) itemView.findViewById(R.id.txtMessage);
         }
     }
 

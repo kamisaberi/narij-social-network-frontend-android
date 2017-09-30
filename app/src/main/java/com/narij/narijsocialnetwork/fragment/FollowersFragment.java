@@ -76,6 +76,8 @@ public class FollowersFragment extends Fragment {
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rcFollowers);
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
+        Log.d(Globals.LOG_TAG, "f s m : " + memberId);
+        Log.d(Globals.LOG_TAG, Globals.token);
         Call<FollowsRetrofitModel> call = apiInterface.getFollowersList(Globals.token, memberId);
 
         try {
@@ -84,9 +86,12 @@ public class FollowersFragment extends Fragment {
                 public void onResponse(Call<FollowsRetrofitModel> call, Response<FollowsRetrofitModel> response) {
 
                     followers = response.body().follows;
-                    WebServiceMessage message = response.body().message;
 
-                    FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followers, getContext(), pager,fragmentManager);
+
+                    Log.d(Globals.LOG_TAG, "f s :" + followers.size());
+                    WebServiceMessage message = response.body().message;
+                    Log.d(Globals.LOG_TAG, message.getMessage());
+                    FollowerListRecyclerAdapter adapter = new FollowerListRecyclerAdapter(followers, getContext(), pager, fragmentManager);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Light Theme -->
+	<color name="colorPrimary_light">#673ab7</color><!-- Deep Purple 500 -->
+	<color name="colorPrimaryDark_light">#512da8</color><!-- Deep Purple 700 -->
+	<color name="colorAccent_light">#ff4081</color><!-- Pink A200 -->
+	<color name="colorPrimaryText_light">#de000000</color>
+
+
+</resources>

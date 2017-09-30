@@ -5,6 +5,7 @@ import com.narij.narijsocialnetwork.model.retrofit.FriendsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.LogsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.MessagesRetrofitModel;
+import com.narij.narijsocialnetwork.model.retrofit.PostsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 
 import okhttp3.MultipartBody;
@@ -169,6 +170,12 @@ public interface APIInterface {
     Call<WebServiceMessage> getViral(@Field("token") String token);
 
     @FormUrlEncoded
+    @POST("posts/get/all")
+    Call<PostsRetrofitModel> getPosts(@Field("token") String token);
+
+
+
+    @FormUrlEncoded
     @POST("post/share")
     Call<WebServiceMessage> share(@Field("token") String token, @Field("receiver") long receiver, @Field("post") long post);
 
@@ -186,6 +193,13 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("messages/get/all")
     Call<MessagesRetrofitModel> getMessages(@Field("token") String token, @Field("memberId") long memberId);
+
+
+    @FormUrlEncoded
+    @POST("messages/get/conversation")
+    Call<MessagesRetrofitModel> getConversation(@Field("token") String token, @Field("memberId") long memberId);
+
+
 
     @FormUrlEncoded
     @POST("followers/get/requests")

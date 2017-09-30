@@ -28,11 +28,11 @@ public class LogsMessagesFragmentPageAdapter extends FragmentPagerAdapter {
     public LogsMessagesFragmentPageAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
-        mFragmentList.add(new LogsFragment());
-        mFragmentList.add(new MessagesFragment());
-
-        mFragmentTitleList.add("Logs");
-        mFragmentTitleList.add("Messages");
+//        mFragmentList.add(new LogsFragment());
+//        mFragmentList.add(new MessagesFragment());
+//
+//        mFragmentTitleList.add("Logs");
+//        mFragmentTitleList.add("Messages");
 
     }
 

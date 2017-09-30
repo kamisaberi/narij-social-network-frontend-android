@@ -6,10 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.flexibleadapter.fragments.FragmentInstagramHeaders;
 import com.narij.narijsocialnetwork.fragment.FindFriendsFragment;
 import com.narij.narijsocialnetwork.fragment.FollowersFragment;
 import com.narij.narijsocialnetwork.fragment.FollowingFragment;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout bottombar;
 
+    HashMap<String, Fragment> fragmentHashMap;
 
     TabLayout tabLayout;
     ViewPager pager;
@@ -44,6 +47,21 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         pager = (ViewPager) findViewById(R.id.pager);
         //pager.setOffscreenPageLimit(0);
+
+
+        fragmentHashMap = new HashMap<>();
+        fragmentHashMap.put("Timeline", FragmentInstagramHeaders.newInstance());
+        pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
+        //pager.getAdapter().notifyDataSetChanged();
+
+
+        tabLayout.setupWithViewPager(pager);
+
+        if (fragmentHashMap.size() > 1)
+            tabLayout.setVisibility(View.VISIBLE);
+        else
+            tabLayout.setVisibility(View.GONE);
+
 
         bottombar = (TabLayout) findViewById(R.id.bottombar);
 
@@ -58,18 +76,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
-                HashMap<String, Fragment> fragmentHashMap;
+//                HashMap<String, Fragment> fragmentHashMap;
                 switch (tab.getPosition()) {
 
                     case 0:
 
                         //pager.setCurrentItem(0);
-
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("LOGS", new LogsFragment(0, pager, getSupportFragmentManager()));
+                        fragmentHashMap.put("Timeline", FragmentInstagramHeaders.newInstance());
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
+
+
                         tabLayout.setupWithViewPager(pager);
+
+                        if (fragmentHashMap.size() > 1)
+                            tabLayout.setVisibility(View.VISIBLE);
+                        else
+                            tabLayout.setVisibility(View.GONE);
+
+
 
                         tab.setIcon(R.drawable.clock_circular_outline);
                         bottombar.getTabAt(1).setIcon(R.drawable.viral_hint);
@@ -93,6 +119,10 @@ public class MainActivity extends AppCompatActivity {
                         fragmentHashMap.put("Voice", new ViralAudiosFragment());
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         tabLayout.setupWithViewPager(pager);
+                        if (fragmentHashMap.size() > 1)
+                            tabLayout.setVisibility(View.VISIBLE);
+                        else
+                            tabLayout.setVisibility(View.GONE);
 
 
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
@@ -105,9 +135,14 @@ public class MainActivity extends AppCompatActivity {
                         //pager.setCurrentItem(0);
 
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("NEW", new NewDocumentFragment());
+                        fragmentHashMap.put("New", new NewDocumentFragment());
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         tabLayout.setupWithViewPager(pager);
+                        if (fragmentHashMap.size() > 1)
+                            tabLayout.setVisibility(View.VISIBLE);
+                        else
+                            tabLayout.setVisibility(View.GONE);
+
                         //pager.getAdapter().notifyDataSetChanged();
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         bottombar.getTabAt(1).setIcon(R.drawable.viral_hint);
@@ -119,10 +154,19 @@ public class MainActivity extends AppCompatActivity {
                         //pager.setCurrentItem(0);
 
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("FOLLOWINGS", new FollowingFragment(0, pager, getSupportFragmentManager()));
+//                        fragmentHashMap.put("Logs", new LogsFragment(0, pager, getSupportFragmentManager()));
+//                        fragmentHashMap.put("Messages", new MessagesFragment(0, pager, getSupportFragmentManager()));
+
+
+                        fragmentHashMap.put("Followers", new FollowersFragment(0,pager,getSupportFragmentManager()));
+
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
+                        if (fragmentHashMap.size() > 1)
+                            tabLayout.setVisibility(View.VISIBLE);
+                        else
+                            tabLayout.setVisibility(View.GONE);
 
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         bottombar.getTabAt(1).setIcon(R.drawable.viral_hint);
@@ -138,10 +182,14 @@ public class MainActivity extends AppCompatActivity {
 //                        NewFragmentPageAdapter adap = (NewFragmentPageAdapter) pager.getAdapter();
 //                        adap.mFragmentList.remove(0);
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("PROFILE", new ProfileFragment(0, pager, getSupportFragmentManager()));
+                        fragmentHashMap.put("Profile", new ProfileFragment(0, pager, getSupportFragmentManager()));
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
                         tabLayout.setupWithViewPager(pager);
+                        if (fragmentHashMap.size() > 1)
+                            tabLayout.setVisibility(View.VISIBLE);
+                        else
+                            tabLayout.setVisibility(View.GONE);
 
                         Log.d(Globals.LOG_TAG, "44444");
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);

@@ -1,5 +1,7 @@
 package com.narij.narijsocialnetwork.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -8,14 +10,32 @@ import java.util.Locale;
  */
 
 public class Post {
+    @SerializedName("postId")
     private long postId;
+    @SerializedName("mediaType")
     private com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType;
+    @SerializedName("createTime")
     private Locale createTime;
+    @SerializedName("editTime")
     private Locale editTime;
+    @SerializedName("deleteTime")
     private Locale deleteTime;
+    @SerializedName("deleted")
     private boolean deleted;
+    @SerializedName("postCategory")
     private PostCategory postCategory;
+    @SerializedName("properties ")
     private ArrayList<Property> properties = new ArrayList<>();
+    @SerializedName("member")
+    private  Member member = new Member();
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public Post() {
         this.properties = new ArrayList<>();
