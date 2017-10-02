@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.adapter.recycler;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -17,7 +18,6 @@ import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdap
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
 import com.narij.narijsocialnetwork.model.base.Follow;
-import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
@@ -147,8 +147,10 @@ public class FollowingListRecyclerAdapter extends RecyclerView.Adapter<Following
             super(itemView);
             imgMenu = (ImageView) itemView.findViewById(R.id.imgMenu);
             imgProfile = (ImageView) itemView.findViewById(R.id.imgProfile);
-            txtName = (TextView) itemView.findViewById(R.id.txtName);
+            txtName = (TextView) itemView.findViewById(R.id.txtFullName);
+            txtName.setTypeface(Globals.typeface, Typeface.NORMAL);
             btnFollow = (Button) itemView.findViewById(R.id.btnFollow);
+            btnFollow.setTypeface(Globals.typeface, Typeface.NORMAL);
         }
     }
 

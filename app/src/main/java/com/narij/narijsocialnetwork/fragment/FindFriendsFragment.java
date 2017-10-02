@@ -2,6 +2,7 @@ package com.narij.narijsocialnetwork.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -106,7 +107,7 @@ public class FindFriendsFragment extends Fragment {
         rcFriends.setLayoutManager(new LinearLayoutManager(getContext()));
 
         edtSearch = (EditText) view.findViewById(R.id.edtSearch);
-
+        edtSearch.setTypeface(Globals.typeface, Typeface.NORMAL);
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,10 @@ import android.widget.Toast;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.ProgressItem;
 import com.narij.narijsocialnetwork.flexibleadapter.services.DatabaseService;
 import com.narij.narijsocialnetwork.model.base.Post;
-import com.narij.narijsocialnetwork.model.enumeration.MediaType;
 import com.narij.narijsocialnetwork.model.flexible.AudioPostItem;
 import com.narij.narijsocialnetwork.model.flexible.PhotoPostItem;
 import com.narij.narijsocialnetwork.model.flexible.TextPostItem;
@@ -51,7 +52,6 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
     ArrayList<Post> posts = new ArrayList<>();
 
 
-
     public TimelineFragment() {
         // Required empty public constructor
     }
@@ -81,17 +81,20 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
                 List<AbstractFlexibleItem> mItems = new ArrayList<>();
                 for (Post post : posts) {
                     TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+//                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
+                    //Log.d(Globals.LOG_TAG, "H" + post.getPostId());
+
                     AbstractFlexibleItem absItem = null;
                     if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
                         absItem = new TextPostItem(post, header);
                         mItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE) ) {
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
                         absItem = new PhotoPostItem(post, header);
                         mItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO) ) {
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
                         absItem = new AudioPostItem(post, header);
                         mItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO) ) {
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
                         absItem = new VideoPostItem(post, header);
                         mItems.add(absItem);
                     }
@@ -111,7 +114,7 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
                 mAdapter.setDisplayHeadersAtStartUp(true) //Show Headers at startUp!
                         .setStickyHeaders(true) //Make headers sticky
                         .setEndlessScrollListener(TimelineFragment.this, new ProgressItem())
-                        .setEndlessScrollThreshold(10); //Default=1
+                        .setEndlessScrollThreshold(1); //Default=1
 
             }
 
@@ -141,56 +144,55 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
     public void onLoadMore(int lastPosition, int currentPage) {
 
 
-        final List<AbstractFlexibleItem> newItems = new ArrayList<>();
+//        final List<AbstractFlexibleItem> newItems = new ArrayList<>();
+//        Call<PostsRetrofitModel> call = apiInterface.getPosts(Globals.token);
+//        call.enqueue(new Callback<PostsRetrofitModel>() {
+//            @Override
+//            public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
+//
+//                ArrayList<Post> newPosts = new ArrayList<>();
+//                newPosts = response.body().posts;
+//
+//                for (Post post : newPosts) {
+//                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+////                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
+//                    AbstractFlexibleItem absItem = null;
+//                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
+//                        absItem = new TextPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
+//                        absItem = new PhotoPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
+//                        absItem = new AudioPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
+//                        absItem = new VideoPostItem(post, header);
+//                        newItems.add(absItem);
+//                    }
+//                }
+//
+//                mAdapter.onLoadMoreComplete(newItems);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PostsRetrofitModel> call, Throwable t) {
+//
+//            }
+//        });
+//
 
-
-        Call<PostsRetrofitModel> call = apiInterface.getPosts(Globals.token);
-        call.enqueue(new Callback<PostsRetrofitModel>() {
-            @Override
-            public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
-
-                ArrayList<Post> newPosts = new ArrayList<>();
-                newPosts = response.body().posts;
-
-                for (Post post : newPosts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
-                    AbstractFlexibleItem absItem = null;
-                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
-                        absItem = new TextPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
-                        absItem = new PhotoPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
-                        absItem = new AudioPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
-                        absItem = new VideoPostItem(post, header);
-                        newItems.add(absItem);
-                    }
-                }
-
-                mAdapter.onLoadMoreComplete(newItems);
-            }
-
-            @Override
-            public void onFailure(Call<PostsRetrofitModel> call, Throwable t) {
-
-            }
-        });
-
-
-        int totalItemsOfType = mAdapter.getItemCountOfTypes(R.layout.recycler_instagram_item);
-        for (int i = 1; i <= 3; i++) {
-            newItems.add(DatabaseService.newInstagramItem(totalItemsOfType + i));
-        }
-
-
-        if (getActivity() != null && newItems.size() > 0) {
-            Toast.makeText(getActivity(),
-                    "Fetched " + newItems.size() + " new items",
-                    Toast.LENGTH_SHORT).show();
-        }
+//        int totalItemsOfType = mAdapter.getItemCountOfTypes(R.layout.recycler_instagram_item);
+//        for (int i = 1; i <= 3; i++) {
+//            newItems.add(DatabaseService.newInstagramItem(totalItemsOfType + i));
+//        }
+//
+//
+//        if (getActivity() != null && newItems.size() > 0) {
+//            Toast.makeText(getActivity(),
+//                    "Fetched " + newItems.size() + " new items",
+//                    Toast.LENGTH_SHORT).show();
+//        }
     }
 
 }

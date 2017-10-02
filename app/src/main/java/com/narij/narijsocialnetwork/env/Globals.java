@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.env;
 
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 
 import com.narij.narijsocialnetwork.model.base.Post;
@@ -21,6 +22,10 @@ public class Globals {
     public static final String PREF_TOKEN_KEY = "token";
 
     public static String token = "";
+
+
+    public static  Typeface typeface;
+    public final static String LATO_MEDIUM_FONT = "fonts/Lato-Medium.ttf";
 
 
     public static Post currentPostToSend = new Post();

@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.adapter.recycler;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -85,6 +86,7 @@ public class MessagingListRecyclerAdapter extends RecyclerView.Adapter<Messaging
         public ViewHolder(View itemView) {
             super(itemView);
             txtName = (TextView) itemView.findViewById(R.id.txtMessage);
+            txtName.setTypeface(Globals.typeface, Typeface.NORMAL);
         }
     }
 

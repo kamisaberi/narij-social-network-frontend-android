@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,8 +30,11 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_document_description);
 
         final EditText edtTitle = (EditText) findViewById(R.id.edtTitle);
+        edtTitle.setTypeface(Globals.typeface, Typeface.NORMAL);
         final EditText edtContent = (EditText) findViewById(R.id.edtContent);
+        edtContent.setTypeface(Globals.typeface, Typeface.NORMAL);
         final EditText edtTags = (EditText) findViewById(R.id.edtTags);
+        edtTags.setTypeface(Globals.typeface, Typeface.NORMAL);
 
         if (Globals.DEBUG_MODE) {
             edtTitle.setText("T1");
@@ -42,6 +46,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

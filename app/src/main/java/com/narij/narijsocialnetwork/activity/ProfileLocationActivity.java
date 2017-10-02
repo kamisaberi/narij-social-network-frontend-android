@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,9 @@ public class ProfileLocationActivity extends AppCompatActivity {
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
         final EditText edtLocation = (EditText) findViewById(R.id.edtLocation);
+        edtLocation.setTypeface(Globals.typeface, Typeface.NORMAL);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomTextFont(Globals.LATO_MEDIUM_FONT);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

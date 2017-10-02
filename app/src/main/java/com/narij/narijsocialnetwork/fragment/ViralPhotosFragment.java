@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.env.MediaType;
+import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.ProgressItem;
 import com.narij.narijsocialnetwork.flexibleadapter.services.DatabaseService;
 import com.narij.narijsocialnetwork.model.base.Post;
@@ -79,6 +80,7 @@ public class ViralPhotosFragment extends Fragment implements FlexibleAdapter.End
                 List<AbstractFlexibleItem> mItems = new ArrayList<>();
                 for (Post post : posts) {
                     TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+//                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     AbstractFlexibleItem absItem = null;
                     if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
                         absItem = new TextPostItem(post, header);
@@ -150,6 +152,7 @@ public class ViralPhotosFragment extends Fragment implements FlexibleAdapter.End
 
                 for (Post post : newPosts) {
                     TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+//                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     AbstractFlexibleItem absItem = null;
                     if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
                         absItem = new TextPostItem(post, header);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -48,6 +49,7 @@ public class AddVideoDocumentActivity extends AppCompatActivity {
         });
 
         FancyButton btnNext = (FancyButton) findViewById(R.id.btnNext);
+        btnNext.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

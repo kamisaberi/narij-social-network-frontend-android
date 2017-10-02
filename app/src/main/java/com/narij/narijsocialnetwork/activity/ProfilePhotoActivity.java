@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -36,7 +37,9 @@ public class ProfilePhotoActivity extends AppCompatActivity {
         getActionBar().setTitle("Photo");
         apiInterface = APIClient.getClient().create(APIInterface.class);
         final EditText edtPhoto = (EditText) findViewById(R.id.edtPhoto);
+        edtPhoto.setTypeface(Globals.typeface, Typeface.NORMAL);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomTextFont(Globals.LATO_MEDIUM_FONT);
 
         phone = getIntent().getStringExtra("phone");
         final ProgressBar prgLoading = (ProgressBar) findViewById(R.id.prgLoading);

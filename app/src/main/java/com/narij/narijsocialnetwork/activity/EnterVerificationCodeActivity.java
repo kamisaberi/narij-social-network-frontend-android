@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -43,9 +44,11 @@ public class EnterVerificationCodeActivity extends AppCompatActivity {
         final ProgressBar prgLoading = (ProgressBar) findViewById(R.id.prgLoading);
 
         edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
+        edtVerificationCode.setTypeface(Globals.typeface, Typeface.NORMAL);
         apiInterface = APIClient.getClient().create(APIInterface.class);
         //final EditText edtVerificationCode = (EditText) findViewById(R.id.edtVerificationCode);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

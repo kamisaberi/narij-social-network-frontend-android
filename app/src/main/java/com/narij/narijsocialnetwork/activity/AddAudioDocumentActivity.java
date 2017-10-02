@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -49,6 +50,7 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
 
 
         FancyButton btnNext = (FancyButton) findViewById(R.id.btnNext);
+        btnNext.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

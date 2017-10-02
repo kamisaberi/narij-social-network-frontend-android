@@ -6,8 +6,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramItem;
 import com.narij.narijsocialnetwork.model.base.Post;
+import com.narij.narijsocialnetwork.model.temp.VideoPost;
 
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class VideoPostItem extends AbstractSectionableItem<VideoPostItem.ViewHol
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof InstagramItem) {
+        if (o instanceof VideoPostItem) {
             VideoPostItem item = (VideoPostItem) o;
             return this.post.getPostId() == (item.post.getPostId());
         }

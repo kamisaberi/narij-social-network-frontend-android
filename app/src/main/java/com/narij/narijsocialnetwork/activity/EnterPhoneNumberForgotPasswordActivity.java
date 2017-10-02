@@ -1,12 +1,14 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
@@ -29,7 +31,9 @@ public class EnterPhoneNumberForgotPasswordActivity extends AppCompatActivity {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         final EditText edtPhoneNumber = (EditText) findViewById(R.id.edtPhoneNumber);
+        edtPhoneNumber.setTypeface(Globals.typeface, Typeface.NORMAL);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

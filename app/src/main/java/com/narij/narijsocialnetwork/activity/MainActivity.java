@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -7,11 +8,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
-import com.narij.narijsocialnetwork.flexibleadapter.fragments.FragmentInstagramHeaders;
 import com.narij.narijsocialnetwork.fragment.FindFriendsFragment;
 import com.narij.narijsocialnetwork.fragment.FollowersFragment;
 import com.narij.narijsocialnetwork.fragment.FollowingFragment;
@@ -19,6 +21,7 @@ import com.narij.narijsocialnetwork.fragment.LogsFragment;
 import com.narij.narijsocialnetwork.fragment.MessagesFragment;
 import com.narij.narijsocialnetwork.fragment.NewDocumentFragment;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.fragment.TimelineFragment;
 import com.narij.narijsocialnetwork.fragment.ViralAllFragment;
 import com.narij.narijsocialnetwork.fragment.ViralArticlesFragment;
 import com.narij.narijsocialnetwork.fragment.ViralAudiosFragment;
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         fragmentHashMap = new HashMap<>();
-        fragmentHashMap.put("Timeline", FragmentInstagramHeaders.newInstance());
+        fragmentHashMap.put("Timeline", new TimelineFragment());
         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
         //pager.getAdapter().notifyDataSetChanged();
 
@@ -72,10 +75,26 @@ public class MainActivity extends AppCompatActivity {
         bottombar.addTab(bottombar.newTab().setIcon(R.drawable.user_shape_hint));
 
 
+        ViewGroup vg = (ViewGroup) bottombar.getChildAt(0);
+        int tabsCount = vg.getChildCount();
+        for (int j = 0; j < tabsCount; j++) {
+            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+            int tabChildsCount = vgTab.getChildCount();
+            for (int i = 0; i < tabChildsCount; i++) {
+                View tabViewChild = vgTab.getChildAt(i);
+                if (tabViewChild instanceof TextView) {
+                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                }
+            }
+        }
+
+
         bottombar.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
+                int tabsCount = 0;
+                ViewGroup vg;
 //                HashMap<String, Fragment> fragmentHashMap;
                 switch (tab.getPosition()) {
 
@@ -83,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //pager.setCurrentItem(0);
                         fragmentHashMap = new HashMap<>();
-                        fragmentHashMap.put("Timeline", FragmentInstagramHeaders.newInstance());
+                        fragmentHashMap.put("Timeline", new TimelineFragment());
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
 
@@ -95,6 +114,18 @@ public class MainActivity extends AppCompatActivity {
                         else
                             tabLayout.setVisibility(View.GONE);
 
+                        vg = (ViewGroup) tabLayout.getChildAt(0);
+                        tabsCount = vg.getChildCount();
+                        for (int j = 0; j < tabsCount; j++) {
+                            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+                            int tabChildsCount = vgTab.getChildCount();
+                            for (int i = 0; i < tabChildsCount; i++) {
+                                View tabViewChild = vgTab.getChildAt(i);
+                                if (tabViewChild instanceof TextView) {
+                                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                                }
+                            }
+                        }
 
 
                         tab.setIcon(R.drawable.clock_circular_outline);
@@ -124,6 +155,19 @@ public class MainActivity extends AppCompatActivity {
                         else
                             tabLayout.setVisibility(View.GONE);
 
+                        vg = (ViewGroup) tabLayout.getChildAt(0);
+                        tabsCount = vg.getChildCount();
+                        for (int j = 0; j < tabsCount; j++) {
+                            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+                            int tabChildsCount = vgTab.getChildCount();
+                            for (int i = 0; i < tabChildsCount; i++) {
+                                View tabViewChild = vgTab.getChildAt(i);
+                                if (tabViewChild instanceof TextView) {
+                                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                                }
+                            }
+                        }
+
 
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         tab.setIcon(R.drawable.viral);
@@ -143,6 +187,19 @@ public class MainActivity extends AppCompatActivity {
                         else
                             tabLayout.setVisibility(View.GONE);
 
+                        vg = (ViewGroup) tabLayout.getChildAt(0);
+                        tabsCount = vg.getChildCount();
+                        for (int j = 0; j < tabsCount; j++) {
+                            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+                            int tabChildsCount = vgTab.getChildCount();
+                            for (int i = 0; i < tabChildsCount; i++) {
+                                View tabViewChild = vgTab.getChildAt(i);
+                                if (tabViewChild instanceof TextView) {
+                                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                                }
+                            }
+                        }
+
                         //pager.getAdapter().notifyDataSetChanged();
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         bottombar.getTabAt(1).setIcon(R.drawable.viral_hint);
@@ -158,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
 //                        fragmentHashMap.put("Messages", new MessagesFragment(0, pager, getSupportFragmentManager()));
 
 
-                        fragmentHashMap.put("Followers", new FollowersFragment(0,pager,getSupportFragmentManager()));
+                        fragmentHashMap.put("Followers", new FollowersFragment(0, pager, getSupportFragmentManager()));
 
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();
@@ -167,6 +224,19 @@ public class MainActivity extends AppCompatActivity {
                             tabLayout.setVisibility(View.VISIBLE);
                         else
                             tabLayout.setVisibility(View.GONE);
+
+                        vg = (ViewGroup) tabLayout.getChildAt(0);
+                        tabsCount = vg.getChildCount();
+                        for (int j = 0; j < tabsCount; j++) {
+                            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+                            int tabChildsCount = vgTab.getChildCount();
+                            for (int i = 0; i < tabChildsCount; i++) {
+                                View tabViewChild = vgTab.getChildAt(i);
+                                if (tabViewChild instanceof TextView) {
+                                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                                }
+                            }
+                        }
 
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);
                         bottombar.getTabAt(1).setIcon(R.drawable.viral_hint);
@@ -190,6 +260,19 @@ public class MainActivity extends AppCompatActivity {
                             tabLayout.setVisibility(View.VISIBLE);
                         else
                             tabLayout.setVisibility(View.GONE);
+
+                        vg = (ViewGroup) tabLayout.getChildAt(0);
+                        tabsCount = vg.getChildCount();
+                        for (int j = 0; j < tabsCount; j++) {
+                            ViewGroup vgTab = (ViewGroup) vg.getChildAt(j);
+                            int tabChildsCount = vgTab.getChildCount();
+                            for (int i = 0; i < tabChildsCount; i++) {
+                                View tabViewChild = vgTab.getChildAt(i);
+                                if (tabViewChild instanceof TextView) {
+                                    ((TextView) tabViewChild).setTypeface(Globals.typeface, Typeface.NORMAL);
+                                }
+                            }
+                        }
 
                         Log.d(Globals.LOG_TAG, "44444");
                         bottombar.getTabAt(0).setIcon(R.drawable.clock_circular_outline_hint);

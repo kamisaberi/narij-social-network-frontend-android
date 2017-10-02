@@ -79,4 +79,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
 
+
+
+    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+
 }

@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,9 +30,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         final EditText edtOldPassword = (EditText) findViewById(R.id.edtOldPassword);
+        edtOldPassword.setTypeface(Globals.typeface, Typeface.NORMAL);
         final EditText edtNewPassword = (EditText) findViewById(R.id.edtNewPassword);
+        edtNewPassword.setTypeface(Globals.typeface, Typeface.NORMAL);
         final EditText edtConfirmNewPassword = (EditText) findViewById(R.id.edtConfirmNewPassword);
+        edtConfirmNewPassword.setTypeface(Globals.typeface, Typeface.NORMAL);
         Button btnSend = (Button) findViewById(R.id.btnSend);
+        btnSend.setTypeface(Globals.typeface, Typeface.NORMAL);
 
 
         btnSend.setOnClickListener(new View.OnClickListener() {

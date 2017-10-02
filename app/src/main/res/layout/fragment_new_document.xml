@@ -65,7 +65,7 @@
             android:src="@drawable/speaker_filled" />
 
         <TextView
-            android:id="@+id/txtVoice"
+            android:id="@+id/txtAudio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgAudio"
@@ -125,7 +125,7 @@
             android:src="@drawable/text_file" />
 
         <TextView
-            android:id="@+id/txttext"
+            android:id="@+id/txtText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imgText"

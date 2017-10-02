@@ -16,7 +16,7 @@
         android:src="@drawable/camera" />
 
     <TextView
-        android:id="@+id/txtName"
+        android:id="@+id/txtFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgProfile"
@@ -30,7 +30,7 @@
         android:id="@+id/txtLine1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtName"
+        android:layout_below="@+id/txtFullName"
         android:layout_marginTop="30dp"
         android:text="___________________________________________________" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/imgPublic"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_alignStart="@+id/txtTitle1"
+        android:layout_alignStart="@+id/txtPublic"
         android:layout_below="@+id/txtLine1"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="12dp"
@@ -46,7 +46,7 @@
         android:src="@drawable/eye_open" />
 
     <TextView
-        android:id="@+id/txtTitle1"
+        android:id="@+id/txtPublic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -65,7 +65,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/txtTitle1"
+        android:layout_toEndOf="@+id/txtPublic"
         android:text="|\n|\n|\n|\n|\n|\n" />
 
     <ImageView
@@ -74,15 +74,15 @@
         android:layout_height="35dp"
         android:layout_alignTop="@+id/imgPublic"
         android:layout_marginLeft="50dp"
-        android:layout_toEndOf="@+id/txtTitle1"
+        android:layout_toEndOf="@+id/txtPublic"
         android:src="@drawable/eye_with_diagonal_line" />
 
     <TextView
-        android:id="@+id/txtTitle2"
+        android:id="@+id/txtPrivate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtTitle1"
-        android:layout_alignBottom="@+id/txtTitle1"
+        android:layout_alignBaseline="@+id/txtPublic"
+        android:layout_alignBottom="@+id/txtPublic"
         android:layout_marginEnd="14dp"
         android:layout_marginLeft="20dp"
         android:layout_toStartOf="@+id/txtLine3"
@@ -106,14 +106,14 @@
         android:layout_marginLeft="30dp"
         android:src="@drawable/placeholder_filled"
         android:layout_alignTop="@+id/imgPrivate"
-        android:layout_toEndOf="@+id/txtTitle2" />
+        android:layout_toEndOf="@+id/txtPrivate" />
 
     <TextView
-        android:id="@+id/txtTitle3"
+        android:id="@+id/txtLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtTitle2"
-        android:layout_alignBottom="@+id/txtTitle2"
+        android:layout_alignBaseline="@+id/txtPrivate"
+        android:layout_alignBottom="@+id/txtPrivate"
         android:layout_alignStart="@+id/txtLine3"
         android:layout_marginLeft="25dp"
         android:text="Location"
@@ -128,7 +128,7 @@
         android:text="|\n|\n|\n|\n|\n|\n"
         android:layout_alignBaseline="@+id/txtLine3"
         android:layout_alignBottom="@+id/txtLine3"
-        android:layout_toEndOf="@+id/txtTitle3" />
+        android:layout_toEndOf="@+id/txtLocation" />
 
     <ImageView
         android:id="@+id/imgResume"
@@ -140,11 +140,11 @@
         android:src="@drawable/text_file" />
 
     <TextView
-        android:id="@+id/txtTitle4"
+        android:id="@+id/txtResume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtTitle3"
-        android:layout_alignBottom="@+id/txtTitle3"
+        android:layout_alignBaseline="@+id/txtLocation"
+        android:layout_alignBottom="@+id/txtLocation"
         android:layout_marginLeft="20dp"
         android:layout_toEndOf="@+id/txtLine4"
         android:text="Resome"

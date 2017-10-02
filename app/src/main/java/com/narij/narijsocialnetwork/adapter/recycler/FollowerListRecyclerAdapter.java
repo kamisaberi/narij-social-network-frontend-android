@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.adapter.recycler;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -157,8 +158,10 @@ public class FollowerListRecyclerAdapter extends RecyclerView.Adapter<FollowerLi
 
             imgMenu = (ImageView) itemView.findViewById(R.id.imgMenu);
             imgProfile = (ImageView) itemView.findViewById(R.id.imgProfile);
-            txtName = (TextView) itemView.findViewById(R.id.txtName);
+            txtName = (TextView) itemView.findViewById(R.id.txtFullName);
+            txtName.setTypeface(Globals.typeface, Typeface.NORMAL);
             btnFollow = (Button) itemView.findViewById(R.id.btnFollow);
+            btnFollow.setTypeface(Globals.typeface, Typeface.NORMAL);
 
 
         }

@@ -1,15 +1,23 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.env.Globals;
 
 public class ProfileActivity extends AppCompatActivity {
 
+
+    TextView txtPublic;
+    TextView txtPrivate;
+    TextView txtLocation;
+    TextView txtResume;
 
     ImageView imgPublic;
     ImageView imgPrivate;
@@ -21,6 +29,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+        txtPublic = (TextView) findViewById(R.id.txtPublic);
+        txtPublic.setTypeface(Globals.typeface, Typeface.NORMAL);
+        txtPrivate= (TextView) findViewById(R.id.txtPrivate);
+        txtPrivate.setTypeface(Globals.typeface, Typeface.NORMAL);
+        txtLocation= (TextView) findViewById(R.id.txtLocation);
+        txtLocation.setTypeface(Globals.typeface, Typeface.NORMAL);
+        txtResume= (TextView) findViewById(R.id.txtResume);
+        txtResume.setTypeface(Globals.typeface, Typeface.NORMAL);
 
         imgPublic = (ImageView) findViewById(R.id.imgPublic);
         imgPrivate = (ImageView) findViewById(R.id.imgPrivate);

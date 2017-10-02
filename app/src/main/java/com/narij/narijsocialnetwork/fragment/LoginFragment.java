@@ -2,6 +2,7 @@ package com.narij.narijsocialnetwork.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -48,10 +49,14 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         edtPhoneNumber = (EditText) view.findViewById(R.id.edtPhoneNumber);
-        edtPassword = (EditText) view.findViewById(R.id.edtPassword);
-        txtForgotPassword = (TextView) view.findViewById(R.id.txtForgotPassword);
-        btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
+        edtPhoneNumber.setTypeface(Globals.typeface, Typeface.NORMAL);
 
+        edtPassword = (EditText) view.findViewById(R.id.edtPassword);
+        edtPassword.setTypeface(Globals.typeface, Typeface.NORMAL);
+        txtForgotPassword = (TextView) view.findViewById(R.id.txtForgotPassword);
+        txtForgotPassword.setTypeface(Globals.typeface, Typeface.NORMAL);
+        btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
+        btnLogin.setCustomTextFont(Globals.LATO_MEDIUM_FONT);
         if (Globals.DEBUG_MODE) {
             edtPhoneNumber.setText("09365982333");
             edtPassword.setText("1234");

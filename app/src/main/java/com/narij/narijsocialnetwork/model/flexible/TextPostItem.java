@@ -1,11 +1,14 @@
 package com.narij.narijsocialnetwork.model.flexible;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramItem;
 import com.narij.narijsocialnetwork.model.base.Post;
 
@@ -33,7 +36,7 @@ public class TextPostItem extends AbstractSectionableItem<TextPostItem.ViewHolde
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof InstagramItem) {
+        if (o instanceof TextPostItem) {
             TextPostItem item = (TextPostItem) o;
             return this.post.getPostId() == (item.post.getPostId());
         }
@@ -70,8 +73,11 @@ public class TextPostItem extends AbstractSectionableItem<TextPostItem.ViewHolde
             super(view, adapter);
             this.imgLike = (ImageView) view.findViewById(R.id.imgLike);
             this.txtLikeNumber = (TextView) view.findViewById(R.id.txtLikeNumber);
+            txtLikeNumber.setTypeface(Globals.typeface, Typeface.NORMAL);
             this.txtCommentNumber = (TextView) view.findViewById(R.id.txtCommentNumber);
+            txtCommentNumber.setTypeface(Globals.typeface, Typeface.NORMAL);
             this.txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+            txtTitle.setTypeface(Globals.typeface, Typeface.NORMAL);
         }
     }
 

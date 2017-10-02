@@ -47,6 +47,7 @@ public class AddPhotoDocumentActivity extends AppCompatActivity {
 
 
         FancyButton btnNext = (FancyButton) findViewById(R.id.btnNext);
+        btnNext.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

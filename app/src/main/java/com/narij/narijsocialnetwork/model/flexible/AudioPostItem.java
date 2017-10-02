@@ -6,7 +6,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramItem;
+import com.narij.narijsocialnetwork.flexibleadapter.services.InstagramRandomData;
 import com.narij.narijsocialnetwork.model.base.Post;
 
 import java.util.List;
@@ -33,7 +35,7 @@ public class AudioPostItem extends AbstractSectionableItem<AudioPostItem.ViewHol
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof InstagramItem) {
+        if (o instanceof AudioPostItem) {
             AudioPostItem item = (AudioPostItem) o;
             return this.post.getPostId() == (item.post.getPostId());
         }

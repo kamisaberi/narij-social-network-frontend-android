@@ -2,6 +2,7 @@ package com.narij.narijsocialnetwork.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.activity.MainActivity;
 import com.narij.narijsocialnetwork.activity.ProfileActivity;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
@@ -72,11 +72,16 @@ public class ProfileFragment extends Fragment {
 
 
         imgProfile = (ImageView) view.findViewById(R.id.imgProfile);
-        txtName = (TextView) view.findViewById(R.id.txtName);
+        txtName = (TextView) view.findViewById(R.id.txtFullName);
+        txtName.setTypeface(Globals.typeface, Typeface.NORMAL);
         txtNumberOfFollowers = (TextView) view.findViewById(R.id.txtNumberOfFollowers);
+        txtNumberOfFollowers.setTypeface(Globals.typeface, Typeface.NORMAL);
         txtNumberOfFollowings = (TextView) view.findViewById(R.id.txtNumberOfFollowings);
+        txtNumberOfFollowings.setTypeface(Globals.typeface, Typeface.NORMAL);
         txtNumberOfPosts = (TextView) view.findViewById(R.id.txtNumberOfPosts);
+        txtNumberOfPosts.setTypeface(Globals.typeface, Typeface.NORMAL);
         btnFollow = (Button) view.findViewById(R.id.btnFollow);
+        btnFollow.setTypeface(Globals.typeface, Typeface.NORMAL);
 
         if (memberId == 0)
             btnFollow.setText("Edit Profile");

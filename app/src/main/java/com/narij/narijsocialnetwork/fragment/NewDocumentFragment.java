@@ -2,12 +2,14 @@ package com.narij.narijsocialnetwork.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.activity.AddAudioDocumentActivity;
@@ -35,9 +37,17 @@ public class NewDocumentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_new_document, container, false);
 
         ImageView imgPhoto = (ImageView) view.findViewById(R.id.imgPhoto);
+        TextView txtPhoto = (TextView) view.findViewById(R.id.txtPhoto);
+        txtPhoto.setTypeface(Globals.typeface, Typeface.NORMAL);
         ImageView imgText = (ImageView) view.findViewById(R.id.imgText);
+        TextView txtText= (TextView) view.findViewById(R.id.txtText);
+        txtText.setTypeface(Globals.typeface, Typeface.NORMAL);
         ImageView imgVideo = (ImageView) view.findViewById(R.id.imgVideo);
+        TextView txtVideo= (TextView) view.findViewById(R.id.txtVideo);
+        txtVideo.setTypeface(Globals.typeface, Typeface.NORMAL);
         ImageView imgAudio = (ImageView) view.findViewById(R.id.imgAudio);
+        TextView txtAudio= (TextView) view.findViewById(R.id.txtAudio);
+        txtAudio.setTypeface(Globals.typeface, Typeface.NORMAL);
 
         imgText.setOnClickListener(new View.OnClickListener() {
             @Override

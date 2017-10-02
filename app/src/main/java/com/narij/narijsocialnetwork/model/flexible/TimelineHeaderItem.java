@@ -1,20 +1,18 @@
 package com.narij.narijsocialnetwork.model.flexible;
 
-import android.util.Log;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
-import com.narij.narijsocialnetwork.model.base.Member;
+import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.base.Post;
 
 import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.AbstractHeaderItem;
-import eu.davidea.flipview.FlipView;
 import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
@@ -24,9 +22,35 @@ import eu.davidea.viewholders.FlexibleViewHolder;
 public class TimelineHeaderItem extends AbstractHeaderItem<TimelineHeaderItem.HeaderViewHolder> {
 
 
+    private String id;
+    private Post post;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public TimelineHeaderItem(String id, Post post) {
+        super();
+        this.id = id;
+        this.post = post;
+    }
+
+
     @Override
     public boolean equals(Object o) {
-        if (o instanceof InstagramHeaderItem) {
+        if (o instanceof TimelineHeaderItem) {
             TimelineHeaderItem inItem = (TimelineHeaderItem) o;
             return this.getId().equals(inItem.getId());
         }
@@ -55,32 +79,6 @@ public class TimelineHeaderItem extends AbstractHeaderItem<TimelineHeaderItem.He
 
     }
 
-    private String id;
-    private Post post;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public TimelineHeaderItem(String id, Post post) {
-        super();
-        this.id = id;
-        this.post = post;
-    }
-
-
     static class HeaderViewHolder extends FlexibleViewHolder {
 
         TextView txtTitle;
@@ -94,11 +92,14 @@ public class TimelineHeaderItem extends AbstractHeaderItem<TimelineHeaderItem.He
             super(view, adapter, true);//True for sticky
 
             txtTitle = (TextView) view.findViewById(R.id.txtTitle);
+            txtTitle.setTypeface(Globals.typeface, Typeface.NORMAL);
             txtFullName = (TextView) view.findViewById(R.id.txtFullName);
-            txtDate= (TextView) view.findViewById(R.id.txtDate);
+            txtFullName .setTypeface(Globals.typeface, Typeface.NORMAL);
+            txtDate = (TextView) view.findViewById(R.id.txtDate);
+            txtDate.setTypeface(Globals.typeface, Typeface.NORMAL);
             imgProfile = (ImageView) view.findViewById(R.id.imgProfile);
             imgMenu = (ImageView) view.findViewById(R.id.imgMenu);
-            imgShare= (ImageView) view.findViewById(R.id.imgShare);
+            imgShare = (ImageView) view.findViewById(R.id.imgShare);
 
 //            mAccountImage = (FlipView) view.findViewById(R.id.instagram_account_image);
 //            mAccountImage.setOnClickListener(new View.OnClickListener() {

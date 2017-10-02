@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.activity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +44,7 @@ public class MessagingActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.rcMessages);
         edtMessage = (EditText) findViewById(R.id.edtMessage);
+        edtMessage.setTypeface(Globals.typeface, Typeface.NORMAL);
         imgSend = (ImageView) findViewById(R.id.imgSend);
 
 

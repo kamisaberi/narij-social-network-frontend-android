@@ -1,6 +1,7 @@
 package com.narij.narijsocialnetwork.activity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,7 +40,9 @@ public class ProfileEmailActivity extends AppCompatActivity {
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
         final EditText edtEmail = (EditText) findViewById(R.id.edtEmail);
+        edtEmail.setTypeface(Globals.typeface, Typeface.NORMAL);
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
+        btnSend.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
 

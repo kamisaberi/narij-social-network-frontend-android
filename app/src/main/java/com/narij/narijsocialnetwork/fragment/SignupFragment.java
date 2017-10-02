@@ -2,6 +2,7 @@ package com.narij.narijsocialnetwork.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -47,11 +48,16 @@ public class SignupFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
 
         edtPhoneNumber = (EditText) view.findViewById(R.id.edtPhoneNumber);
+        edtPhoneNumber.setTypeface(Globals.typeface, Typeface.NORMAL);
+
 
         if (Globals.DEBUG_MODE)
             edtPhoneNumber.setText("09365982333");
 
         btnLogin = (FancyButton) view.findViewById(R.id.btnLogin);
+        btnLogin.setCustomTextFont(Globals.LATO_MEDIUM_FONT);
+
+
         final ProgressBar prgLoading = (ProgressBar) view.findViewById(R.id.prgLoading);
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
