@@ -12,8 +12,13 @@ import java.util.Locale;
 public class Post {
     @SerializedName("postId")
     private long postId;
+
+    @SerializedName("title")
+    private String title;
+    @SerializedName("description")
+    private String description;
     @SerializedName("mediaType")
-    private com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType;
+    private String mediaType;
     @SerializedName("createTime")
     private Locale createTime;
     @SerializedName("editTime")
@@ -29,6 +34,32 @@ public class Post {
     @SerializedName("member")
     private  Member member = new Member();
 
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
+
     public Member getMember() {
         return member;
     }
@@ -41,15 +72,16 @@ public class Post {
         this.properties = new ArrayList<>();
     }
 
-    public Post(long postId, com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory, ArrayList<Property> properties) {
+    public Post(long postId, com.narij.narijsocialnetwork.model.enumeration.MediaType media, MediaType mediaType, Locale createTime, Locale editTime, Locale deleteTime, boolean deleted, PostCategory postCategory, ArrayList<Property> properties, Member member) {
         this.postId = postId;
-        this.mediaType = mediaType;
+        this.mediaType = "";
         this.createTime = createTime;
         this.editTime = editTime;
         this.deleteTime = deleteTime;
         this.deleted = deleted;
         this.postCategory = postCategory;
         this.properties = properties;
+        this.member = member;
     }
 
     public ArrayList<Property> getProperties() {
@@ -68,13 +100,6 @@ public class Post {
         this.postId = postId;
     }
 
-    public com.narij.narijsocialnetwork.model.enumeration.MediaType getMediaType() {
-        return mediaType;
-    }
-
-    public void setMediaType(com.narij.narijsocialnetwork.model.enumeration.MediaType mediaType) {
-        this.mediaType = mediaType;
-    }
 
     public Locale getCreateTime() {
         return createTime;

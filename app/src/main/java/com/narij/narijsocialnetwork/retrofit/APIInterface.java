@@ -162,12 +162,12 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("post/search")
-    Call<WebServiceMessage> search(@Field("token") String token, @Field("text") String text);
+    Call<PostsRetrofitModel> searchPosts(@Field("token") String token, @Field("text") String text);
 
 
     @FormUrlEncoded
     @POST("posts/viral")
-    Call<WebServiceMessage> getViral(@Field("token") String token);
+    Call<PostsRetrofitModel> getViral(@Field("token") String token, @Field("type") String type);
 
     @FormUrlEncoded
     @POST("posts/get/all")

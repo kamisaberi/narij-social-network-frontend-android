@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.model.flexible;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,12 +48,14 @@ public class AudioPostItem extends AbstractSectionableItem<AudioPostItem.ViewHol
 
     @Override
     public ViewHolder createViewHolder(View view, FlexibleAdapter adapter) {
-        return null;
+        return new AudioPostItem.ViewHolder(view, adapter);
+
     }
 
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List payloads) {
-
+        Context context = holder.itemView.getContext();
+        holder.mQuantityLikes.setText("0");
     }
 
     static final class ViewHolder extends FlexibleViewHolder {

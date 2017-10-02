@@ -9,7 +9,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgViral"
+            android:id="@+id/imgPhoto"
             android:layout_width="match_parent"
             android:layout_height="255dp"
             android:src="@drawable/viral_all" />
@@ -48,8 +48,8 @@
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgViral"
-            android:layout_marginTop="30dp"
+            android:layout_below="@+id/imgPhoto"
+            android:layout_marginTop="12dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Different foods go through different metabolic pathways in the body.\nThey can have a vastly different effect on hunger, hormones and how many calories we burn here are the 20 most weight loss friendly foods on earth, that are supported by science ... "
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtTitle"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="12dp"
             android:background="#ecf0f1"
             android:orientation="horizontal">
 

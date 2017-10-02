@@ -42,7 +42,7 @@ public class NewDocumentFragment extends Fragment {
         imgText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.currentPostToSend.setMediaType(MediaType.TEXT);
+                Globals.currentPostToSend.setMediaType(com.narij.narijsocialnetwork.env.MediaType.TEXT);
                 Intent intent = new Intent(getContext(), AddDocumentDescriptionActivity.class);
 //                intent.putExtra("type", "text");
                 startActivity(intent);
@@ -52,7 +52,7 @@ public class NewDocumentFragment extends Fragment {
         imgPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.currentPostToSend.setMediaType(MediaType.PHOTO);
+                Globals.currentPostToSend.setMediaType(com.narij.narijsocialnetwork.env.MediaType.IMAGE);
                 Intent intent = new Intent(getContext(), AddPhotoDocumentActivity.class);
 //                intent.putExtra("type", "photo");
                 startActivity(intent);
@@ -63,7 +63,7 @@ public class NewDocumentFragment extends Fragment {
         imgAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.currentPostToSend.setMediaType(MediaType.AUDIO);
+                Globals.currentPostToSend.setMediaType(com.narij.narijsocialnetwork.env.MediaType.AUDIO);
                 Intent intent = new Intent(getContext(), AddAudioDocumentActivity.class);
 //                intent.putExtra("type", "audio");
                 startActivity(intent);
@@ -74,7 +74,7 @@ public class NewDocumentFragment extends Fragment {
         imgVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.currentPostToSend.setMediaType(MediaType.VIDEO);
+                Globals.currentPostToSend.setMediaType(com.narij.narijsocialnetwork.env.MediaType.VIDEO);
                 Intent intent = new Intent(getContext(), AddVideoDocumentActivity.class);
 //                intent.putExtra("type", "video");
                 startActivity(intent);

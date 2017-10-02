@@ -16,6 +16,12 @@ import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.flexibleadapter.items.ProgressItem;
 import com.narij.narijsocialnetwork.flexibleadapter.services.DatabaseService;
 import com.narij.narijsocialnetwork.model.base.Post;
+import com.narij.narijsocialnetwork.model.enumeration.MediaType;
+import com.narij.narijsocialnetwork.model.flexible.AudioPostItem;
+import com.narij.narijsocialnetwork.model.flexible.PhotoPostItem;
+import com.narij.narijsocialnetwork.model.flexible.TextPostItem;
+import com.narij.narijsocialnetwork.model.flexible.TimelineHeaderItem;
+import com.narij.narijsocialnetwork.model.flexible.VideoPostItem;
 import com.narij.narijsocialnetwork.model.retrofit.PostsRetrofitModel;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
@@ -45,6 +51,7 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
     ArrayList<Post> posts = new ArrayList<>();
 
 
+
     public TimelineFragment() {
         // Required empty public constructor
     }
@@ -71,8 +78,26 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
             @Override
             public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
                 posts = response.body().posts;
+                List<AbstractFlexibleItem> mItems = new ArrayList<>();
+                for (Post post : posts) {
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+                    AbstractFlexibleItem absItem = null;
+                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
+                        absItem = new TextPostItem(post, header);
+                        mItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE) ) {
+                        absItem = new PhotoPostItem(post, header);
+                        mItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO) ) {
+                        absItem = new AudioPostItem(post, header);
+                        mItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO) ) {
+                        absItem = new VideoPostItem(post, header);
+                        mItems.add(absItem);
+                    }
+                }
 
-                mAdapter = new FlexibleAdapter<>(DatabaseService.getInstance().getDatabaseList(), getActivity(), true);
+                mAdapter = new FlexibleAdapter<>(mItems, getActivity(), true);
                 mAdapter.addListener(getActivity())
                         .setAnimationOnScrolling(true)
                         .setAnimationOnReverseScrolling(true);
@@ -127,6 +152,23 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
                 ArrayList<Post> newPosts = new ArrayList<>();
                 newPosts = response.body().posts;
 
+                for (Post post : newPosts) {
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+                    AbstractFlexibleItem absItem = null;
+                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
+                        absItem = new TextPostItem(post, header);
+                        newItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
+                        absItem = new PhotoPostItem(post, header);
+                        newItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
+                        absItem = new AudioPostItem(post, header);
+                        newItems.add(absItem);
+                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
+                        absItem = new VideoPostItem(post, header);
+                        newItems.add(absItem);
+                    }
+                }
 
                 mAdapter.onLoadMoreComplete(newItems);
             }

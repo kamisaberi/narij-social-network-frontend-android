@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.model.flexible;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,11 +48,16 @@ public class VideoPostItem extends AbstractSectionableItem<VideoPostItem.ViewHol
 
     @Override
     public ViewHolder createViewHolder(View view, FlexibleAdapter adapter) {
-        return null;
+        return new VideoPostItem.ViewHolder(view, adapter);
+
     }
 
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List payloads) {
+
+        Context context = holder.itemView.getContext();
+
+        holder.mQuantityLikes.setText("0");
 
     }
 

@@ -1,5 +1,6 @@
 package com.narij.narijsocialnetwork.model.flexible;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +13,6 @@ import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.AbstractSectionableItem;
-import eu.davidea.flipview.FlipView;
 import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
@@ -47,29 +47,35 @@ public class PhotoPostItem extends AbstractSectionableItem<PhotoPostItem.ViewHol
 
     @Override
     public ViewHolder createViewHolder(View view, FlexibleAdapter adapter) {
-        return null;
+        return new ViewHolder(view, adapter);
     }
 
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, ViewHolder holder, int position, List payloads) {
 
+        Context context = holder.itemView.getContext();
+
+        //Load image via Glide
+        //Glide.clear(holder.mImage);
+        //Glide.with(context).load(url).crossFade(500).into(holder.mImage);
+
     }
 
     static final class ViewHolder extends FlexibleViewHolder {
 
-        ImageView mImage;
-        FlipView mImageFavourite;
-        ImageView mImageComment;
-        ImageView mImageShare;
-        TextView mQuantityLikes;
+        ImageView imgPhoto;
+        ImageView imgLike;
+        TextView txtLikeNumber;
+        TextView txtCommentNumber;
+        TextView txtTitle;
 
         public ViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
-            this.mImage = (ImageView) view.findViewById(R.id.instagram_image);
-            this.mImageFavourite = (FlipView) view.findViewById(R.id.instagram_image_like);
-            this.mImageComment = (ImageView) view.findViewById(R.id.instagram_image_comment);
-            this.mImageShare = (ImageView) view.findViewById(R.id.instagram_image_share);
-            this.mQuantityLikes = (TextView) view.findViewById(R.id.instagram_quantity_likes);
+            this.imgPhoto = (ImageView) view.findViewById(R.id.imgPhoto);
+            this.imgLike = (ImageView) view.findViewById(R.id.imgLike);
+            this.txtLikeNumber = (TextView) view.findViewById(R.id.txtLikeNumber);
+            this.txtCommentNumber = (TextView) view.findViewById(R.id.txtCommentNumber);
+            this.txtTitle = (TextView) view.findViewById(R.id.txtTitle);
         }
     }
 

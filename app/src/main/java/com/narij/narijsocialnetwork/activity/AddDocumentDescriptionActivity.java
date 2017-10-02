@@ -9,7 +9,6 @@ import android.widget.EditText;
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
-import com.narij.narijsocialnetwork.model.enumeration.MediaType;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
@@ -47,7 +46,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Globals.currentPostToSend.getMediaType() == MediaType.TEXT) {
+                if (Globals.currentPostToSend.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
 
                     Call<WebServiceMessage> call = apiInterface.createTextPost(
                             Globals.token,
@@ -70,7 +69,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
                     });
 
 
-                } else if (Globals.currentPostToSend.getMediaType() == MediaType.PHOTO) {
+                } else if (Globals.currentPostToSend.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
 
                     RequestBody mFile = RequestBody.create(okhttp3.MediaType.parse("image/*"), Globals.selectedFileToUpload);
                     MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", Globals.selectedFileToUpload.getName(), mFile);
@@ -96,7 +95,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
                         }
                     });
 
-                } else if (Globals.currentPostToSend.getMediaType() == MediaType.VIDEO) {
+                } else if (Globals.currentPostToSend.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
 
                     RequestBody mFile = RequestBody.create(okhttp3.MediaType.parse("image/*"), Globals.selectedFileToUpload);
                     MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", Globals.selectedFileToUpload.getName(), mFile);
@@ -123,7 +122,7 @@ public class AddDocumentDescriptionActivity extends AppCompatActivity {
                     });
 
 
-                } else if (Globals.currentPostToSend.getMediaType() == MediaType.AUDIO) {
+                } else if (Globals.currentPostToSend.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
 
                     RequestBody mFile = RequestBody.create(okhttp3.MediaType.parse("image/*"), Globals.selectedFileToUpload);
                     MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", Globals.selectedFileToUpload.getName(), mFile);
