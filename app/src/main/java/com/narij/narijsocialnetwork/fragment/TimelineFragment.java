@@ -80,7 +80,7 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
                 posts = response.body().posts;
                 List<AbstractFlexibleItem> mItems = new ArrayList<>();
                 for (Post post : posts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post,getContext());
 //                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     //Log.d(Globals.LOG_TAG, "H" + post.getPostId());
 

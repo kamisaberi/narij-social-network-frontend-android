@@ -17,10 +17,8 @@ import com.narij.narijsocialnetwork.adapter.recycler.LogListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.LogSuggestionListRecyclerAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.base.Log;
-import com.narij.narijsocialnetwork.model.base.Member;
 import com.narij.narijsocialnetwork.model.retrofit.FriendsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.LogsRetrofitModel;
-import com.narij.narijsocialnetwork.model.retrofit.MemberRetrofitModel;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
 
@@ -80,7 +78,7 @@ public class LogsFragment extends Fragment {
 
                 LogsRetrofitModel logsRetrofitModel = response.body();
                 logs = logsRetrofitModel.logs;
-                LogListRecyclerAdapter friendListRecyclerAdapter = new LogListRecyclerAdapter(logs, getContext());
+                LogListRecyclerAdapter friendListRecyclerAdapter = new LogListRecyclerAdapter(logs, getContext(),pager,fragmentManager);
                 rcLogs.setAdapter(friendListRecyclerAdapter);
                 rcLogs.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -98,8 +96,12 @@ public class LogsFragment extends Fragment {
             @Override
             public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {
 
-                FriendsRetrofitModel friendsRetrofitModel= response.body();
-                LogSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new LogSuggestionListRecyclerAdapter(friendsRetrofitModel.members, getContext());
+                FriendsRetrofitModel friendsRetrofitModel = response.body();
+
+                android.util.Log.d(Globals.LOG_TAG, "LS S : "+friendsRetrofitModel.members.size() + "");
+
+
+                LogSuggestionListRecyclerAdapter friendSuggestionListRecyclerAdapter = new LogSuggestionListRecyclerAdapter(friendsRetrofitModel.members, getContext(),pager,fragmentManager);
                 rcSuggestion.setAdapter(friendSuggestionListRecyclerAdapter);
                 rcSuggestion.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
             }
@@ -109,11 +111,6 @@ public class LogsFragment extends Fragment {
 
             }
         });
-
-
-
-
-
 
 
         return view;

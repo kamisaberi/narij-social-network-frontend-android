@@ -17,10 +17,12 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Follow;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,7 +77,7 @@ public class FollowingListRecyclerAdapter extends RecyclerView.Adapter<Following
     @Override
     public void onBindViewHolder(FollowingListRecyclerAdapter.ViewHolder holder, final int position) {
 
-        Follow following = followings.get(position);
+        final Follow following = followings.get(position);
         // Set item views based on your views and data model
         ImageView imgMenu = holder.imgMenu;
         ImageView imgProfile = holder.imgProfile;
@@ -85,13 +87,17 @@ public class FollowingListRecyclerAdapter extends RecyclerView.Adapter<Following
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
+        String url =  Globals.BASE_URL + "uploads/"  + following.getMember().getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
+
+
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 HashMap<String, Fragment> fragmentHashMap;
                 fragmentHashMap = new HashMap<>();
-                fragmentHashMap.put("FOLLOWERS", new ProfileFragment(0));
+                fragmentHashMap.put("FOLLOWERS", new ProfileFragment(following.getMember().getMemberId(), pager,fragmentManager));
                 pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
 
 

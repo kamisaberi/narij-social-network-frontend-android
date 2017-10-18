@@ -34,7 +34,7 @@ public class ProfileFullNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_full_name);
 
-        getActionBar().setTitle("Name");
+        //getActionBar().setTitle("Name");
 
         //getActionBar().setDisplayHomeAsUpEnabled(true);
 

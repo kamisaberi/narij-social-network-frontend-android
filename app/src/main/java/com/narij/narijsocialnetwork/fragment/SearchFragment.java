@@ -176,7 +176,7 @@ public class SearchFragment extends Fragment implements FlexibleAdapter.EndlessS
                 newPosts = response.body().posts;
 
                 for (Post post : newPosts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post,getContext());
 //                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     AbstractFlexibleItem absItem = null;
                     if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {

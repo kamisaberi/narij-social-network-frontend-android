@@ -2,6 +2,7 @@ package com.narij.narijsocialnetwork.adapter.recycler;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +14,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
+import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
+import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Member;
+import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
+import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by kami on 8/20/2017.
@@ -51,7 +63,7 @@ public class LogSuggestionListRecyclerAdapter extends RecyclerView.Adapter<LogSu
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View contactView = inflater.inflate(R.layout.recycler_followers_item, parent, false);
+        View contactView = inflater.inflate(R.layout.recycler_log_suggestion_horizontal_item, parent, false);
 
         // Return a new holder instance
         LogSuggestionListRecyclerAdapter.ViewHolder viewHolder = new LogSuggestionListRecyclerAdapter.ViewHolder(contactView);
@@ -59,18 +71,73 @@ public class LogSuggestionListRecyclerAdapter extends RecyclerView.Adapter<LogSu
     }
 
     @Override
-    public void onBindViewHolder(LogSuggestionListRecyclerAdapter.ViewHolder holder, int position) {
-        Member suggestion = suggestions.get(position);
+    public void onBindViewHolder(LogSuggestionListRecyclerAdapter.ViewHolder holder, final int position) {
+        final Member suggestion = suggestions.get(position);
         // Set item views based on your views and data model
         ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
-        Button btnAccept = holder.btnAccept;
+        final Button btnAccept = holder.btnAccept;
         txtName.setText(suggestion.getFullName());
+
+        String url =  Globals.BASE_URL + "uploads/"  + suggestion.getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
+
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                HashMap<String, Fragment> fragmentHashMap;
+                fragmentHashMap = new HashMap<>();
+                fragmentHashMap.put("SUGGESTION", new ProfileFragment(suggestion.getMemberId(), pager,fragmentManager));
+                pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
+
+            }
+        });
+
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Call<WebServiceMessage> call = apiInterface.follow(Globals.token, suggestions.get(position).getMemberId());
+                call.enqueue(new Callback<WebServiceMessage>() {
+                    @Override
+                    public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
+
+                        WebServiceMessage message = response.body();
+                        if (message.isError())
+                            return;
+
+                        if (message.getMessage().equals("followed")) {
+                            btnAccept.setText("unFollow");
+
+                        } else if (message.getMessage().equals("unFollowed")) {
+                            btnAccept.setText("Follow");
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<WebServiceMessage> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
+
+
+
+
+
+
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return suggestions.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

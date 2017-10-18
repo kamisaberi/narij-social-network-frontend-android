@@ -44,9 +44,12 @@ public class ProfileEmailActivity extends AppCompatActivity {
         FancyButton btnSend = (FancyButton) findViewById(R.id.btnSend);
         btnSend.setCustomIconFont(Globals.LATO_MEDIUM_FONT);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getActionBar().setTitle("Email");
+        //getActionBar().setTitle("Email");
+
+
+
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +57,11 @@ public class ProfileEmailActivity extends AppCompatActivity {
 
                 prgLoading.setVisibility(View.VISIBLE);
 
-                Call<WebServiceMessage> call = apiInterface.setProfileEmail(Globals.token, edtEmail.getText().toString().trim());
+
+                Log.d(Globals.LOG_TAG, phone);
+                Log.d(Globals.LOG_TAG, edtEmail.getText().toString());
+
+                Call<WebServiceMessage> call = apiInterface.setProfileEmail(phone, edtEmail.getText().toString().trim());
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
@@ -62,6 +69,8 @@ public class ProfileEmailActivity extends AppCompatActivity {
 
                         try {
                             WebServiceMessage message = response.body();
+                            Log.d(Globals.LOG_TAG, message.getMessage());
+
                             if (!message.isError()) {
                                 Log.d(Globals.LOG_TAG, message.getMessage());
                                 Intent intent = new Intent(getBaseContext(), CreatePasswordActivity.class);

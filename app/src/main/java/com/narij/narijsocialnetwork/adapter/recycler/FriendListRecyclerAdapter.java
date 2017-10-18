@@ -17,10 +17,12 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Member;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +36,7 @@ import retrofit2.Response;
  * Created by kami on 8/20/2017.
  */
 
-public class FriendListRecyclerAdapter extends  RecyclerView.Adapter<FriendListRecyclerAdapter.ViewHolder> {
+public class FriendListRecyclerAdapter extends RecyclerView.Adapter<FriendListRecyclerAdapter.ViewHolder> {
 
     public List<Member> friends = new ArrayList<>();
     public Context context;
@@ -74,13 +76,16 @@ public class FriendListRecyclerAdapter extends  RecyclerView.Adapter<FriendListR
 
     @Override
     public void onBindViewHolder(FriendListRecyclerAdapter.ViewHolder holder, final int position) {
-        Member friend = friends.get(position);
+        final Member friend = friends.get(position);
         // Set item views based on your views and data model
         ImageView imgMenu = holder.imgMenu;
         ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
         final Button btnFollow = holder.btnFollow;
         txtName.setText(friend.getFullName());
+
+        String url = Globals.BASE_URL + "uploads/" + friend.getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
 
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
@@ -91,7 +96,7 @@ public class FriendListRecyclerAdapter extends  RecyclerView.Adapter<FriendListR
 
                 HashMap<String, Fragment> fragmentHashMap;
                 fragmentHashMap = new HashMap<>();
-                fragmentHashMap.put("FRIENDS", new ProfileFragment(0));
+                fragmentHashMap.put("FRIENDS", new ProfileFragment(friend.getMemberId(), pager,fragmentManager));
                 pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
 
 
@@ -153,7 +158,6 @@ public class FriendListRecyclerAdapter extends  RecyclerView.Adapter<FriendListR
 
         }
     }
-
 
 
 }

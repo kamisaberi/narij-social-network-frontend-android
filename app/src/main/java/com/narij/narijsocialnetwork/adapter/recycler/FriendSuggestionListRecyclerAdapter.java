@@ -17,10 +17,12 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Member;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,11 +74,15 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
     @Override
     public void onBindViewHolder(FriendSuggestionListRecyclerAdapter.ViewHolder holder, final int position) {
 
-        Member suggestion = suggestions.get(position);
+        final Member suggestion = suggestions.get(position);
         ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
         final Button btnFollow = holder.btnFollow;
         txtName.setText(suggestion.getFullName());
+
+
+        String url =  Globals.BASE_URL + "uploads/"  + suggestion.getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
@@ -86,7 +92,7 @@ public class FriendSuggestionListRecyclerAdapter extends RecyclerView.Adapter<Fr
 
                 HashMap<String, Fragment> fragmentHashMap;
                 fragmentHashMap = new HashMap<>();
-                fragmentHashMap.put("SUGGESTION", new ProfileFragment(0));
+                fragmentHashMap.put("SUGGESTION", new ProfileFragment(suggestion.getMemberId(), pager,fragmentManager));
                 pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
 
             }

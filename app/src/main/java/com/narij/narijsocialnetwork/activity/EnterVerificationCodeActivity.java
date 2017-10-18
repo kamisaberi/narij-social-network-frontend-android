@@ -64,6 +64,7 @@ public class EnterVerificationCodeActivity extends AppCompatActivity {
 
                         try {
                             WebServiceMessage message = response.body();
+                            Log.d(Globals.LOG_TAG, message.getMessage());
                             if (!message.isError()) {
                                 Log.d(Globals.LOG_TAG, message.getMessage());
                                 Intent intent = new Intent(getBaseContext(), ProfileFullNameActivity.class);

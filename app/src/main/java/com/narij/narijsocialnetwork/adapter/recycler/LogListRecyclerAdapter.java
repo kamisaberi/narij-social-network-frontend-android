@@ -16,9 +16,11 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Log;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,12 +65,17 @@ public class LogListRecyclerAdapter extends RecyclerView.Adapter<LogListRecycler
 
     @Override
     public void onBindViewHolder(LogListRecyclerAdapter.ViewHolder holder, int position) {
-        Log log = logs.get(position);
+        final Log log = logs.get(position);
         // Set item views based on your views and data model
         ImageView imgProfile = holder.imgProfile;
         TextView txtName = holder.txtName;
 
         txtName.setText(log.getContent());
+
+        String url =  Globals.BASE_URL + "uploads/"  + log.getMember().getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
+
+
         apiInterface = APIClient.getClient().create(APIInterface.class);
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +83,7 @@ public class LogListRecyclerAdapter extends RecyclerView.Adapter<LogListRecycler
 
                 HashMap<String, Fragment> fragmentHashMap;
                 fragmentHashMap = new HashMap<>();
-                fragmentHashMap.put("LOGS", new ProfileFragment(0));
+                fragmentHashMap.put("LOGS", new ProfileFragment(log.getMember().getMemberId(), pager,fragmentManager));
                 pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
 
             }

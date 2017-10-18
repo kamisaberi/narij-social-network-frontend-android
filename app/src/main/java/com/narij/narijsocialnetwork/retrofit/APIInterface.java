@@ -53,24 +53,42 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("profile/get")
-    Call<WebServiceMessage> getProfile(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> getProfile(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
     @FormUrlEncoded
     @POST("profile/set")
-    Call<WebServiceMessage> setProfileDetail(@Field("token") String token, @Field("fullName") String fullName, @Field("email") String email, @Field("location") String location, @Field("photo") String photo);
+    Call<WebServiceMessage> setProfileDetail(
+            @Field("token") String token,
+            @Field("fullName") String fullName,
+            @Field("email") String email,
+            @Field("location") String location,
+            @Field("photo") String photo
+    );
 
     @FormUrlEncoded
     @POST("profile/set/email")
-    Call<WebServiceMessage> setProfileEmail(@Field("token") String token, @Field("email") String email);
+    Call<WebServiceMessage> setProfileEmail(
+            @Field("phone") String token,
+            @Field("email") String email
+    );
 
     @FormUrlEncoded
     @POST("profile/confirm/email")
-    Call<WebServiceMessage> confirmEmail(@Field("token") String token, @Field("verificationCode") String verificationCode);
+    Call<WebServiceMessage> confirmEmail(
+            @Field("token") String token,
+            @Field("verificationCode") String verificationCode
+    );
 
 
     @FormUrlEncoded
     @POST("profile/set/fullName")
-    Call<WebServiceMessage> setProfileFullName(@Field("phone") String phone, @Field("fullName") String fullName);
+    Call<WebServiceMessage> setProfileFullName(
+            @Field("phone") String phone,
+            @Field("fullName") String fullName
+    );
 
     @FormUrlEncoded
     @POST("profile/set/location")
@@ -89,27 +107,43 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("password/forgot/enterPhoneNumber")
-    Call<WebServiceMessage> enterPhoneNumberToRecoverPassword(@Field("phone") String phone);
+    Call<WebServiceMessage> enterPhoneNumberToRecoverPassword(
+            @Field("phone") String phone
+    );
 
     @FormUrlEncoded
     @POST("password/forgot/enterEmail")
-    Call<WebServiceMessage> enterEmailToRecoverPassword(@Field("email") String email);
+    Call<WebServiceMessage> enterEmailToRecoverPassword(
+            @Field("email") String email
+    );
 
     @FormUrlEncoded
     @POST("password/check")
-    Call<WebServiceMessage> checkPassword(@Field("token") String token, @Field("password") String password);
+    Call<WebServiceMessage> checkPassword(
+            @Field("token") String token,
+            @Field("password") String password
+    );
 
     @FormUrlEncoded
     @POST("password/change")
-    Call<WebServiceMessage> changePassword(@Field("token") String token, @Field("old") String oldPassword, @Field("new") String newPassword);
+    Call<WebServiceMessage> changePassword(
+            @Field("token") String token,
+            @Field("old") String oldPassword,
+            @Field("new") String newPassword
+    );
 
     @FormUrlEncoded
     @POST("login")
-    Call<MemberRetrofitModel> login(@Field("phone") String phoneNumber, @Field("password") String password);
+    Call<MemberRetrofitModel> login(
+            @Field("phone") String phoneNumber,
+            @Field("password") String password
+    );
 
     @FormUrlEncoded
     @POST("password/create")
-    Call<WebServiceMessage> createPassword(@Field("password") String password);
+    Call<WebServiceMessage> createPassword(
+            @Field("password") String password
+    );
 
     @Multipart
     @POST("post/create/audio")
@@ -153,105 +187,169 @@ public interface APIInterface {
 
     @FormUrlEncoded
     @POST("post/get")
-    Call<WebServiceMessage> getPostDetails(@Field("token") String token, @Field("postId") long postId);
+    Call<WebServiceMessage> getPostDetails(
+            @Field("token") String token,
+            @Field("postId") long postId
+    );
 
     @FormUrlEncoded
     @POST("post/like")
-    Call<WebServiceMessage> like(@Field("token") String token, @Field("postId") long postId);
+    Call<WebServiceMessage> like(
+            @Field("token") String token,
+            @Field("postId") long postId
+    );
 
 
     @FormUrlEncoded
     @POST("post/search")
-    Call<PostsRetrofitModel> searchPosts(@Field("token") String token, @Field("text") String text);
+    Call<PostsRetrofitModel> searchPosts(
+            @Field("token") String token,
+            @Field("text") String text
+    );
 
 
     @FormUrlEncoded
     @POST("posts/viral")
-    Call<PostsRetrofitModel> getViral(@Field("token") String token, @Field("type") String type);
+    Call<PostsRetrofitModel> getViral(
+            @Field("token") String token,
+            @Field("type") String type
+    );
 
     @FormUrlEncoded
     @POST("posts/get/all")
-    Call<PostsRetrofitModel> getPosts(@Field("token") String token);
-
+    Call<PostsRetrofitModel> getPosts(
+            @Field("token") String token
+    );
 
 
     @FormUrlEncoded
     @POST("post/share")
-    Call<WebServiceMessage> share(@Field("token") String token, @Field("receiver") long receiver, @Field("post") long post);
+    Call<WebServiceMessage> share(
+            @Field("token") String token,
+            @Field("receiver") long receiver,
+            @Field("post") long post
+    );
 
 
     @FormUrlEncoded
     @POST("member/get")
-    Call<MemberRetrofitModel> getMemberDetails(@Field("token") String token, @Field("memberId") long memberId);
+    Call<MemberRetrofitModel> getMemberDetails(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("logs/get/all")
-    Call<LogsRetrofitModel> getLogs(@Field("token") String token, @Field("memberId") long memberId);
+    Call<LogsRetrofitModel> getLogs(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("messages/get/all")
-    Call<MessagesRetrofitModel> getMessages(@Field("token") String token, @Field("memberId") long memberId);
+    Call<MessagesRetrofitModel> getMessages(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("messages/get/conversation")
-    Call<MessagesRetrofitModel> getConversation(@Field("token") String token, @Field("memberId") long memberId);
-
+    Call<MessagesRetrofitModel> getConversation(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("followers/get/requests")
-    Call<WebServiceMessage> getFollowRequests(@Field("token") String token);
+    Call<WebServiceMessage> getFollowRequests(
+            @Field("token") String token
+    );
 
     @FormUrlEncoded
     @POST("followers/confirm")
-    Call<WebServiceMessage> getConfirmRequest(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> getConfirmRequest(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
     @FormUrlEncoded
     @POST("followers/reject")
-    Call<WebServiceMessage> getRejectRequest(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> getRejectRequest(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
     @FormUrlEncoded
     @POST("followers/get/list")
-    Call<FollowsRetrofitModel> getFollowersList(@Field("token") String token, @Field("memberId") long memberId);
+    Call<FollowsRetrofitModel> getFollowersList(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("followings/get/list")
-    Call<FollowsRetrofitModel> getFollowingsList(@Field("token") String token, @Field("memberId") long memberId);
+    Call<FollowsRetrofitModel> getFollowingsList(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
     @FormUrlEncoded
     @POST("followings/unfollow")
-    Call<WebServiceMessage> unFollow(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> unFollow(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
     @FormUrlEncoded
     @POST("followings/follow")
-    Call<WebServiceMessage> follow(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> follow(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("followings/send/request")
-    Call<WebServiceMessage> requestFollow(@Field("token") String token, @Field("memberId") long memberId);
+    Call<WebServiceMessage> requestFollow(
+            @Field("token") String token,
+            @Field("memberId") long memberId
+    );
 
 
     @FormUrlEncoded
     @POST("comment/send/file")
-    Call<WebServiceMessage> sendFileComment(@Field("token") String token, @Field("file") String file);
+    Call<WebServiceMessage> sendFileComment(
+            @Field("token") String token,
+            @Field("file") String file
+    );
 
     @FormUrlEncoded
     @POST("comment/send/text")
-    Call<WebServiceMessage> comment(@Field("token") String token, @Field("content") String content, @Field("parent") long parent, @Field("object") long object);
+    Call<WebServiceMessage> comment(
+            @Field("token") String token,
+            @Field("content") String content,
+            @Field("parent") long parent,
+            @Field("object") long object
+    );
 
 
     @FormUrlEncoded
     @POST("members/suggestion")
-    Call<FriendsRetrofitModel> getSuggestions(@Field("token") String token);
+    Call<FriendsRetrofitModel> getSuggestions(
+            @Field("token") String token
+    );
 
 
     @FormUrlEncoded
     @POST("friends/search")
-    Call<FriendsRetrofitModel> searchFriends(@Field("token") String token, @Field("text") String text);
+    Call<FriendsRetrofitModel> searchFriends(
+            @Field("token") String token,
+            @Field("text") String text
+    );
 
 }

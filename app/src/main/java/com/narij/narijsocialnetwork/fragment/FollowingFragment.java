@@ -96,7 +96,7 @@ public class FollowingFragment extends Fragment {
         });
 
 
-        FollowingListRecyclerAdapter adapter = new FollowingListRecyclerAdapter(new ArrayList<Follow>(), getContext());
+        FollowingListRecyclerAdapter adapter = new FollowingListRecyclerAdapter(new ArrayList<Follow>(), getContext(),pager,fragmentManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

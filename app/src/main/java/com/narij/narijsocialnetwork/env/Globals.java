@@ -34,6 +34,7 @@ public class Globals {
     public static final boolean DEBUG_MODE = true;
 
     public static File selectedFileToUpload;
+    public static File selectedProfilePhotoToUpload;
 
     public static ArrayList<Fragment> stackedFragments = new ArrayList<>();
 

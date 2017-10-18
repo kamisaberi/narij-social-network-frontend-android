@@ -79,7 +79,7 @@ public class ViralPhotosFragment extends Fragment implements FlexibleAdapter.End
                 posts = response.body().posts;
                 List<AbstractFlexibleItem> mItems = new ArrayList<>();
                 for (Post post : posts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post,getContext());
 //                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     AbstractFlexibleItem absItem = null;
                     if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
@@ -140,56 +140,43 @@ public class ViralPhotosFragment extends Fragment implements FlexibleAdapter.End
 
     @Override
     public void onLoadMore(int lastPosition, int currentPage) {
-        final List<AbstractFlexibleItem> newItems = new ArrayList<>();
-
-        Call<PostsRetrofitModel> call = apiInterface.getViral(Globals.token, MediaType.IMAGE);
-        call.enqueue(new Callback<PostsRetrofitModel>() {
-            @Override
-            public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
-
-                ArrayList<Post> newPosts = new ArrayList<>();
-                newPosts = response.body().posts;
-
-                for (Post post : newPosts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post);
-//                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
-                    AbstractFlexibleItem absItem = null;
-                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
-                        absItem = new TextPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
-                        absItem = new PhotoPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
-                        absItem = new AudioPostItem(post, header);
-                        newItems.add(absItem);
-                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
-                        absItem = new VideoPostItem(post, header);
-                        newItems.add(absItem);
-                    }
-                }
-
-                mAdapter.onLoadMoreComplete(newItems);
-            }
-
-            @Override
-            public void onFailure(Call<PostsRetrofitModel> call, Throwable t) {
-
-            }
-        });
-
-
-        int totalItemsOfType = mAdapter.getItemCountOfTypes(R.layout.recycler_instagram_item);
-        for (int i = 1; i <= 3; i++) {
-            newItems.add(DatabaseService.newInstagramItem(totalItemsOfType + i));
-        }
-
-
-        if (getActivity() != null && newItems.size() > 0) {
-            Toast.makeText(getActivity(),
-                    "Fetched " + newItems.size() + " new items",
-                    Toast.LENGTH_SHORT).show();
-        }
+//        final List<AbstractFlexibleItem> newItems = new ArrayList<>();
+//
+//        Call<PostsRetrofitModel> call = apiInterface.getViral(Globals.token, MediaType.IMAGE);
+//        call.enqueue(new Callback<PostsRetrofitModel>() {
+//            @Override
+//            public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
+//
+//                ArrayList<Post> newPosts = new ArrayList<>();
+//                newPosts = response.body().posts;
+//
+//                for (Post post : newPosts) {
+//                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post,getContext());
+////                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
+//                    AbstractFlexibleItem absItem = null;
+//                    if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.TEXT)) {
+//                        absItem = new TextPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
+//                        absItem = new PhotoPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
+//                        absItem = new AudioPostItem(post, header);
+//                        newItems.add(absItem);
+//                    } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.VIDEO)) {
+//                        absItem = new VideoPostItem(post, header);
+//                        newItems.add(absItem);
+//                    }
+//                }
+//
+//                mAdapter.onLoadMoreComplete(newItems);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PostsRetrofitModel> call, Throwable t) {
+//
+//            }
+//        });
 
     }
 }

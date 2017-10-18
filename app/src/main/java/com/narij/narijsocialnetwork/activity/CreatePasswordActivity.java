@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ public class CreatePasswordActivity extends AppCompatActivity {
         final ProgressBar prgLoading = (ProgressBar) findViewById(R.id.prgLoading);
 
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +57,11 @@ public class CreatePasswordActivity extends AppCompatActivity {
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
 
                         WebServiceMessage message = response.body();
+                        Log.d(Globals.LOG_TAG, message.getMessage());
+
                         if (!message.isError()) {
                             Intent intent = new Intent(getBaseContext(), ProfilePhotoActivity.class);
+                            intent.putExtra("phone", phone);
                             startActivity(intent);
                             finish();
                         }

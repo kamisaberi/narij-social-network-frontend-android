@@ -214,8 +214,8 @@ public class MainActivity extends AppCompatActivity {
 //                        fragmentHashMap.put("Logs", new LogsFragment(0, pager, getSupportFragmentManager()));
 //                        fragmentHashMap.put("Messages", new MessagesFragment(0, pager, getSupportFragmentManager()));
 
-
-                        fragmentHashMap.put("Followers", new FollowersFragment(0, pager, getSupportFragmentManager()));
+                        fragmentHashMap.put("Logs", new LogsFragment(0, pager, getSupportFragmentManager()));
+                        fragmentHashMap.put("Messages", new MessagesFragment(0, pager, getSupportFragmentManager()));
 
                         pager.setAdapter(new MainFragmentPageAdapter(getSupportFragmentManager(), MainActivity.this, fragmentHashMap));
                         //pager.getAdapter().notifyDataSetChanged();

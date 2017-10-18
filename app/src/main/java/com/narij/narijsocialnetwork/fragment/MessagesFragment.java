@@ -3,7 +3,6 @@ package com.narij.narijsocialnetwork.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -15,13 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.adapter.recycler.FollowerListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.MessageListRecyclerAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
-import com.narij.narijsocialnetwork.model.base.Follow;
-import com.narij.narijsocialnetwork.model.base.Member;
 import com.narij.narijsocialnetwork.model.base.Message;
-import com.narij.narijsocialnetwork.model.retrofit.FollowsRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.MessagesRetrofitModel;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
@@ -44,7 +39,7 @@ public class MessagesFragment extends Fragment {
     ViewPager pager;
     FragmentManager fragmentManager;
 
-    public ArrayList<Message> messages= new ArrayList<>();
+    public ArrayList<Message> messages = new ArrayList<>();
 
     @SuppressLint("ValidFragment")
     public MessagesFragment(long memberId) {
@@ -74,17 +69,18 @@ public class MessagesFragment extends Fragment {
 
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<MessagesRetrofitModel> call = apiInterface.getMessages(Globals.token,memberId);
+        Call<MessagesRetrofitModel> call = apiInterface.getMessages(Globals.token, memberId);
 
         try {
             call.enqueue(new Callback<MessagesRetrofitModel>() {
                 @Override
                 public void onResponse(Call<MessagesRetrofitModel> call, Response<MessagesRetrofitModel> response) {
 
-                    messages= response.body().messages;
+                    messages = response.body().messages;
                     WebServiceMessage message = response.body().message;
 
-                    MessageListRecyclerAdapter adapter = new MessageListRecyclerAdapter(messages, getContext());
+                    //Log.d(Globals.LOG_TAG, "MS : " + messages.size());
+                    MessageListRecyclerAdapter adapter = new MessageListRecyclerAdapter(messages, getContext(),pager,fragmentManager);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

@@ -17,10 +17,12 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.adapter.fragmentadapter.MainFragmentPageAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.fragment.ProfileFragment;
+import com.narij.narijsocialnetwork.library.CircleTransform;
 import com.narij.narijsocialnetwork.model.base.Follow;
 import com.narij.narijsocialnetwork.model.retrofit.WebServiceMessage;
 import com.narij.narijsocialnetwork.retrofit.APIClient;
 import com.narij.narijsocialnetwork.retrofit.APIInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,6 +83,11 @@ public class FollowerListRecyclerAdapter extends RecyclerView.Adapter<FollowerLi
         final Button btnFollow = holder.btnFollow;
         txtName.setText(follower.getMember().getFullName());
 
+
+        String url = Globals.BASE_URL + "uploads/" + follower.getMember().getMemberId() + "/Profile.jpg";
+        Picasso.with(context).load(url).transform(new CircleTransform()).into(imgProfile);
+
+
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
         imgProfile.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +96,7 @@ public class FollowerListRecyclerAdapter extends RecyclerView.Adapter<FollowerLi
 
                 HashMap<String, Fragment> fragmentHashMap;
                 fragmentHashMap = new HashMap<>();
-                fragmentHashMap.put("FOLLOWERS", new ProfileFragment(0));
+                fragmentHashMap.put("FOLLOWERS", new ProfileFragment(follower.getMember().getMemberId(), pager,fragmentManager));
                 pager.setAdapter(new MainFragmentPageAdapter(fragmentManager, context, fragmentHashMap));
 
 //                Call<MemberRetrofitModel> call = apiInterface.getMemberDetails(Globals.token, followers.get(position).getMember().getMemberId());
