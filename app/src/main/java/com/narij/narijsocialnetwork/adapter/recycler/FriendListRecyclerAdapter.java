@@ -107,7 +107,11 @@ public class FriendListRecyclerAdapter extends RecyclerView.Adapter<FriendListRe
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.follow(Globals.token, friends.get(position).getMemberId());
+                Call<WebServiceMessage> call = apiInterface.follow(
+                        Globals.token,
+                        friends.get(position).getMemberId(),
+                        System.currentTimeMillis()
+                );
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.narij.narijsocialnetwork.R;
@@ -42,6 +43,8 @@ public class LoginFragment extends Fragment {
     EditText edtPassword;
     TextView txtForgotPassword;
 
+    ProgressBar prg;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,6 +65,9 @@ public class LoginFragment extends Fragment {
             edtPassword.setText("1234");
         }
 
+
+        prg = (ProgressBar) view.findViewById(R.id.prg);
+
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
 
@@ -72,7 +78,9 @@ public class LoginFragment extends Fragment {
 
             public void onClick(View v) {
 
-                Call<MemberRetrofitModel> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString());
+                prg.setVisibility(View.VISIBLE);
+
+                Call<MemberRetrofitModel> call = apiInterface.login(edtPhoneNumber.getText().toString(), edtPassword.getText().toString(), System.currentTimeMillis());
                 call.enqueue(new Callback<MemberRetrofitModel>() {
                     @Override
                     public void onResponse(Call<MemberRetrofitModel> call, Response<MemberRetrofitModel> response) {
@@ -90,11 +98,12 @@ public class LoginFragment extends Fragment {
                             startActivity(intent);
                             getActivity().finish();
                         }
+                        prg.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onFailure(Call<MemberRetrofitModel> call, Throwable t) {
-
+                        prg.setVisibility(View.GONE);
                     }
                 });
 

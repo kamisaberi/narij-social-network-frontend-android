@@ -29,12 +29,30 @@ public class Post {
     private boolean deleted;
     @SerializedName("postCategory")
     private PostCategory postCategory;
-    @SerializedName("properties ")
+    @SerializedName("properties")
     private ArrayList<Property> properties = new ArrayList<>();
     @SerializedName("member")
-    private  Member member = new Member();
+    private Member member = new Member();
+    @SerializedName("files")
+    private ArrayList<String> files = new ArrayList<>();
+    @SerializedName("liked")
+    private boolean liked = false;
 
+    public boolean isLiked() {
+        return liked;
+    }
 
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
+    public ArrayList<String> getFiles() {
+        return files;
+    }
+
+    public void setFiles(ArrayList<String> files) {
+        this.files = files;
+    }
 
     public String getTitle() {
         return title;

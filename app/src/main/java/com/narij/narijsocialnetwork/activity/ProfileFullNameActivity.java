@@ -55,7 +55,11 @@ public class ProfileFullNameActivity extends AppCompatActivity {
 
                 prgLoading.setVisibility(View.VISIBLE);
 
-                Call<WebServiceMessage> call = apiInterface.setProfileFullName(phone, edtFullName.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.setProfileFullName(
+                        phone,
+                        edtFullName.getText().toString().trim(),
+                        System.currentTimeMillis()
+                );
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

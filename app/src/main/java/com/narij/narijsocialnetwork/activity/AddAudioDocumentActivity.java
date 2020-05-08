@@ -4,13 +4,10 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,8 +15,6 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -34,7 +29,7 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
 
         Globals.selectedFileToUpload = null;
 
-        ImageView imgFolder= (ImageView) findViewById(R.id.imgFolder);
+        ImageView imgFolder = (ImageView) findViewById(R.id.imgFolder);
         imgFolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +41,6 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
 
             }
         });
-
 
 
         FancyButton btnNext = (FancyButton) findViewById(R.id.btnNext);
@@ -65,9 +59,6 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
         });
 
 
-
-
-
 //        Intent intent_upload = new Intent();
 //        intent_upload.setType("audio/*");
 //        intent_upload.setAction(Intent.ACTION_GET_CONTENT);
@@ -81,9 +72,13 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && requestCode == 1001) {
             Uri uri = data.getData();
-            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                String filePath = getRealPathFromURIPath(uri, AddAudioDocumentActivity.this);
-                Globals.selectedFileToUpload = new File(filePath);
+            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE) == false) {
+                String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                EasyPermissions.requestPermissions(this, "This app needs access to your location and contacts to know where and who you are.", 124, perms);
+            }
+
+            String filePath = getRealPathFromURIPath(uri, AddAudioDocumentActivity.this);
+            Globals.selectedFileToUpload = new File(filePath);
 
 //                ImageView imgPhoto = (ImageView) findViewById(R.id.imgPhoto);
 //                try {
@@ -94,7 +89,6 @@ public class AddAudioDocumentActivity extends AppCompatActivity {
 //                } catch (FileNotFoundException e) {
 //                    e.printStackTrace();
 //                }
-            }
         }
     }
 

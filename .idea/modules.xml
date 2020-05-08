@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Narij-Social-Network.iml" filepath="$PROJECT_DIR$/Narij-Social-Network.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NarijSocialNetwork.iml" filepath="$PROJECT_DIR$/NarijSocialNetwork.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NarijSocialNetwork.iml" filepath="$PROJECT_DIR$/NarijSocialNetwork.iml" group="NarijSocialNetwork" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="NarijSocialNetwork/app" />
     </modules>
   </component>
 </project>

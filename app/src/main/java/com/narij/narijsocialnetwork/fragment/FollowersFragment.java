@@ -78,7 +78,11 @@ public class FollowersFragment extends Fragment {
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Log.d(Globals.LOG_TAG, "f s m : " + memberId);
         Log.d(Globals.LOG_TAG, Globals.token);
-        Call<FollowsRetrofitModel> call = apiInterface.getFollowersList(Globals.token, memberId);
+        Call<FollowsRetrofitModel> call = apiInterface.getFollowersList(
+                Globals.token,
+                memberId,
+                System.currentTimeMillis()
+        );
 
         try {
             call.enqueue(new Callback<FollowsRetrofitModel>() {

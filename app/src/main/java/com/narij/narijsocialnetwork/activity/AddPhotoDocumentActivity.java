@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -68,21 +69,28 @@ public class AddPhotoDocumentActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+
         if (resultCode == RESULT_OK && requestCode == 1001) {
+
             Uri uri = data.getData();
-            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                String filePath = getRealPathFromURIPath(uri, AddPhotoDocumentActivity.this);
-                Globals.selectedFileToUpload = new File(filePath);
 
-                ImageView imgPhoto = (ImageView) findViewById(R.id.imgPhoto);
-                try {
-                    InputStream imageStream = getContentResolver().openInputStream(uri);
-                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                    imgPhoto.setImageBitmap(selectedImage);
+            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE) == false) {
+                String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                EasyPermissions.requestPermissions(this, "This app needs access to your location and contacts to know where and who you are.", 124, perms);
+            }
+            Log.d(Globals.LOG_TAG, "1111111111");
+            String filePath = getRealPathFromURIPath(uri, AddPhotoDocumentActivity.this);
+            Globals.selectedFileToUpload = new File(filePath);
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+            ImageView imgPhoto = (ImageView) findViewById(R.id.imgPhoto);
+            try {
+                InputStream imageStream = getContentResolver().openInputStream(uri);
+                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                imgPhoto.setImageBitmap(selectedImage);
+
+            } catch (FileNotFoundException e) {
+                Log.d(Globals.LOG_TAG, e.getMessage());
+                e.printStackTrace();
             }
         }
     }

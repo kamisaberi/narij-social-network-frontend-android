@@ -78,7 +78,10 @@ public class FindFriendsFragment extends Fragment {
         rcSuggestion = (RecyclerView) view.findViewById(R.id.rcSuggestion);
 
 
-        Call<FriendsRetrofitModel> call = apiInterface.getSuggestions(Globals.token);
+        Call<FriendsRetrofitModel> call = apiInterface.getSuggestions(
+                Globals.token,
+                System.currentTimeMillis()
+        );
         call.enqueue(new Callback<FriendsRetrofitModel>() {
             @Override
             public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {
@@ -132,7 +135,11 @@ public class FindFriendsFragment extends Fragment {
 
                     Log.d(Globals.LOG_TAG, s.toString());
 
-                    Call<FriendsRetrofitModel> call = apiInterface.searchFriends(Globals.token, s.toString());
+                    Call<FriendsRetrofitModel> call = apiInterface.searchFriends(
+                            Globals.token,
+                            s.toString(),
+                            System.currentTimeMillis()
+                    );
                     call.enqueue(new Callback<FriendsRetrofitModel>() {
                         @Override
                         public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {

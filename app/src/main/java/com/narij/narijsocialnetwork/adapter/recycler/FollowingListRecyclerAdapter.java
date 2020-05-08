@@ -108,7 +108,11 @@ public class FollowingListRecyclerAdapter extends RecyclerView.Adapter<Following
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.follow(Globals.token, followings.get(position).getMember().getMemberId());
+                Call<WebServiceMessage> call = apiInterface.follow(
+                        Globals.token,
+                        followings.get(position).getMember().getMemberId(),
+                        System.currentTimeMillis()
+                );
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

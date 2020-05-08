@@ -10,13 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
-import com.narij.narijsocialnetwork.flexibleadapter.items.InstagramHeaderItem;
 import com.narij.narijsocialnetwork.flexibleadapter.items.ProgressItem;
-import com.narij.narijsocialnetwork.flexibleadapter.services.DatabaseService;
 import com.narij.narijsocialnetwork.model.base.Post;
 import com.narij.narijsocialnetwork.model.flexible.AudioPostItem;
 import com.narij.narijsocialnetwork.model.flexible.PhotoPostItem;
@@ -72,15 +69,26 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
     private void initializeRecyclerView() {
 
 
-        Call<PostsRetrofitModel> call = apiInterface.getPosts(Globals.token);
+        Log.d(Globals.LOG_TAG, "START 1");
+
+
+        Call<PostsRetrofitModel> call = apiInterface.getPosts(
+                Globals.token,
+                System.currentTimeMillis()
+        );
 
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override
             public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
+                Log.d(Globals.LOG_TAG, "START 2");
                 posts = response.body().posts;
+                Log.d(Globals.LOG_TAG, "START 3 COUNT : " + posts.size() );
                 List<AbstractFlexibleItem> mItems = new ArrayList<>();
                 for (Post post : posts) {
-                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post,getContext());
+
+//                    Log.d(Globals.LOG_TAG, "POST FILES COUNT  : " + post.isLiked());
+
+                    TimelineHeaderItem header = new TimelineHeaderItem("H" + post.getPostId(), post, getContext());
 //                    InstagramHeaderItem header= new InstagramHeaderItem("H" + post.getPostId());
                     //Log.d(Globals.LOG_TAG, "H" + post.getPostId());
 
@@ -90,6 +98,7 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
                         mItems.add(absItem);
                     } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.IMAGE)) {
                         absItem = new PhotoPostItem(post, header);
+//                        Log.d(Globals.LOG_TAG, "POST " + post.getPostId());
                         mItems.add(absItem);
                     } else if (post.getMediaType().equals(com.narij.narijsocialnetwork.env.MediaType.AUDIO)) {
                         absItem = new AudioPostItem(post, header);
@@ -121,6 +130,7 @@ public class TimelineFragment extends Fragment implements FlexibleAdapter.Endles
             @Override
             public void onFailure(Call<PostsRetrofitModel> call, Throwable t) {
 
+                Log.d(Globals.LOG_TAG, "ERROR 1");
             }
         });
 

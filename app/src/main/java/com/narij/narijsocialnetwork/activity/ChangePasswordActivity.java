@@ -45,14 +45,21 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if (edtNewPassword.getText().toString().trim().equals(edtConfirmNewPassword.getText().toString().trim())) {
 
 
-                    Call<WebServiceMessage> callGetPassword = apiInterface.checkPassword(Globals.token, edtOldPassword.getText().toString());
+                    Call<WebServiceMessage> callGetPassword = apiInterface.checkPassword(
+                            Globals.token,
+                            edtOldPassword.getText().toString(),
+                            System.currentTimeMillis()
+                    );
                     callGetPassword.enqueue(new Callback<WebServiceMessage>() {
                         @Override
                         public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {
 
-                            if(!response.body().isError())
-                            {
-                                Call<WebServiceMessage> callChangePassword = apiInterface.changePassword(Globals.token,edtOldPassword.getText().toString() , edtNewPassword.getText().toString());
+                            if (!response.body().isError()) {
+                                Call<WebServiceMessage> callChangePassword = apiInterface.changePassword(
+                                        Globals.token, edtOldPassword.getText().toString(),
+                                        edtNewPassword.getText().toString(),
+                                        System.currentTimeMillis()
+                                );
                                 callChangePassword.enqueue(new Callback<WebServiceMessage>() {
                                     @Override
                                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

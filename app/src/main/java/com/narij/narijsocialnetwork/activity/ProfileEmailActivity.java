@@ -61,7 +61,11 @@ public class ProfileEmailActivity extends AppCompatActivity {
                 Log.d(Globals.LOG_TAG, phone);
                 Log.d(Globals.LOG_TAG, edtEmail.getText().toString());
 
-                Call<WebServiceMessage> call = apiInterface.setProfileEmail(phone, edtEmail.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.setProfileEmail(
+                        phone,
+                        edtEmail.getText().toString().trim(),
+                        System.currentTimeMillis()
+                );
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

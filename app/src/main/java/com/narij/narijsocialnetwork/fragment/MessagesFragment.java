@@ -69,7 +69,11 @@ public class MessagesFragment extends Fragment {
 
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<MessagesRetrofitModel> call = apiInterface.getMessages(Globals.token, memberId);
+        Call<MessagesRetrofitModel> call = apiInterface.getMessages(
+                Globals.token,
+                memberId,
+                System.currentTimeMillis()
+        );
 
         try {
             call.enqueue(new Callback<MessagesRetrofitModel>() {

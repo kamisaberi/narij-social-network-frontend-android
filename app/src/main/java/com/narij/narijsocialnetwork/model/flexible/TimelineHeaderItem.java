@@ -84,12 +84,11 @@ public class TimelineHeaderItem extends AbstractHeaderItem<TimelineHeaderItem.He
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
 
-
-        holder.txtTitle.setText("This Is a Test");
+        holder.txtTitle.setText(post.getTitle());
         //holder.txtDate.setText(post.getCreateTime()+"");
         holder.txtFullName.setText(post.getMember().getFullName());
 
-        String url =  Globals.BASE_URL + "uploads/"  + post.getMember().getMemberId() + "/Profile.jpg";
+        String url = Globals.BASE_URL + "uploads/" + post.getMember().getMemberId() + "/Profile.jpg";
         Picasso.with(context).load(url).transform(new CircleTransform()).into(holder.imgProfile);
 
         //holder.mTitle.setText(getTitle());

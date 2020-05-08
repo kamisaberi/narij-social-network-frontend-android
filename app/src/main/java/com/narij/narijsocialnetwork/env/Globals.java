@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class Globals {
 
+//    public static final String BASE_URL = "http://narij.com/NarijWebService/public/";
     public static final String BASE_URL = "http://192.168.1.200/NarijWebService/public/";
 
     public static final String LOG_TAG = "NARIJ_APP_LOG";

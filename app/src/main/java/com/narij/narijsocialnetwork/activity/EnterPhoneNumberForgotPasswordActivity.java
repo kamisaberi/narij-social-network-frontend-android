@@ -39,7 +39,10 @@ public class EnterPhoneNumberForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.enterPhoneNumberToRecoverPassword(edtPhoneNumber.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.enterPhoneNumberToRecoverPassword(
+                        edtPhoneNumber.getText().toString().trim()
+                        , System.currentTimeMillis()
+                );
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

@@ -73,7 +73,11 @@ public class FollowingFragment extends Fragment {
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
-        Call<FollowsRetrofitModel> call = apiInterface.getFollowingsList(Globals.token, memberId);
+        Call<FollowsRetrofitModel> call = apiInterface.getFollowingsList(
+                Globals.token,
+                memberId,
+                System.currentTimeMillis()
+        );
         call.enqueue(new Callback<FollowsRetrofitModel>() {
             @Override
             public void onResponse(Call<FollowsRetrofitModel> call, Response<FollowsRetrofitModel> response) {

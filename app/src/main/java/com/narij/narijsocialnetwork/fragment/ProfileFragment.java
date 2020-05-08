@@ -102,7 +102,10 @@ public class ProfileFragment extends Fragment implements FlexibleAdapter.Endless
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void initializeRecyclerView() {
 
-        Call<PostsRetrofitModel> call = apiInterface.getPosts(Globals.token);
+        Call<PostsRetrofitModel> call = apiInterface.getPosts(
+                Globals.token,
+                System.currentTimeMillis()
+        );
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override
             public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
@@ -190,7 +193,11 @@ public class ProfileFragment extends Fragment implements FlexibleAdapter.Endless
 
 
         if (memberId > 0) {
-            Call<MemberRetrofitModel> call = apiInterface.getMemberDetails(Globals.token, memberId);
+            Call<MemberRetrofitModel> call = apiInterface.getMemberDetails(
+                    Globals.token,
+                    memberId,
+                    System.currentTimeMillis()
+            );
             call.enqueue(new Callback<MemberRetrofitModel>() {
                 @Override
                 public void onResponse(Call<MemberRetrofitModel> call, Response<MemberRetrofitModel> response) {
@@ -232,7 +239,11 @@ public class ProfileFragment extends Fragment implements FlexibleAdapter.Endless
 
                 } else {
 
-                    Call<WebServiceMessage> call = apiInterface.follow(Globals.token, memberId);
+                    Call<WebServiceMessage> call = apiInterface.follow(
+                            Globals.token,
+                            memberId,
+                            System.currentTimeMillis()
+                    );
                     call.enqueue(new Callback<WebServiceMessage>() {
                         @Override
                         public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

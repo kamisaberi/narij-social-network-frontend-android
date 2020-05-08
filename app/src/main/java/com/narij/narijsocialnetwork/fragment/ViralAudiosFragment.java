@@ -71,7 +71,11 @@ public class ViralAudiosFragment extends Fragment implements FlexibleAdapter.End
     private void initializeRecyclerView() {
 
 
-        Call<PostsRetrofitModel> call = apiInterface.getViral(Globals.token, MediaType.AUDIO);
+        Call<PostsRetrofitModel> call = apiInterface.getViral(
+                Globals.token,
+                MediaType.AUDIO,
+                System.currentTimeMillis()
+        );
 
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override

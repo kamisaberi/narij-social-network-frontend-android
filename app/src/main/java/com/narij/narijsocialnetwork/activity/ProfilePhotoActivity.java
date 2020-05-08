@@ -85,7 +85,11 @@ public class ProfilePhotoActivity extends AppCompatActivity {
                 RequestBody mFile = RequestBody.create(okhttp3.MediaType.parse("image/*"), Globals.selectedProfilePhotoToUpload);
                 MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", Globals.selectedProfilePhotoToUpload.getName(), mFile);
 
-                Call<WebServiceMessage> call = apiInterface.setProfilePhoto(phone, fileToUpload);
+                Call<WebServiceMessage> call = apiInterface.setProfilePhoto(
+                        phone,
+                        fileToUpload,
+                        System.currentTimeMillis()
+                );
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override
                     public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

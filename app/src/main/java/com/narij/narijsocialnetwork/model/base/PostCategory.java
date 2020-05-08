@@ -1,5 +1,7 @@
 package com.narij.narijsocialnetwork.model.base;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by kami on 8/22/2017.
  */
@@ -7,21 +9,23 @@ package com.narij.narijsocialnetwork.model.base;
 public class PostCategory {
 
 
-    private long postCategory;
+    @SerializedName("postCategoryId")
+    private long postCategoryId;
+    @SerializedName("title")
     private String title;
 
 
-    public PostCategory(long postCategory, String title) {
-        this.postCategory = postCategory;
+    public PostCategory(long postCategoryId, String title) {
+        this.postCategoryId = postCategoryId;
         this.title = title;
     }
 
-    public long getPostCategory() {
-        return postCategory;
+    public long getPostCategoryId() {
+        return postCategoryId;
     }
 
-    public void setPostCategory(long postCategory) {
-        this.postCategory = postCategory;
+    public void setPostCategoryId(long postCategoryId) {
+        this.postCategoryId = postCategoryId;
     }
 
     public String getTitle() {

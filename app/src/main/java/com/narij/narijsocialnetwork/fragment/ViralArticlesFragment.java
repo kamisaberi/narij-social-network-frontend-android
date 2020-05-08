@@ -71,7 +71,11 @@ public class ViralArticlesFragment extends Fragment implements FlexibleAdapter.E
     private void initializeRecyclerView() {
 
 
-        Call<PostsRetrofitModel> call = apiInterface.getViral(Globals.token, MediaType.TEXT);
+        Call<PostsRetrofitModel> call = apiInterface.getViral(
+                Globals.token,
+                MediaType.TEXT,
+                System.currentTimeMillis()
+        );
 
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override

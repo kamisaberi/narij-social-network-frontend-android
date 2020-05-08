@@ -81,7 +81,11 @@ public class SearchFragment extends Fragment implements FlexibleAdapter.EndlessS
             @Override
             public void afterTextChanged(Editable s) {
 
-                Call<PostsRetrofitModel> call = apiInterface.searchPosts(Globals.token, s.toString());
+                Call<PostsRetrofitModel> call = apiInterface.searchPosts(
+                        Globals.token,
+                        s.toString(),
+                        System.currentTimeMillis()
+                );
                 call.enqueue(new Callback<PostsRetrofitModel>() {
                     @Override
                     public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {
@@ -167,7 +171,10 @@ public class SearchFragment extends Fragment implements FlexibleAdapter.EndlessS
         final List<AbstractFlexibleItem> newItems = new ArrayList<>();
 
 
-        Call<PostsRetrofitModel> call = apiInterface.getPosts(Globals.token);
+        Call<PostsRetrofitModel> call = apiInterface.getPosts(
+                Globals.token,
+                System.currentTimeMillis()
+        );
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override
             public void onResponse(Call<PostsRetrofitModel> call, Response<PostsRetrofitModel> response) {

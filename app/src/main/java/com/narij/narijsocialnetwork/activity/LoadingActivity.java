@@ -63,7 +63,10 @@ public class LoadingActivity extends AppCompatActivity {
                     return;
                 } else {
 
-                    Call<WebServiceMessage> call = apiInterface.authenticate(Globals.token);
+                    Call<WebServiceMessage> call = apiInterface.authenticate(
+                            Globals.token
+                            , System.currentTimeMillis()
+                    );
                     call.enqueue(new Callback<WebServiceMessage>() {
                         @Override
                         public void onResponse(Call<WebServiceMessage> call, Response<WebServiceMessage> response) {

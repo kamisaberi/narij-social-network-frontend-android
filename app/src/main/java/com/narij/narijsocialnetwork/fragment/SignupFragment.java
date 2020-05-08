@@ -68,7 +68,10 @@ public class SignupFragment extends Fragment {
                 prgLoading.setVisibility(View.VISIBLE);
 
 
-                Call<WebServiceMessage> call = apiInterface.enterPhoneNumber(edtPhoneNumber.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.enterPhoneNumber(
+                        edtPhoneNumber.getText().toString().trim(),
+                        System.currentTimeMillis()
+                );
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

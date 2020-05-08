@@ -71,7 +71,11 @@ public class LogsFragment extends Fragment {
         final RecyclerView rcLogs = (RecyclerView) view.findViewById(R.id.rcLogs);
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<LogsRetrofitModel> call = apiInterface.getLogs(Globals.token, memberId);
+        Call<LogsRetrofitModel> call = apiInterface.getLogs(
+                Globals.token,
+                memberId,
+                System.currentTimeMillis()
+        );
         call.enqueue(new Callback<LogsRetrofitModel>() {
             @Override
             public void onResponse(Call<LogsRetrofitModel> call, Response<LogsRetrofitModel> response) {
@@ -91,7 +95,10 @@ public class LogsFragment extends Fragment {
         });
 
 
-        Call<FriendsRetrofitModel> call1 = apiInterface.getSuggestions(Globals.token);
+        Call<FriendsRetrofitModel> call1 = apiInterface.getSuggestions(
+                Globals.token,
+                System.currentTimeMillis()
+        );
         call1.enqueue(new Callback<FriendsRetrofitModel>() {
             @Override
             public void onResponse(Call<FriendsRetrofitModel> call, Response<FriendsRetrofitModel> response) {

@@ -4,14 +4,10 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.VideoView;
@@ -20,8 +16,6 @@ import com.narij.narijsocialnetwork.R;
 import com.narij.narijsocialnetwork.env.Globals;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -71,16 +65,18 @@ public class AddVideoDocumentActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && requestCode == 1001) {
             Uri uri = data.getData();
-            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-                String filePath = getRealPathFromURIPath(uri, AddVideoDocumentActivity.this);
-                Globals.selectedFileToUpload = new File(filePath);
-                VideoView vwVideo = (VideoView) findViewById(R.id.vwVideo);
-                vwVideo .setVisibility(View.VISIBLE);
-                vwVideo .setVideoPath(filePath);
-                vwVideo .start();
-
+            if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE) == false) {
+                String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                EasyPermissions.requestPermissions(this, "This app needs access to your location and contacts to know where and who you are.", 124, perms);
             }
+
+            String filePath = getRealPathFromURIPath(uri, AddVideoDocumentActivity.this);
+            Globals.selectedFileToUpload = new File(filePath);
+            VideoView vwVideo = (VideoView) findViewById(R.id.vwVideo);
+            vwVideo.setVisibility(View.VISIBLE);
+            vwVideo.setVideoPath(filePath);
+            vwVideo.start();
+
         }
     }
 

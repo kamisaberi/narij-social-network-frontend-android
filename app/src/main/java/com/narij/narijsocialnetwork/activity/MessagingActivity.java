@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.narij.narijsocialnetwork.R;
-import com.narij.narijsocialnetwork.adapter.recycler.MessageListRecyclerAdapter;
 import com.narij.narijsocialnetwork.adapter.recycler.MessagingListRecyclerAdapter;
 import com.narij.narijsocialnetwork.env.Globals;
 import com.narij.narijsocialnetwork.model.base.Message;
@@ -32,7 +31,7 @@ public class MessagingActivity extends AppCompatActivity {
     EditText edtMessage;
     ImageView imgSend;
 
-    public ArrayList<Message> messages= new ArrayList<>();
+    public ArrayList<Message> messages = new ArrayList<>();
 
 
     APIInterface apiInterface;
@@ -57,13 +56,17 @@ public class MessagingActivity extends AppCompatActivity {
             return;
         }
 
-        Call<MessagesRetrofitModel> call = apiInterface.getConversation(Globals.token, memberId);
+        Call<MessagesRetrofitModel> call = apiInterface.getConversation(
+                Globals.token,
+                memberId,
+                System.currentTimeMillis()
+        );
 
         call.enqueue(new Callback<MessagesRetrofitModel>() {
             @Override
             public void onResponse(Call<MessagesRetrofitModel> call, Response<MessagesRetrofitModel> response) {
 
-                messages= response.body().messages;
+                messages = response.body().messages;
                 WebServiceMessage message = response.body().message;
                 MessagingListRecyclerAdapter adapter = new MessagingListRecyclerAdapter(messages, getBaseContext());
                 recyclerView.setAdapter(adapter);

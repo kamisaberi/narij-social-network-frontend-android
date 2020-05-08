@@ -71,7 +71,11 @@ public class ViralVideosFragment extends Fragment implements FlexibleAdapter.End
     private void initializeRecyclerView() {
 
 
-        Call<PostsRetrofitModel> call = apiInterface.getViral(Globals.token, MediaType.VIDEO);
+        Call<PostsRetrofitModel> call = apiInterface.getViral(
+                Globals.token,
+                MediaType.VIDEO,
+                System.currentTimeMillis()
+        );
 
         call.enqueue(new Callback<PostsRetrofitModel>() {
             @Override

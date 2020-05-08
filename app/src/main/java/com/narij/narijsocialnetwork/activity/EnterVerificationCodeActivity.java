@@ -56,7 +56,11 @@ public class EnterVerificationCodeActivity extends AppCompatActivity {
 
                 prgLoading.setVisibility(View.VISIBLE);
 
-                Call<WebServiceMessage> call = apiInterface.enterVerificationCode(phone, edtVerificationCode.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.enterVerificationCode(
+                        phone,
+                        edtVerificationCode.getText().toString().trim()
+                        , System.currentTimeMillis()
+                );
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

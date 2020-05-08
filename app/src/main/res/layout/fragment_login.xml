@@ -16,12 +16,12 @@
 
         <EditText
             android:id="@+id/edtPhoneNumber"
-            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:drawableStart="@drawable/smartphone_hint"
             android:hint="Enter your phone number"
+            android:inputType="phone"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
 
@@ -33,12 +33,12 @@
 
         <EditText
             android:id="@+id/edtPassword"
-            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:drawableStart="@drawable/key_outline_hint"
             android:hint="Enter your password"
+            android:inputType="text"
             android:textColorHint="@color/hintColor"
             android:textSize="20sp" />
 
@@ -83,6 +83,14 @@
             fancy:fb_text="Login"
             fancy:fb_textColor="#FFFFFF"
             fancy:fb_textSize="24sp" />
+
+        <ProgressBar
+            android:id="@+id/prg"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
+
 
         <!--fancy:fb_fontIconResource="&#xf04b;"-->
         <!--fancy:fb_iconResource="@mipmap/ic_launcher"-->

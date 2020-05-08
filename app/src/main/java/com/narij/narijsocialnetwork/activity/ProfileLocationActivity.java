@@ -38,7 +38,11 @@ public class ProfileLocationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Call<WebServiceMessage> call = apiInterface.setProfileLocation(Globals.token, edtLocation.getText().toString().trim());
+                Call<WebServiceMessage> call = apiInterface.setProfileLocation(
+                        Globals.token,
+                        edtLocation.getText().toString().trim(),
+                        System.currentTimeMillis()
+                );
 
                 call.enqueue(new Callback<WebServiceMessage>() {
                     @Override

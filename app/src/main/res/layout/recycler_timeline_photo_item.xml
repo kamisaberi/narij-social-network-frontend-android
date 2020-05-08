@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -11,7 +11,9 @@
         <ImageView
             android:id="@+id/imgPhoto"
             android:layout_width="match_parent"
-            android:layout_height="255dp"
+            android:layout_height="240dp"
+            android:minHeight="240dp"
+            android:maxHeight="240dp"
             android:src="@drawable/viral_all" />
 
         <LinearLayout
@@ -31,7 +33,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/like" />
+                android:src="@drawable/like_hint" />
 
             <TextView
                 android:id="@+id/txtLikeNumber"
